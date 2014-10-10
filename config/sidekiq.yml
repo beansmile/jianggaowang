@@ -1,0 +1,12 @@
+:concurrency: 5
+:pidfile: ./tmp/sidekiq.pid
+:logfile: ./log/sidekiq.log
+
+:queues:
+    - default
+    - [jianggaowang, 2]
+
+development:
+  :concurrency: 5
+production:
+  :concurrency: 20

@@ -1,0 +1,7 @@
+<script>
+  Jianggaowang.messages = {}
+
+  <% flash.each do |_class, message| %>
+    Jianggaowang.messages['<%= _class %>'] = "<%= message %>";
+  <% end %>
+</script>

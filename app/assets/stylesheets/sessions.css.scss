@@ -1,0 +1,9 @@
+@media (min-width: 768px) {
+  #sessions_new, #sessions_create, #users_new {
+    footer {
+      width: 100%;
+      position: fixed;
+      bottom: 0;
+    }
+  }
+}

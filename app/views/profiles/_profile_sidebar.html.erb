@@ -1,0 +1,42 @@
+<div class="author-infos">
+  <div class="col-md-3">
+    <%= link_to profile_path, class: 'author-avatar-link' do %>
+      <%= image_tag current_user.avatar.url, class: 'author-avatar img-rounded' %>
+    <% end %>
+  </div>
+  <div class='author col-md-8'>
+    <h4><%= link_to current_user.name, profile_path, class: 'author-name' %></h4>
+    <div class="author-bio"><%= current_user.friendly_bio %></div>
+  </div>
+
+  <div class="clearfix"></div>
+
+  <div class="share-panel">
+    <ul class="list-group">
+      <li class="list-group-item">
+        <h4 class="list-group-item-heading">详细资料</h4>
+        <div class="list-group-item-text">
+          <p>
+            总的讲稿数：<%= current_user.slides.count %>
+          </p>
+          <p>
+            加入讲稿网于：<%= l current_user.created_at.to_date, format: :long %>
+          </p>
+        </div>
+      </li>
+      <% unless controller_name == 'profiles' && action_name == 'edit' %>
+        <li class="list-group-item">
+          <h4 class="list-group-item-heading">账号操作</h4>
+          <div class="list-group-item-text">
+            <p>
+              <%= link_to edit_profile_path do %>
+                <span class="glyphicon glyphicon-wrench"></span>修改个人资料
+              <% end %>
+            </p>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+
+</div>

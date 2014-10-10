@@ -1,0 +1,30 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.users-page {
+  .page-title {
+    text-align: center;
+  }
+
+  #error_explanation {
+    ul {
+      li {
+        color: #DA4453;
+      }
+    }
+  }
+
+  .input-group {
+    margin-bottom: 20px;
+
+    &.submit-btn-container {
+      width: 100%;
+      text-align: center;
+
+      input[type='submit'] {
+        width: 50%;
+        padding: 10px 0;
+      }
+    }
+  }
+}

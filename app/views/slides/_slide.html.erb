@@ -1,0 +1,19 @@
+<div class="col-sm-6 col-md-4">
+  <div class="thumbnail">
+    <%= link_to image_tag(slide_first_or_default_preview_url(slide), class: 'img-rounded'), slide %>
+    <div class="caption text-center">
+      <h3><%= link_to slide.truncated_title, slide, data: { 'no-turbolink' => true }, title: slide.title %></h3>
+      <p>
+        <small>
+          <%= link_to slide.user.try(:name), slide.user %>
+          发表于<%= l slide.created_at.to_date, format: :long %>
+          <% if current_user && current_user == slide.user %>
+            <%= link_to slide_path(slide), method: :delete, title: "删除讲稿", class: 'delete-slide-link', data: { toggle: 'tooltip', confirm: "确认删除？" } do %>
+              <span class="glyphicon glyphicon-trash"></span>
+            <% end %>
+          <% end %>
+        </small>
+      </p>
+    </div>
+  </div>
+</div>

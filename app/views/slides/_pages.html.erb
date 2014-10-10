@@ -1,0 +1,5 @@
+<div class="pdf-pages">
+  <% slide.previews.each do |preview| %>
+    <%= image_tag resource_url(preview.filename) %>
+  <% end %>
+</div>

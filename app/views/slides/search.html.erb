@@ -1,0 +1,25 @@
+<div class="col-md-3 categories-sidebar">
+  <h4>浏览</h4>
+
+  <%= render 'shared/categories_list' %>
+</div>
+
+<div class="col-md-9" id='animated'>
+  <% if @keyword.present? %>
+    <h5 class='category-title'>符合“<%= @keyword %>”关键字的讲稿有：</h5>
+  <% end %>
+
+  <div>
+    <% if @slides.any? %>
+      <div class="row">
+        <%= render @slides %>
+      </div>
+    <% else %>
+      <div>对不起，当前搜索条件下暂无讲稿</div>
+    <% end %>
+  </div>
+
+  <div class='pagination-container'>
+    <%= paginate @slides %>
+  </div>
+</div>

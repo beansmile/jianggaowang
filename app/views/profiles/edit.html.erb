@@ -1,0 +1,58 @@
+<div class="row profile-page">
+  <div class="col-md-8">
+    <%= form_for current_user, url: profile_path do |f| %>
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">基本资料设置</h3>
+        </div>
+        <div class="panel-body">
+          <div class="form-group">
+            <%= f.label :name, "用户名" %>
+            <%= f.text_field :name, disabled: true, class: 'form-control' %>
+          </div>
+          <div class="form-group">
+            <%= f.label :email, '电子邮箱' %>
+            <%= f.email_field :email, class: 'form-control' %>
+          </div>
+          <div class="form-group">
+            <%= f.label :bio, '个人简介' %>
+            <%= f.text_area :bio, class: 'form-control', autofocus: true, placeholder: '您可以选择跟大家介绍您的专业方向或者是学习经历等情况' %>
+          </div>
+          <div class="form-group">
+            <%= f.label :avatar, '更新头像' %>
+            <%= f.file_field :avatar %>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel panel-danger">
+        <div class="panel-heading">
+          <h3 class="panel-title">更新密码</h3>
+        </div>
+        <div class="panel-body">
+          <p><strong>注意：</strong>如果您不需要修改密码，请不要在下面的输入框中填写任何内容！</p>
+          <div class="form-group">
+            <%= f.label :original_password, '旧密码' %>
+            <%= f.password_field :original_password, class: 'form-control' %>
+          </div>
+          <div class="form-group">
+            <%= f.label :password, '新密码' %>
+            <%= f.password_field :password, class: 'form-control' %>
+          </div>
+          <div class="form-group">
+            <%= f.label :password_confirmation, '确认旧密码' %>
+            <%= f.password_field :password_confirmation, class: 'form-control' %>
+          </div>
+        </div>
+      </div>
+
+      <div class="profile-form-submit">
+        <%= f.submit "更新", class: 'btn btn-primary' %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="col-md-4 profile-page-sidebar">
+    <%= render 'profile_sidebar' %>
+  </div>
+</div>

@@ -1,0 +1,107 @@
+<div class="row slide-page">
+  <div class="col-md-8">
+    <% if @slide.previews.any? %>
+      <div class="pages-container">
+        <%= render 'pages', slide: @slide %>
+      </div>
+
+      <div class="operations">
+        <%= link_to collect_slide_path(@slide), id: 'collect_slide_btn', class: 'btn btn-sm btn-primary pull-right', disabled: current_user && current_user.collected_slide?(@slide), style: 'margin-left: 5px;', method: :post, remote: true do %>
+          <span class="glyphicon glyphicon-pushpin"></span>
+          收藏 (<span id='collections_count'><%= @slide.collections_count %></span>)
+        <% end %>
+        <%= link_to like_slide_path(@slide), id: 'like_slide_btn', class: 'btn btn-sm btn-primary pull-right', disabled: current_user && current_user.liked_slide?(@slide), method: :post, remote: true do %>
+          <span class="glyphicon glyphicon-thumbs-up"></span>
+          赞 (<span id='likes_count'><%= @slide.likes_count %></span>)
+        <% end %>
+
+        <div class="clearfix"></div>
+      </div>
+    <% else %>
+      <% if current_user && current_user == @slide.user %>
+        <%= render 'manual_actions', slide: @slide %>
+      <% else %>
+        <h4>对不起，您查看的讲稿正在处理中，请稍待几分钟后刷新重试。</h4>
+      <% end %>
+    <% end %>
+
+    <div class="slide-infos">
+      <h4><%= @slide.title %></h4>
+      <p><%= @slide.description %></p>
+    </div>
+  </div>
+
+  <div class="col-md-4 slide-page-sidebar">
+    <div class="author-infos">
+      <div class="col-md-3">
+        <a href="<%= user_path(@slide.user) %>" class="author-avatar-link">
+          <%= image_tag @slide.user.avatar.url, class: 'author-avatar img-rounded' %>
+        </a>
+      </div>
+      <div class='author col-md-8'>
+        <h4><%= link_to @slide.user.name, @slide.user, class: 'author-name' %></h4>
+        <div class="author-bio">
+          <%= @slide.user.friendly_bio %>
+        </div>
+      </div>
+
+      <div class="clearfix"></div>
+
+      <div class="share-panel">
+        <ul class="list-group">
+          <li class="list-group-item">
+            <h4 class="list-group-item-heading">讲稿详情</h4>
+            <div class="list-group-item-text">
+              <p>
+                标题：
+                《<%= @slide.title %>》
+              </p>
+              <p>
+                分类：
+                <%= link_to @category do %>
+                  <%= @category.try(:name) %>
+                <% end %>
+              </p>
+              <p>
+                总页数：
+                <%= @slide.previews.any? ? @slide.previews.count : @slide.retrieve_total_pages %>
+              </p>
+              <p>
+                总浏览量：
+                <%= @slide.visits_count %>
+              </p>
+              <p>
+                成功发表于：<%= l @slide.created_at, format: :long %>
+              </p>
+              <p>
+                是否支持原版PDF下载：<%= @slide.downloadable ? "是" : "否" %>
+              </p>
+            </div>
+          </li>
+
+          <% if @slide.downloadable || @slide.previews.any? %>
+            <li class="list-group-item">
+              <h4 class="list-group-item-heading">分享讲稿</h4>
+              <div class="list-group-item-text">
+                <% if @slide.previews.any? %>
+                  <p>
+                    新浪微博分享
+                    <wb:share-button appkey="4Mxe3p" addition="number" type="button" ralateUid="5283496115" default_text="我在讲稿网发现了一个很不错的讲稿《<%= @slide.title %>》，作者是<%= @slide.user.try(:name) %>，分享给各位朋友！" url=<%= request.url %> pic="<%= resource_url(@slide.previews.first.filename) %>"></wb:share-button>
+                  </p>
+                <% end %>
+
+                <% if @slide.downloadable %>
+                  <p>
+                    <%= link_to resource_url(@slide.filename) do %>
+                      <span class="glyphicon glyphicon-cloud-download"></span>下载原版PDF
+                    <% end %>
+                  </p>
+                <% end %>
+              </div>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+<li>
+  <%= link_to new_slide_path do %>
+    <span class="glyphicon glyphicon-upload"></span>上传
+  <% end %>
+</li>
+
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+    <span class="glyphicon glyphicon-user"></span>
+    <%= current_user.name %>
+    <b class="caret"></b>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">个人账号</li>
+    <li>
+      <%= link_to profile_path do %>
+        <span class="glyphicon glyphicon-home"></span>我的主页
+      <% end %>
+    </li>
+    <li>
+      <%= link_to edit_profile_path do %>
+        <span class="glyphicon glyphicon-wrench"></span>修改个人资料
+      <% end %>
+    </li>
+
+    <li class="divider"></li>
+    <li>
+      <%= link_to logout_path, method: :delete do %>
+        <span class="glyphicon glyphicon-log-out"></span>退出登录
+      <% end %>
+    </li>
+  </ul>
+</li>

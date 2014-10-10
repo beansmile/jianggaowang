@@ -1,0 +1,33 @@
+<div class="users-page login-page row">
+  <h3 class='page-title'>用户登录</h3>
+
+  <div class="form-container col-md-6 col-md-offset-3">
+    <%= form_for @user, url: sessions_path, method: :post do |f| %>
+      <div class="input-group">
+        <span class="input-group-addon">
+          <span class="glyphicon glyphicon-user"></span>
+        </span>
+
+        <%= f.text_field :name, class: 'form-control', placeholder: '请输入您的用户名', required: true, autofocus: true %>
+      </div>
+
+      <div class="input-group">
+        <span class="input-group-addon">
+          <span class="glyphicon glyphicon-lock"></span>
+        </span>
+
+        <%= f.password_field :password, class: 'form-control', placeholder: '请输入您的密码', required: true %>
+      </div>
+
+      <div class="input-group submit-btn-container">
+        <%= f.submit "登录", class: 'btn btn-primary' %>
+      </div>
+
+      <p>
+        <span class="glyphicon glyphicon-exclamation-sign"></span>
+        忘记密码？点击
+        <%= link_to "重置密码", reset_user_passwords_path %>
+      </p>
+    <% end %>
+  </div>
+</div>

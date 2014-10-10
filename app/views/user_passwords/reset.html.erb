@@ -1,0 +1,21 @@
+<div class="users-page reset-password-page row">
+  <h3 class='page-title'>重置密码</h3>
+
+  <div class="form-container col-md-6 col-md-offset-3">
+    <%= form_for :user, url: create_new_user_passwords_path, method: :post do |f| %>
+      <div class="input-group">
+        <span class="input-group-addon">
+          <span class="glyphicon glyphicon-user"></span>
+        </span>
+
+        <%= f.text_field :name, class: 'form-control', placeholder: '请输入您用于登录的用户名', required: true, autofocus: true %>
+      </div>
+
+      <div class="input-group submit-btn-container">
+        <%= f.submit "确认请求重置密码", class: 'btn btn-primary' %>
+      </div>
+
+      <p>注意：我们将会发送一封用于确认重置密码的邮件到您的电子邮箱，请您按照邮件指印完成密码重置。</p>
+    <% end %>
+  </div>
+</div>

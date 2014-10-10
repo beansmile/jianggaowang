@@ -1,0 +1,4 @@
+zh-CN:
+  user_password_mailer:
+    reset_password:
+      subject: "讲稿网-重置密码确认邮件"

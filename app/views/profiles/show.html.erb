@@ -1,0 +1,13 @@
+<div class="row profile-page">
+  <div class="col-md-8">
+    <div class="row" id='animated'>
+      <%= render @slides %>
+    </div>
+
+    <%= paginate @slides %>
+  </div>
+
+  <div class="col-md-4 profile-page-sidebar">
+    <%= render 'profile_sidebar' %>
+  </div>
+</div>

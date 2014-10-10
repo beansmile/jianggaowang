@@ -1,0 +1,54 @@
+<div class="users-page signup-page row">
+  <h3 class='page-title'>注册新用户</h3>
+  <div class="form-container col-md-6 col-md-offset-3">
+    <%= form_for @user do |f| %>
+      <% if @user.errors.any? %>
+        <div id="error_explanation">
+          <h5>以下错误导致用户注册失败：</h5>
+
+          <ul>
+          <% @user.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="input-group">
+        <span class="input-group-addon">
+          <span class="glyphicon glyphicon-user"></span>
+        </span>
+
+        <%= f.text_field :name, class: 'form-control', placeholder: '请输入您的用户名', required: true, autofocus: true %>
+      </div>
+
+      <div class="input-group">
+        <span class="input-group-addon">
+          <span class="glyphicon glyphicon-envelope"></span>
+        </span>
+
+        <%= f.email_field :email, class: 'form-control', placeholder: '请输入您的电子邮箱', required: true %>
+      </div>
+
+      <div class="input-group">
+        <span class="input-group-addon">
+          <span class="glyphicon glyphicon-lock"></span>
+        </span>
+
+        <%= f.password_field :password, class: 'form-control', placeholder: '请输入您的密码', required: true %>
+      </div>
+
+      <div class="input-group">
+        <span class="input-group-addon">
+          <span class="glyphicon glyphicon-lock"></span>
+        </span>
+
+        <%= f.password_field :password_confirmation, class: 'form-control', placeholder: '请确认您的密码', required: true %>
+      </div>
+
+      <div class="input-group submit-btn-container">
+        <%= f.submit "提交", class: 'btn btn-primary' %>
+      </div>
+    <% end %>
+  </div>
+</div>

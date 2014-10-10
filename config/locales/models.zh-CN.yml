@@ -1,0 +1,13 @@
+zh-CN:
+  activerecord:
+    models:
+      slide: 讲稿
+    attributes:
+      slide:
+        title: 标题
+        description: 简介
+      user:
+        name: 用户名
+        email: 电子邮箱
+        password: 密码
+        password_confirmation: 确认密码

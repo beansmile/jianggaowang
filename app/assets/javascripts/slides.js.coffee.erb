@@ -6,6 +6,16 @@ $(document).on 'page:reloaded', ->
       transition: 'flash'
       swipe: true
 
+    galleria = $('.pdf-pages').data('galleria')
+
+    # listen to keyup event to support hotkey when preview slides
+    $(document).keyup (event)->
+      switch event.which
+        # left arrow key
+        when 37 then galleria.prev()
+        # right arrow key
+        when 39 then galleria.next()
+
   $likeSlideBtn = $('#like_slide_btn')
   $likeSlideBtn
     .on 'ajax:error', (xhr, data) ->

@@ -1,0 +1,8 @@
+<div>
+  <% slides.each_slice(3).each do |slides_group| %>
+    <div class="row-fluid">
+      <%= render slides_group %>
+    </div>
+    <div class="clearfix"></div>
+  <% end %>
+</div>

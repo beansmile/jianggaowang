@@ -1,10 +1,3 @@
-<% need_to_start_row = (slide_counter % 3 == 0) %>
-<% need_to_end_row = (slide_counter % 3) == 2 %>
-
-<% if need_to_start_row %>
-  <div class="row-fluid">
-<% end %>
-
 <div class="col-sm-6 col-md-4">
   <div class="thumbnail">
     <%= link_to image_tag(slide_first_or_default_preview_url(slide), class: 'img-rounded'), slide %>
@@ -24,8 +17,3 @@
     </div>
   </div>
 </div>
-
-<% if need_to_end_row %>
-  </div>
-  <div class="clearfix"></div>
-<% end %>

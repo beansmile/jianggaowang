@@ -12,7 +12,7 @@
   <div>
     <% if @slides.any? %>
       <div class="row">
-        <%= render @slides %>
+        <%= render 'slides/slides', slides: @slides %>
       </div>
     <% else %>
       <div>对不起，当前搜索条件下暂无讲稿</div>

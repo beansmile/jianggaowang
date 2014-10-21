@@ -1,7 +1,7 @@
 <div class="row profile-page">
   <div class="col-md-8">
     <div class="row" id='animated'>
-      <%= render @slides %>
+      <%= render 'slides/slides', slides: @slides %>
     </div>
 
     <%= paginate @slides %>

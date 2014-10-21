@@ -17,11 +17,7 @@
         </span>
       </div>
 
-      <div class="row">
-        <% category.slides.hotest.limit(3).each do |slide| %>
-          <%= render slide %>
-        <% end %>
-      </div>
+      <%= render 'slides/slides', slides: category.slides.hotest.limit(3) %>
     </div>
   <% end %>
 </div>

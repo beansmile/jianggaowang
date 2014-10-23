@@ -13,10 +13,11 @@ $(document).on 'page:reloaded', ->
       switch event.which
         # left arrow key
         when 37 then galleria.prev()
-        # up arrow key
-        when 38 then galleria.enterFullscreen()
         # right arrow key
         when 39 then galleria.next()
+    $('.fullscreen').click ->
+      galleria.enterFullscreen()
+      false
 
   $likeSlideBtn = $('#like_slide_btn')
   $likeSlideBtn

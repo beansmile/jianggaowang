@@ -6,6 +6,10 @@
       </div>
 
       <div class="operations">
+        <%= link_to '#fullscreen', class: 'fullscreen btn btn-sm btn-danger pull-right' do %>
+          <i class="glyphicon glyphicon-fullscreen"></i>
+        <% end %>
+
         <%= link_to collect_slide_path(@slide), id: 'collect_slide_btn', class: 'btn btn-sm btn-primary pull-right', disabled: current_user && current_user.collected_slide?(@slide), style: 'margin-left: 5px;', method: :post, remote: true do %>
           <span class="glyphicon glyphicon-pushpin"></span>
           收藏 (<span id='collections_count'><%= @slide.collections_count %></span>)
@@ -14,7 +18,6 @@
           <span class="glyphicon glyphicon-thumbs-up"></span>
           赞 (<span id='likes_count'><%= @slide.likes_count %></span>)
         <% end %>
-
         <div class="clearfix"></div>
       </div>
     <% else %>

@@ -15,6 +15,9 @@ $(document).on 'page:reloaded', ->
         when 37 then galleria.prev()
         # right arrow key
         when 39 then galleria.next()
+    $('.fullscreen').click ->
+      galleria.enterFullscreen()
+      false
 
   $likeSlideBtn = $('#like_slide_btn')
   $likeSlideBtn

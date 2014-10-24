@@ -5,6 +5,7 @@ $(document).on 'page:reloaded', ->
       height:0.8
       transition: 'flash'
       swipe: true
+      showInfo: false
 
     galleria = $('.pdf-pages').data('galleria')
 

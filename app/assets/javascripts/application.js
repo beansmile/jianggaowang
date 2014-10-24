@@ -17,6 +17,5 @@
 //= require icheck.min
 //= require galleria
 //= require galleria.classic
-//= require galleria.fullscreen.min
 //= require jquery-fileupload/basic
 //= require_tree .

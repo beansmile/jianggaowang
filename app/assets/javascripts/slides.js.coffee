@@ -5,11 +5,13 @@ $(document).on 'page:reloaded', ->
       height:0.8
       transition: 'flash'
       swipe: true
+      showInfo: false
 
     galleria = $('.pdf-pages').data('galleria')
 
     # listen to keyup event to support hotkey when preview slides
     $(document).keyup (event)->
+      return if galleria.isFullscreen()
       switch event.which
         # left arrow key
         when 37 then galleria.prev()

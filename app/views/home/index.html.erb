@@ -5,6 +5,22 @@
 </div>
 
 <div class="col-md-9">
+  <% if @newest_slides && @newest_slides.any? %>
+    <div id="newest-slides" class='category-featured'>
+      <div>
+        <span class="category-title">最新讲稿</span>
+
+        <span class="more">
+          <%= link_to newest_categories_path do %>
+            更多 <span class="glyphicon glyphicon-chevron-right"></span>
+          <% end %>
+        </span>
+
+        <%= render 'slides/slides', slides: @newest_slides %>
+      </div>
+    </div>
+  <% end %>
+
   <% @featured_categories.each do |category| %>
     <div id='<%= dom_id category %>' class='category-featured'>
       <div>

@@ -1,3 +1,7 @@
+<% content_for :title do %>
+<%= @slide.title %>, <%= @slide.description.truncate(20) %>
+<% end %>
+
 <div class="row slide-page">
   <div class="col-md-8">
     <% if @slide.previews.any? %>

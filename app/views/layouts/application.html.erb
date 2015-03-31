@@ -1,7 +1,12 @@
 <!DOCTYPE html xmlns:wb=“http://open.weibo.com/wb”>
 <html>
 <head>
-  <title>讲稿网 <%= yield :title %></title>
+  <title>
+    讲稿网
+    <% if content_for?(:title) %>
+      - <%= yield :title %>
+    <% end %>
+  </title>
   <meta property="wb:webmaster" content="d441cc363f121e87" />
 
   <%= stylesheet_link_tag    'galleria.classic', media: 'all', 'data-turbolinks-track' => true %>

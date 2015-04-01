@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.5'
+gem 'rails', '4.2.1'
 # Use mysql as the database for Active Record
 gem 'mysql2'
 # Use SCSS for stylesheets
@@ -41,6 +41,8 @@ gem 'carrierwave-qiniu', '~> 0.1.3'
 gem 'kaminari', '~> 0.16.1'
 
 group :development do
+  gem 'web-console', '~> 2.0'
+
   gem 'quiet_assets', '~> 1.0.3'
 
   gem 'better_errors', '~> 2.0.0'

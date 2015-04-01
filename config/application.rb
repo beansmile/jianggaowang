@@ -23,5 +23,7 @@ module Jianggao
     config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
 
     config.action_mailer.perform_deliveries = true
+
+    config.active_record.raise_in_transactional_callbacks = true
   end
 end

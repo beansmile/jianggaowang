@@ -5,7 +5,7 @@ class UsersController < ApplicationController
     if current_user && current_user == @user
       redirect_to profile_path
     else
-      @slides = @user.slides.page(params[:page])
+      @slides = @user.slides.order(created_at: :desc).page(params[:page])
     end
   end
 

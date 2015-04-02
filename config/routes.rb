@@ -3,6 +3,10 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   require 'sidekiq/web'
+  Sidekiq::Web.use Rack::Auth::Basic do |username, password|
+    username == Rails.application.secrets["sidekiq"]["username"] &&
+    password == Rails.application.secrets["sidekiq"]["password"]
+  end if Rails.env.production?
   mount Sidekiq::Web => '/sidekiq'
 
   resources 'notifications', only: [] do

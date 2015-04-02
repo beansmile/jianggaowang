@@ -74,7 +74,7 @@ group :development, :test do
 end
 
 # Provide web UI for sidekiq
-gem 'sinatra', '1.4.6', :require => nil
+gem 'sinatra', '~> 1.4.6', :require => nil
 
 # Use unicorn as the app server
 # gem 'unicorn'

@@ -2,12 +2,22 @@ zh-CN:
   activerecord:
     models:
       slide: 讲稿
+      admin_user: 超级管理员
+      category: 分类
+      user: 用户
     attributes:
+      active_record/base:
+        created_at: 创建时间
+        updated_at: 更新时间
       slide:
         title: 标题
         description: 简介
+      category:
+        name: 名称
+        slides: 讲稿
       user:
         name: 用户名
         email: 电子邮箱
+        bio: 简介
         password: 密码
         password_confirmation: 确认密码

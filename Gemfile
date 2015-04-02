@@ -74,8 +74,7 @@ group :development, :test do
 end
 
 # Provide web UI for sidekiq
-# Only version 1.1.0 requires a compatible version of tilt with sass-rails
-gem 'sinatra', '1.1.0', :require => nil
+gem 'sinatra', '1.4.6', :require => nil
 
 # Use unicorn as the app server
 # gem 'unicorn'

@@ -18,4 +18,4 @@
 //= require galleria
 //= require galleria.classic
 //= require jquery-fileupload/basic
-//= require_tree .
+//= require_tree ./frontend

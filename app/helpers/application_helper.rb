@@ -7,7 +7,7 @@ module ApplicationHelper
     if slide.previews.any?
       slide_preview_url slide.previews.first.filename
     else
-      image_path 'default_preview.gif'
+      'default_preview.gif'
     end
   end
 

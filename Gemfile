@@ -6,7 +6,7 @@ gem 'rails', '4.2.1'
 # Use mysql as the database for Active Record
 gem 'mysql2'
 # Use SCSS for stylesheets
-# gem 'sass-rails', '~> 4.0.3'
+gem 'sass-rails', '~> 5.0.3'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -29,9 +29,6 @@ gem 'spring',        group: :development
 
 gem 'bootflat-rails', '~> 0.1.9'
 
-# bootflat could only be compiled using Sass 3.3+
-gem 'sass-rails', :git => 'https://github.com/zakelfassi/sass-rails'
-
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
@@ -39,6 +36,15 @@ gem 'carrierwave', '~> 0.10.0'
 gem 'carrierwave-qiniu', '~> 0.1.3'
 
 gem 'kaminari', '~> 0.16.1'
+
+# Flexible authentication solution for Rails with Warden
+# Only required by activeadmin
+# https://github.com/plataformatec/devise
+gem 'devise', '~> 3.4.1'
+
+# The administration framework for Ruby on Rails applications
+# http://activeadmin.info/
+gem 'activeadmin', github: 'activeadmin'
 
 group :development do
   gem 'web-console', '~> 2.0'
@@ -68,7 +74,8 @@ group :development, :test do
 end
 
 # Provide web UI for sidekiq
-gem 'sinatra', '>= 1.3.0', :require => nil
+# Only version 1.1.0 requires a compatible version of tilt with sass-rails
+gem 'sinatra', '1.1.0', :require => nil
 
 # Use unicorn as the app server
 # gem 'unicorn'

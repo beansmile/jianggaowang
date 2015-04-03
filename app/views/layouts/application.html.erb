@@ -15,6 +15,7 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
   <script>var Jianggaowang = {};</script>
+  <%= render 'layouts/baidu_statistics' %>
   <%= csrf_meta_tags %>
 </head>
 <body id='<%= controller_name %>_<%= action_name %>'>

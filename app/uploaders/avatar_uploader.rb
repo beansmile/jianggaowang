@@ -19,9 +19,15 @@ class AvatarUploader < CarrierWave::Uploader::Base
   # Provide a default URL as a default if there hasn't been a file uploaded:
   def default_url
     # For Rails 3.1+ asset pipeline compatibility:
-    ActionController::Base.helpers.asset_path("default_avatar.png")
+    # ActionController::Base.helpers.asset_path("default_avatar.png")
 
     # "/images/fallback/" + [version_name, "default.png"].compact.join('_')
+
+    # after upgrading sprockets-rails to 2.1.4
+    # image_tag has prefix "assets/images/" and will throw error:
+    # Asset names passed to helpers should not include the "/assets/" prefix.
+    "default_avatar.png"
+
   end
 
   # Process files as they are uploaded:

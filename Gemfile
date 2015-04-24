@@ -25,7 +25,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-gem 'spring',        group: :development
+gem 'spring', '~> 1.3.4',        group: :development
 
 gem 'bootflat-rails', '~> 0.1.9'
 
@@ -89,7 +89,7 @@ gem 'sutui', github: 'beansmile/sutui'
 
 gem 'qiniu', '~> 6.2.1'
 
-gem 'noty-rails', '~> 2.2.2'
+gem 'noty-rails', '~> 2.3.4'
 
 gem 'jquery-fileupload-rails', '~> 0.4.1'
 

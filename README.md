@@ -35,6 +35,7 @@ ngrok 3000    # 如果您已经在ngrok网站上注册了新用户，您就可�
 ```sh
 cp config/secrets.yml.example config/secrets.yml
 ```
+*注意*如果使用自己的七牛云空间的话，需要自定义域名，且需要自定义的域名与空间名一样，比如: yourdomain.qiniu.com
 以下以`development`组中的配置为例讲解各个配置项的作用：
 ```yaml
 development:

@@ -9,6 +9,6 @@
 
 <div class="slide-list">
   <% @slide.previews.each do |preview| %>
-    <%= image_tag resource_url(preview.filename) %>
+    <%= image_tag resource_url(preview.filename), lazy: true %>
   <% end %>
 </div>

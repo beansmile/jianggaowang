@@ -5,6 +5,10 @@ class SlidesController < ApplicationController
   def show
     @slide = Slide.includes(:previews).find(params[:id])
     @category = @slide.category
+    respond_to do |format|
+      format.html
+      format.html.phone {render :layout => 'mobile'}
+    end
   end
 
   def new

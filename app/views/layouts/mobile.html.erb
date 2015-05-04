@@ -1,0 +1,14 @@
+<html>
+<head>
+  <title>讲稿网</title>
+  <meta id="viewport" name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1; user-scalable=0;" />
+  <%= stylesheet_link_tag    'mobile', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'mobile', 'data-turbolinks-track' => true %>
+  <%= render 'layouts/baidu_statistics' %>
+  <%= csrf_meta_tags %>
+</head>
+
+<body class="mobile-version">
+  <%= yield %>
+</body>
+</html>

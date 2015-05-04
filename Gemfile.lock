@@ -178,6 +178,8 @@ GEM
     kaminari (0.16.3)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
+    lazyload-rails (0.3.1)
+      nokogiri (~> 1.5)
     loofah (2.0.1)
       nokogiri (>= 1.5.9)
     mail (2.6.3)
@@ -347,6 +349,7 @@ DEPENDENCIES
   jquery-fileupload-rails (~> 0.4.1)
   jquery-rails
   kaminari (~> 0.16.1)
+  lazyload-rails
   mysql2
   noty-rails (~> 2.3.4)
   pry (~> 0.10.1)

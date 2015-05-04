@@ -1,14 +1,17 @@
-<!-- Inside the index+phone.html.erb -->
-<div class="slide-header">
-  <div class="slide-details">
-    <h3><%= @slide.title %></h3>
-    <div class="author-name">作者：<%= @slide.user.name %></div>
-    <p><%= @slide.description %></p>
+<% if @slide.previews.any? %>
+  <div class="slide-header">
+    <div class="slide-details">
+      <h3><%= @slide.title %></h3>
+      <div class="author-name">作者：<%= @slide.user.name %></div>
+      <p><%= @slide.description %></p>
+    </div>
   </div>
-</div>
 
-<div class="slide-list">
-  <% @slide.previews.each do |preview| %>
-    <%= image_tag resource_url(preview.filename), lazy: true %>
-  <% end %>
-</div>
+  <div class="slide-list">
+    <% @slide.previews.each do |preview| %>
+      <%= image_tag resource_url(preview.filename), lazy: true %>
+    <% end %>
+  </div>
+<% else %>
+  <h4>对不起，您查看的讲稿正在处理中，请稍待几分钟后刷新重试。</h4>
+<% end %>

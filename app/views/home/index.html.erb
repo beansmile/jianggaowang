@@ -2,24 +2,13 @@
   首页
 <% end %>
 
-<div class="col-md-3 categories-sidebar">
-  <h4>浏览</h4>
-
-  <%= render 'shared/categories_list' %>
-</div>
-
-<div class="col-md-9">
+<div class="col-md-12">
   <% if @newest_slides && @newest_slides.any? %>
     <div id="newest-slides" class='category-featured'>
       <div>
-        <span class="category-title">最新讲稿</span>
-
-        <span class="more">
-          <%= link_to newest_categories_path do %>
-            更多 <span class="glyphicon glyphicon-chevron-right"></span>
-          <% end %>
-        </span>
-
+        <%= link_to newest_categories_path do %>
+         <span class="category-title">最新讲稿</span>
+        <% end %>
         <%= render 'slides/slides', slides: @newest_slides %>
       </div>
     </div>
@@ -28,13 +17,9 @@
   <% @featured_categories.each do |category| %>
     <div id='<%= dom_id category %>' class='category-featured'>
       <div>
-        <span class='category-title'><%= category.name %></span>
-
-        <span class="more">
-          <%= link_to category do %>
-            更多 <span class="glyphicon glyphicon-chevron-right"></span>
-          <% end %>
-        </span>
+        <%= link_to category do %>
+         <span class='category-title'><%= category.name %></span>
+        <% end %>
       </div>
 
       <%= render 'slides/slides', slides: category.slides.hotest.limit(3) %>

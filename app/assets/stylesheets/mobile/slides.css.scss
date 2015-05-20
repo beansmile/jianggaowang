@@ -1,24 +1,35 @@
+@mixin border-right-line($weight, $color, $padding) {
+  border-right: $weight solid $color;
+  padding: $padding;
+}
 .mobile-version {
-  padding: 18px;
+  font-family: 'PT Sans';
+  margin: 15px;
   .slide-header {
     padding-bottom: 10px;
+    border-bottom: 1px dashed #444444;
+    h3 {
+      color: #3A3A3A;
+      font-size: 20px;
+      text-align: right;
+      margin: 0;
+    }
     .author-name {
       color: #989898;
       font-size: 16px;
       text-align: right;
       padding: 0px;
+      border-top: 1px solid #444444;
+    }
+    h3, .author-name {
+      @include border-right-line(3px, #444444, 3px);
     }
     .slide-details {
-      h3 {
-        color: #3A3A3A;
-        font-size: 20px;
-        text-align: center;
-      }
       p {
         color: #323232;
-        font-size: 18px;
-        line-height: 1.5em;
-        margin: 10px 0 10px;
+        font-size: 16px;
+        line-height: 1.4em;
+        margin: 10px 0 0;
         text-align: justify;
         word-wrap: break-word;
       }
@@ -26,6 +37,11 @@
   }
 
   .slide-list {
+    margin-top: 10px;
+    figure {
+      margin: 0 0 5px 0;
+    }
+
    img {
      width: 100%;
    }

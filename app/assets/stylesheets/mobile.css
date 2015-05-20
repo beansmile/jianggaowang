@@ -1,4 +1,5 @@
 /*
  *= require_tree ./mobile
+ *= require_tree ../../../vendor/assets/stylesheets/photoswipe
  *= require_self
  */

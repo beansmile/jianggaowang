@@ -24,7 +24,7 @@ GIT
       typhoeus (~> 0.6.9)
 
 GEM
-  remote: https://rubygems.org/
+  remote: http://ruby.taobao.org/
   specs:
     actionmailer (4.2.1)
       actionpack (= 4.2.1)
@@ -189,7 +189,6 @@ GEM
     mini_portile (0.6.2)
     minitest (5.5.1)
     multi_json (1.11.0)
-    mysql2 (0.3.18)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (2.9.2)
@@ -198,6 +197,7 @@ GEM
       mini_portile (~> 0.6.0)
     noty-rails (2.3.4)
     orm_adapter (0.5.0)
+    pg (0.18.2)
     polyamorous (1.1.0)
       activerecord (>= 3.0)
     pry (0.10.1)
@@ -350,8 +350,8 @@ DEPENDENCIES
   jquery-rails
   kaminari (~> 0.16.1)
   lazyload-rails
-  mysql2
   noty-rails (~> 2.3.4)
+  pg (~> 0.18.2)
   pry (~> 0.10.1)
   pry-debugger (~> 0.2.3)
   pry-rails (~> 0.3.2)

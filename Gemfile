@@ -1,4 +1,4 @@
-source 'http://ruby.taobao.org'
+source 'https://ruby.taobao.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -71,11 +71,7 @@ group :development do
 end
 
 group :development, :test do
-  gem 'pry', '~> 0.10.1'
-
-  gem 'pry-rails', '~> 0.3.2'
-
-  gem 'pry-debugger', '~> 0.2.3'
+  gem 'byebug', '~> 8.0.1'
 end
 
 # Provide web UI for sidekiq

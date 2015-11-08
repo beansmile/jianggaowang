@@ -80,7 +80,7 @@ ActiveRecord::Schema.define(version: 20150401234324) do
     t.string   "filename",          limit: 255
     t.integer  "user_id",           limit: 4
     t.integer  "category_id",       limit: 4
-    t.boolean  "downloadable",      limit: 1
+    t.boolean  "downloadable"
     t.string   "persistent_id",     limit: 255
     t.string   "persistent_state",  limit: 255
     t.integer  "visits_count",      limit: 4,   default: 0

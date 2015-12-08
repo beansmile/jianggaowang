@@ -1,8 +1,6 @@
 require 'pdf_converter'
 
 class Slide < ActiveRecord::Base
-  include DeleteRemoteFilesConcern
-
   mount_uploader :file, PDFUploader
 
   validates :title, :description, :user_id, :file, presence: true
@@ -31,9 +29,13 @@ class Slide < ActiveRecord::Base
   def convert
     return if previews.any?
 
-    previews_count = PDFConverter.convert(file.path, "public/slides/#{id}/", "preview")
+    file_name_prefix = "preview"
+    previews_count = PDFConverter.convert(file.path, "public/slides/#{id}/", file_name_prefix)
     0.upto(previews_count - 1).each do |page|
-      self.previews.create(filename: "/slides/#{id}/preview-#{page}.jpg")
+      self.previews.create(
+        filename: "/slides/#{id}/#{file_name_prefix}-#{page}.jpg",
+        file: File.open("public/slides/#{id}/#{file_name_prefix}-#{page}.jpg")
+      )
     end
   end
 

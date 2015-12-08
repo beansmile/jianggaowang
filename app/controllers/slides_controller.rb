@@ -12,8 +12,16 @@ class SlidesController < ApplicationController
   end
 
   def new
-    @resource_key = "slides/#{generate_unique_resource_key}.pdf"
-    generate_uptoken @resource_key
+    @slide = Slide.new
+  end
+
+  def create
+    @slide = current_user.slides.new(slide_params)
+    if @slide.save
+      render json: {status: "success", slide: {id: @slide.id}}
+    else
+      render json: {errors: @slide.errors.full_messages.join(";")}
+    end
   end
 
   def destroy
@@ -87,49 +95,13 @@ class SlidesController < ApplicationController
   end
 
   private
-  def generate_unique_resource_key
-    generated_key = random_string
-    while Slide.find_by filename: generated_key
-      generated_key = random_string
-    end
-
-    generated_key
-  end
-
-  # return a random string with speficed length, default length is 30
-  #
-  # Example output:
-  #   "DcbxfQMAdGXogHrPmvCL6STy6flUSr"
-  def random_string(length = 30)
-    o = [('0'..'9'), ('a'..'z'), ('A'..'Z')].map { |i| i.to_a }.flatten
-    (1..length).map { o[rand(o.length)] }.join
-  end
-
-  def generate_uptoken(resource_key)
-    host = Rails.application.secrets['host'] || request.env["HTTP_HOST"]
-    host = "http://" + host unless host =~ /\Ahttp/
-
-    put_policy = Qiniu::Auth::PutPolicy.new Qiniu::Bucket
-
-    put_policy.callback_url = host + slide_uploaded_notifications_path
-    put_policy.callback_body = [
-      "slide[filename]=$(key)",
-      "slide[user_id]=#{current_user.id}",
-      "slide[title]=$(x:title)",
-      "slide[description]=$(x:description)",
-      "slide[downloadable]=$(x:downloadable)",
-      "slide[category_id]=$(x:category_id)",
-      "mime_type=$(mimeType)"
-    ].join('&')
-
-    put_policy.mime_limit = 'application/pdf'
-
-    @uptoken = Qiniu::Auth.generate_uptoken(put_policy)
-  end
-
   def increase_slide_visits_count
     unless request.env["HTTP_USER_AGENT"].match(/\(.*https?:\/\/.*\)/)
       @slide.increase_visits_counter
     end
+  end
+
+  def slide_params
+    params.require(:slide).permit(:title, :description, :file, :category_id, :downloadable)
   end
 end

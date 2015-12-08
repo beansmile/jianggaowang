@@ -3,7 +3,7 @@ class Slide < ActiveRecord::Base
 
   mount_uploader :file, AttachmentUploader
 
-  validates :title, :description, :user_id, :filename, presence: true
+  validates :title, :description, :user_id, presence: true
 
   has_many :previews, dependent: :destroy
   has_many :likes

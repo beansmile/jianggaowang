@@ -18,6 +18,8 @@ class Slide < ActiveRecord::Base
   scope :hotest, -> { where('visits_count > 0').order(visits_count: :desc).limit(12) }
   scope :newest, -> { order(created_at: :desc).limit(12) }
 
+  after_create :convert_file_later
+
   def truncated_title
     if title =~ /\p{Han}+/u   # 包含中文
       title.truncate(14)
@@ -44,5 +46,10 @@ class Slide < ActiveRecord::Base
 
   def increase_visits_counter
     increment! :visits_count
+  end
+
+  private
+  def convert_file_later
+    SlideConvertJob.perform_later(id)
   end
 end

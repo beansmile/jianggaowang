@@ -29,19 +29,18 @@ class Slide < ActiveRecord::Base
   def convert
     return if previews.any?
 
+    temp_directory = "tmp/slides/#{id}/"
     file_name_prefix = "preview"
-    previews_count = PDFConverter.convert(file.path, "tmp/slides/#{id}/", file_name_prefix)
+    previews_count = PDFConverter.convert(file.path, temp_directory, file_name_prefix)
     0.upto(previews_count - 1).each do |page|
-      self.previews.create(
-        filename: "/slides/#{id}/#{file_name_prefix}-#{page}.jpg",
-        file: File.open("tmp/slides/#{id}/#{file_name_prefix}-#{page}.jpg")
-      )
+      self.previews.create(file: File.open("#{temp_directory}/#{file_name_prefix}-#{page}.jpg"))
     end
+
+    FileUtils.rm_rf(temp_directory) # clear existed files
   end
 
   def convert!
     previews.destroy_all                    # clear existed previews
-    FileUtils.rm_rf("tmp/slides/#{id}/") # clear existed files
 
     convert
   end

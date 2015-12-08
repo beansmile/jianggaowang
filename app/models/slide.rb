@@ -1,3 +1,5 @@
+require 'pdf_converter'
+
 class Slide < ActiveRecord::Base
   include DeleteRemoteFilesConcern
 
@@ -22,6 +24,22 @@ class Slide < ActiveRecord::Base
     else
       title.truncate(25)
     end
+  end
+
+  def convert
+    return if previews.any?
+
+    previews_count = PDFConverter.convert(file.path, "public/slides/#{id}/", "preview")
+    0.upto(previews_count - 1).each do |page|
+      self.previews.create(filename: "/slides/#{id}/preview-#{page}.jpg")
+    end
+  end
+
+  def convert!
+    previews.destroy_all                    # clear existed previews
+    FileUtils.rm_rf("public/slides/#{id}/") # clear existed files
+
+    convert
   end
 
   def increase_visits_counter

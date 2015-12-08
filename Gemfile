@@ -51,6 +51,10 @@ gem 'devise', '~> 3.4.1'
 # http://activeadmin.info/
 gem 'activeadmin', github: 'activeadmin'
 
+# Manipulate images with minimal use of memory via ImageMagick / GraphicsMagick
+# https://github.com/minimagick/minimagick
+gem 'mini_magick', '~> 4.3', '>= 4.3.6'
+
 group :development do
   gem 'web-console', '~> 2.0'
 

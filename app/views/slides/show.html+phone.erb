@@ -14,8 +14,8 @@
   <div class="slide-list">
     <% @slide.previews.each do |preview| %>
       <figure itemprop="associatedMedia">
-        <a href=<%= preview.filename %> itemprop="contentUrl">
-            <%= image_tag preview.filename, lazy: true, itemprop: "thumbnail" %>
+        <a href=<%= preview.file.url %> itemprop="contentUrl">
+            <%= image_tag preview.file.url, lazy: true, itemprop: "thumbnail" %>
         </a>
       </figure>
     <% end %>

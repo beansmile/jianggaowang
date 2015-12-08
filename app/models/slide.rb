@@ -1,6 +1,8 @@
 class Slide < ActiveRecord::Base
   include DeleteRemoteFilesConcern
 
+  mount_uploader :file, AttachmentUploader
+
   validates :title, :description, :user_id, :filename, presence: true
 
   has_many :previews, dependent: :destroy

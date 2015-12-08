@@ -67,3 +67,7 @@ development:
 * `mail`: 用于配置邮件发送的相关参数，邮件目前使用163，如果需要使用其他邮件厂商的邮箱，请记得同时修改`config/initializers/smtp.rb`中的邮箱配置，但是请记得不要提交这部分的更改。
     `username`: 邮箱用户名
     `password`: 用于登陆邮箱的密码
+
+#### PDF 文件转换系统环境依赖
+1. GhostScript
+2. ImageMagick

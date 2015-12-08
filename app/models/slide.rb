@@ -3,7 +3,7 @@ require 'pdf_converter'
 class Slide < ActiveRecord::Base
   include DeleteRemoteFilesConcern
 
-  mount_uploader :file, AttachmentUploader
+  mount_uploader :file, PDFUploader
 
   validates :title, :description, :user_id, :file, presence: true
 

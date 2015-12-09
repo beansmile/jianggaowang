@@ -8,6 +8,4 @@
   <%= link_to "重新处理", manual_process_slide_path(slide) %>
 <% else slide.persistent_id.nil? %>
   <h4>您的讲稿正在后台处理中，此过程根据讲稿页面数量不同需要花费几秒钟到几分钟时间，请稍后刷新页面重试。</h4>
-  如果处理长时间未完成，您可以：
-  <%= link_to "重新处理", manual_process_slide_path(slide) %>
 <% end %>

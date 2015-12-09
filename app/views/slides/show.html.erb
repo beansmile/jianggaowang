@@ -71,7 +71,7 @@
               </p>
               <p>
                 总页数：
-                <%= @slide.previews.any? ? @slide.previews.count : @slide.retrieve_total_pages %>
+                <%= @slide.previews.any? ? @slide.previews.count : "处理中" %>
               </p>
               <p>
                 总浏览量：
@@ -93,13 +93,13 @@
                 <% if @slide.previews.any? %>
                   <p>
                     新浪微博分享
-                    <wb:share-button appkey="4Mxe3p" addition="number" type="button" ralateUid="5283496115" default_text="我在讲稿网发现了一个很不错的讲稿《<%= @slide.title %>》，作者是<%= @slide.user.try(:name) %>，分享给各位朋友！" url=<%= request.url %> pic="<%= resource_url(@slide.previews.first.filename) %>"></wb:share-button>
+                    <wb:share-button appkey="4Mxe3p" addition="number" type="button" ralateUid="5283496115" default_text="我在讲稿网发现了一个很不错的讲稿《<%= @slide.title %>》，作者是<%= @slide.user.try(:name) %>，分享给各位朋友！" url=<%= request.url %> pic="<%= image_url @slide.previews.first.file.url %>"></wb:share-button>
                   </p>
                 <% end %>
 
                 <% if @slide.downloadable %>
                   <p>
-                    <%= link_to resource_url(@slide.filename) do %>
+                    <%= link_to @slide.file.url do %>
                       <span class="glyphicon glyphicon-cloud-download"></span>下载原版PDF
                     <% end %>
                   </p>

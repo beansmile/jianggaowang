@@ -1,5 +1,5 @@
 class Preview < ActiveRecord::Base
-  include DeleteRemoteFilesConcern
+  mount_uploader :file, PreviewUploader
 
   belongs_to :slide
 end

@@ -178,6 +178,7 @@ GEM
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
     mime-types (1.25.1)
+    mini_magick (4.3.6)
     mini_portile (0.6.2)
     minitest (5.8.2)
     multi_json (1.11.2)
@@ -330,6 +331,7 @@ DEPENDENCIES
   jquery-rails
   kaminari (~> 0.16.1)
   lazyload-rails
+  mini_magick (~> 4.3, >= 4.3.6)
   noty-rails (~> 2.3.4)
   pg (~> 0.18.2)
   qiniu (~> 6.2.1)

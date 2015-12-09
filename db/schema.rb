@@ -11,14 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150401234324) do
+ActiveRecord::Schema.define(version: 20151208153414) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
-    t.text     "body",          limit: 65535
-    t.string   "resource_id",   limit: 255,   null: false
-    t.string   "resource_type", limit: 255,   null: false
-    t.integer  "author_id",     limit: 4
+    t.text     "body"
+    t.string   "resource_id",   limit: 255, null: false
+    t.string   "resource_type", limit: 255, null: false
+    t.integer  "author_id"
     t.string   "author_type",   limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -34,7 +37,7 @@ ActiveRecord::Schema.define(version: 20150401234324) do
     t.string   "reset_password_token",   limit: 255
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          limit: 4,   default: 0,  null: false
+    t.integer  "sign_in_count",                      default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip",     limit: 255
@@ -48,51 +51,53 @@ ActiveRecord::Schema.define(version: 20150401234324) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name",         limit: 255
-    t.integer  "slides_count", limit: 4
+    t.integer  "slides_count"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "collections", force: :cascade do |t|
-    t.integer  "user_id",    limit: 4
-    t.integer  "slide_id",   limit: 4
+    t.integer  "user_id"
+    t.integer  "slide_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "likes", force: :cascade do |t|
-    t.integer  "slide_id",   limit: 4
-    t.integer  "user_id",    limit: 4
+    t.integer  "slide_id"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "previews", force: :cascade do |t|
-    t.integer  "slide_id",   limit: 4
+    t.integer  "slide_id"
     t.string   "filename",   limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "file"
   end
 
   create_table "slides", force: :cascade do |t|
     t.string   "title",             limit: 255
     t.string   "description",       limit: 255
     t.string   "filename",          limit: 255
-    t.integer  "user_id",           limit: 4
-    t.integer  "category_id",       limit: 4
+    t.integer  "user_id"
+    t.integer  "category_id"
     t.boolean  "downloadable"
     t.string   "persistent_id",     limit: 255
     t.string   "persistent_state",  limit: 255
-    t.integer  "visits_count",      limit: 4,   default: 0
-    t.integer  "likes_count",       limit: 4,   default: 0
-    t.integer  "collections_count", limit: 4,   default: 0
+    t.integer  "visits_count",                  default: 0
+    t.integer  "likes_count",                   default: 0
+    t.integer  "collections_count",             default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "file"
   end
 
   create_table "users", force: :cascade do |t|
     t.string   "name",                            limit: 255
-    t.text     "bio",                             limit: 65535
+    t.text     "bio"
     t.string   "email",                           limit: 255
     t.string   "password_digest",                 limit: 255
     t.string   "avatar",                          limit: 255

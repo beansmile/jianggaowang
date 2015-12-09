@@ -12,6 +12,7 @@ class Slide < ActiveRecord::Base
   has_many :collecting_users, through: :collections, source: :user
   belongs_to :category, counter_cache: true
   belongs_to :user
+  has_and_belongs_to_many :events
 
   scope :hotest, -> { where('visits_count > 0').order(visits_count: :desc).limit(12) }
   scope :newest, -> { order(created_at: :desc).limit(12) }

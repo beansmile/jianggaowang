@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   has_many :liking_slides, through: :likes, source: :slide
   has_many :collections
   has_many :collecting_slides, through: :collections, source: :slide
+  has_many :events, foreign_key: 'creator_id'
 
   validates :name, :email, presence: true
   validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }

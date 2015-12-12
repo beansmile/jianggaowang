@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151209061237) do
+ActiveRecord::Schema.define(version: 20151212121936) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,14 +74,6 @@ ActiveRecord::Schema.define(version: 20151209061237) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "events_slides", id: false, force: :cascade do |t|
-    t.integer "event_id", null: false
-    t.integer "slide_id", null: false
-  end
-
-  add_index "events_slides", ["event_id"], name: "index_events_slides_on_event_id", using: :btree
-  add_index "events_slides", ["slide_id"], name: "index_events_slides_on_slide_id", using: :btree
-
   create_table "likes", force: :cascade do |t|
     t.integer  "slide_id"
     t.integer  "user_id"
@@ -112,6 +104,7 @@ ActiveRecord::Schema.define(version: 20151209061237) do
     t.integer  "likes_count",       default: 0
     t.integer  "collections_count", default: 0
     t.string   "file"
+    t.integer  "event_id"
   end
 
   create_table "users", force: :cascade do |t|

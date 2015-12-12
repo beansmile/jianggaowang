@@ -98,4 +98,5 @@ gem 'noty-rails', '~> 2.3.4'
 
 gem 'jquery-fileupload-rails', '~> 0.4.1'
 
-gem 'sidekiq', '~> 3.2.5'
+gem 'sidekiq', '~> 3.5', '>= 3.5.3'
+# gem 'sidekiq', '~> 4.0.1' # it has a bug. fuck it!!!!

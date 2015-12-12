@@ -2,6 +2,7 @@ require 'pdf_converter'
 
 class Slide < ActiveRecord::Base
   mount_uploader :file, PDFUploader
+  enum status: { transforming: 1, done: 2, failed: 3 }
 
   validates :title, :description, :user_id, :file, presence: true
 

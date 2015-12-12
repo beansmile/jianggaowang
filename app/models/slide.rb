@@ -27,7 +27,7 @@ class Slide < ActiveRecord::Base
   end
 
   def convert
-    return if previews.any?
+    return if previews.any? || !File.exist?(self.file.path)
     temp_directory = Rails.root.join("tmp/slides/#{id}")
 
     PDFConverter.convert(file.path, temp_directory)
@@ -39,8 +39,7 @@ class Slide < ActiveRecord::Base
   end
 
   def convert!
-    previews.destroy_all                    # clear existed previews
-
+    previews.destroy_all # clear existed previews
     convert
   end
 

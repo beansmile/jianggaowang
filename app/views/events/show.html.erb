@@ -41,3 +41,14 @@
     </div>
   </div>
 </div>
+
+<div class="col-md-9">
+  <% if @event.slides.any? %>
+    <div id="newest-slides" class='category-featured'>
+      <div>
+        <span class="category-title">讲稿</span>
+        <%= render 'slides/slides', slides: @event.slides %>
+      </div>
+    </div>
+  <% end %>
+</div>

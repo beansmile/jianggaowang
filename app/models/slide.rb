@@ -1,11 +1,11 @@
 require 'pdf_converter'
 
 class Slide < ActiveRecord::Base
+  # attr related macros
   mount_uploader :file, PDFUploader
   enum status: { transforming: 1, done: 2, failed: 3 }
 
-  validates :title, :description, :user_id, :file, presence: true
-
+  # association
   has_many :previews, dependent: :destroy
   has_many :likes
   has_many :liking_users, through: :likes, source: :user
@@ -14,11 +14,19 @@ class Slide < ActiveRecord::Base
   belongs_to :category, counter_cache: true
   belongs_to :user
 
+  # validation macros
+  validates :title, :description, :user_id, :file, presence: true
+
+  # callbacks
+  # https://github.com/mperham/sidekiq/wiki/Problems-and-Troubleshooting#cannot-find-modelname-with-id12345
+  # after_commit :convert_file, :on => :create
+  after_create :convert_file
+
+  # scopes
   scope :hotest, -> { where('visits_count > 0').order(visits_count: :desc).limit(12) }
   scope :newest, -> { order(created_at: :desc).limit(12) }
 
-  after_create :convert_file_later
-
+  # instance method
   def truncated_title
     if title =~ /\p{Han}+/u   # 包含中文
       title.truncate(14)
@@ -49,7 +57,8 @@ class Slide < ActiveRecord::Base
   end
 
   private
-  def convert_file_later
+  def convert_file
     SlideConvertJob.perform_later(id)
+    self.transforming!
   end
 end

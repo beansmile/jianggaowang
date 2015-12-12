@@ -1,0 +1,12 @@
+<% content_for :title do %>
+  "活动"
+<% end %>
+
+<div class="col-md-9">
+  <% if @events && @events.any? %>
+    <div id="newest-slides" class='category-featured'>
+      <span class="category-title">所有活动</span>
+      <%= render partial: "event", collection: @events %>
+    </div>
+  <% end %>
+</div>

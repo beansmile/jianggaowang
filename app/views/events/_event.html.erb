@@ -1,0 +1,25 @@
+<div class="col-sm-6 col-md-4">
+  <div class="thumbnail">
+
+    <%= link_to image_tag(event.cover.url), event_path(event), class: 'img-rounded' %>
+
+    <div class="caption text-center">
+      <h3>
+        <%= link_to event.header, event, data: { 'no-turbolink' => true }, title: event.header %>
+      </h3>
+
+      <p>
+        <small>
+          <%= link_to event.creator.try(:name), event.creator %>
+          发表于<%= l event.created_at.to_date, format: :long %>
+          <% if current_user && current_user == event.creator %>
+            <%= link_to event_path(event), method: :delete, title: "删除活动", class: 'delete-slide-link', data: { toggle: 'tooltip', confirm: "确认删除？" } do %>
+              <span class="glyphicon glyphicon-trash"></span>
+            <% end %>
+          <% end %>
+        </small>
+      </p>
+    </div>
+
+  </div>
+</div>

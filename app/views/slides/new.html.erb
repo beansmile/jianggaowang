@@ -2,6 +2,11 @@
 
 <div class="row slide-form-container">
   <%= form_for @slide, html: {id: 'upload_form'} do |f| %>
+    <%# add the slide to a event %>
+    <% if params[:event_id].present? %>
+      <%= hidden_field_tag(:event_id, params[:event_id]) %>
+    <% end %>
+
     <div class="col-md-6">
       <div class="form-group">
         <%= f.label :title, "请告诉我们您的讲稿的标题", for: "title" %>

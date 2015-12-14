@@ -1,26 +1,25 @@
 <div class="col-sm-6 col-md-4 isotope-item">
   <div class="portfolio-item event-isotope">
     <div class="event-img">
-      <%= link_to event.header, event, data: { 'no-turbolink' => true }, title: event.header %>
       <%= link_to image_tag(event.cover.small.url), event_path(event), class: 'img-responsive' %>
     </div>
-    <h4 class="event-box">
+    <div class="event-box">
+      <%= link_to event.header, event, data: { 'no-turbolink' => true }, title: event.header %>
+    </div>
+    <p class="text-muted event-box">
       <%= event.start_time %>
       -
       <%= event.end_time %>
-    </h4>
-    <p class="text-muted event-box">
-      <%= event.slides.count %>
-      available presentations
     </p>
-    <p class="text-muted event-box">
+
+    <div class="text-muted event-box">
       <%= link_to event.creator.try(:name), event.creator %>
-      发表于<%= l event.created_at.to_date, format: :long %>
+      发表于<%= l event.created_at.to_date, format: :short %>
       <% if current_user && current_user == event.creator %>
         <%= link_to event_path(event), method: :delete, title: "删除活动", class: 'delete-slide-link', data: { toggle: 'tooltip', confirm: "确认删除？" } do %>
           <span class="glyphicon glyphicon-trash"></span>
         <% end %>
       <% end %>
-    </p>
+    </div>
   </div>
 </div>

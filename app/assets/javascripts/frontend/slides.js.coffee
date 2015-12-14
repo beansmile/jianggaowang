@@ -91,7 +91,7 @@ $(document).on 'page:reloaded', ->
       console.log data
       result = data.result
       if result.status == 'success'
-        goToSlidePage(result.slide.id)
+        goToSlidePage(result.slide)
       else
         noty
           text: result.errors
@@ -107,6 +107,9 @@ $(document).on 'page:reloaded', ->
     resetUploadBtn = ->
       $uploadBtn.text('重新上传').removeAttr('disabled')
 
-    goToSlidePage = (slideId) ->
-      location.href = "http://#{location.host}/slides/#{slideId}"
+    goToSlidePage = (slide) ->
+      if slide.event_id
+        location.href = "http://#{location.host}/events/#{slide.event_id}"
+      else
+        location.href = "http://#{location.host}/slides/#{slide.id}"
 

@@ -3,7 +3,7 @@ class EventsController < ApplicationController
   before_action :set_current_event, only: [:edit, :update, :destroy, :show]
 
   def index
-    @events = current_user.events.all
+    @events = Event.order_by_created_at_desc.page(params[:page]).per(params[:per_page] || 10)
   end
 
   def show

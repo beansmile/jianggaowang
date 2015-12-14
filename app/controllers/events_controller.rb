@@ -3,11 +3,11 @@ class EventsController < ApplicationController
   before_action :set_current_event, only: [:edit, :update, :destroy, :show]
 
   def index
-    @events = current_user.events.order_by_created_at_desc.page(params[:page]).per(params[:per_page] || 10)
+    @events = current_user.events.order_by_created_at_desc.page(params[:page]).per(params[:per_page])
   end
 
   def show
-    @slides = @event.slides.page(params[:page]).per(1)
+    @slides = @event.slides.page(params[:page]).per(10)
   end
 
   def new

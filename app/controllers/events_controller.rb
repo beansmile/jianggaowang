@@ -7,6 +7,7 @@ class EventsController < ApplicationController
   end
 
   def show
+    @slides = @event.slides.page(params[:page]).per(1)
   end
 
   def new

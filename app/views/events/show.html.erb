@@ -44,15 +44,18 @@
   </div>
 
   <div class="col-md-12">
-    <% if @event.slides.any? %>
+    <% if @slides.any? %>
       <div id="newest-slides" class='category-featured'>
         <div>
           <span class="category-title">讲稿</span>
-          <%= render 'slides/slides', slides: @event.slides %>
+          <%= render 'slides/slides', slides: @slides %>
         </div>
       </div>
     <% else %>
       暂无讲稿。 点击<%= link_to "上传讲稿", new_slide_path(event_id: @event.id) %>
     <% end %>
+    <div class="row text-center">
+      <%= paginate @slides %>
+    </div>
   </div>
 </div>

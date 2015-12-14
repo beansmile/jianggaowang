@@ -12,6 +12,7 @@ class Slide < ActiveRecord::Base
   has_many :collecting_users, through: :collections, source: :user
   belongs_to :category, counter_cache: true
   belongs_to :user
+  belongs_to :event
 
   scope :hotest, -> { where('visits_count > 0').order(visits_count: :desc).limit(12) }
   scope :newest, -> { order(created_at: :desc).limit(12) }
@@ -52,5 +53,6 @@ class Slide < ActiveRecord::Base
   private
   def convert_file_later
     SlideConvertJob.perform_later(id)
+    # convert!
   end
 end

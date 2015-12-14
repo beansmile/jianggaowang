@@ -11,18 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151208153414) do
+ActiveRecord::Schema.define(version: 20151212121936) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "active_admin_comments", force: :cascade do |t|
-    t.string   "namespace",     limit: 255
+    t.string   "namespace"
     t.text     "body"
-    t.string   "resource_id",   limit: 255, null: false
-    t.string   "resource_type", limit: 255, null: false
+    t.string   "resource_id",   null: false
+    t.string   "resource_type", null: false
     t.integer  "author_id"
-    t.string   "author_type",   limit: 255
+    t.string   "author_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -32,16 +32,16 @@ ActiveRecord::Schema.define(version: 20151208153414) do
   add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
 
   create_table "admin_users", force: :cascade do |t|
-    t.string   "email",                  limit: 255, default: "", null: false
-    t.string   "encrypted_password",     limit: 255, default: "", null: false
-    t.string   "reset_password_token",   limit: 255
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                      default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip",     limit: 255
-    t.string   "last_sign_in_ip",        limit: 255
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -50,10 +50,10 @@ ActiveRecord::Schema.define(version: 20151208153414) do
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "categories", force: :cascade do |t|
-    t.string   "name",         limit: 255
-    t.integer  "slides_count"
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "slides_count"
   end
 
   create_table "collections", force: :cascade do |t|
@@ -61,6 +61,17 @@ ActiveRecord::Schema.define(version: 20151208153414) do
     t.integer  "slide_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string   "header"
+    t.text     "content"
+    t.datetime "start_at"
+    t.datetime "end_at"
+    t.integer  "creator_id"
+    t.string   "cover"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "likes", force: :cascade do |t|
@@ -72,39 +83,40 @@ ActiveRecord::Schema.define(version: 20151208153414) do
 
   create_table "previews", force: :cascade do |t|
     t.integer  "slide_id"
-    t.string   "filename",   limit: 255
+    t.string   "filename"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "file"
   end
 
   create_table "slides", force: :cascade do |t|
-    t.string   "title",             limit: 255
-    t.string   "description",       limit: 255
-    t.string   "filename",          limit: 255
+    t.string   "title"
+    t.string   "description"
+    t.string   "filename"
     t.integer  "user_id"
     t.integer  "category_id"
     t.boolean  "downloadable"
-    t.string   "persistent_id",     limit: 255
-    t.string   "persistent_state",  limit: 255
-    t.integer  "visits_count",                  default: 0
-    t.integer  "likes_count",                   default: 0
-    t.integer  "collections_count",             default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "persistent_id"
+    t.string   "persistent_state"
+    t.integer  "visits_count",      default: 0
+    t.integer  "likes_count",       default: 0
+    t.integer  "collections_count", default: 0
     t.string   "file"
+    t.integer  "event_id"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "name",                            limit: 255
-    t.text     "bio"
-    t.string   "email",                           limit: 255
-    t.string   "password_digest",                 limit: 255
-    t.string   "avatar",                          limit: 255
-    t.string   "reset_password_token",            limit: 255
-    t.datetime "reset_password_token_expires_at"
+    t.string   "name"
+    t.string   "email"
+    t.string   "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "avatar"
+    t.text     "bio"
+    t.string   "reset_password_token"
+    t.datetime "reset_password_token_expires_at"
   end
 
 end

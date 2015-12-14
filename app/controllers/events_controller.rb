@@ -1,9 +1,9 @@
 class EventsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:index, :new, :create, :edit, :update, :destroy]
   before_action :set_current_event, only: [:edit, :update, :destroy, :show]
 
   def index
-    @events = Event.order_by_created_at_desc.page(params[:page]).per(params[:per_page] || 10)
+    @events = current_user.events.order_by_created_at_desc.page(params[:page]).per(params[:per_page] || 10)
   end
 
   def show

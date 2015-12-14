@@ -1,7 +1,7 @@
 class EventUploader < BaseUploader
 
   version :small do
-    process :resize_to_fit => [130, 130]
+    process :resize_to_fit => [180, 130]
   end
 
   version :medium do

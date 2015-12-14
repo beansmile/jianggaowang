@@ -1,12 +1,23 @@
 <% content_for :title do %>
-  "活动"
+"活动"
 <% end %>
 
-<div class="col-md-9">
-  <% if @events && @events.any? %>
-    <div id="newest-slides" class='category-featured'>
-      <span class="category-title">所有活动</span>
-      <%= render partial: "event", collection: @events %>
+<div id="events-index-page">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1 class="title-lg first-child">
+        <span class="popular">
+          我的活动
+        </span>
+      </h1>
     </div>
-  <% end %>
+  </div>
+
+  <div class="row" id="isotope-container">
+    <% if @events.any? %>
+      <%= render partial: "event_item", collection: @events, as: :event %>
+    <% else %>
+      没有活动。
+    <% end %>
+  </div>
 </div>

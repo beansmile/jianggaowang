@@ -15,10 +15,10 @@ class EventsController < ApplicationController
   end
 
   def create
-    @slide = current_user.events.new(event_params)
-    if @slide.save
+    @event = current_user.events.new(event_params)
+    if @event.save
       respond_to do |format|
-        format.html { redirect_to events_path }
+        format.html { redirect_to @event }
       end
     else
       render :new

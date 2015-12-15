@@ -19,8 +19,6 @@ class Slide < ActiveRecord::Base
   validates :title, :description, :user_id, :file, presence: true
 
   # callbacks
-  # https://github.com/mperham/sidekiq/wiki/Problems-and-Troubleshooting#cannot-find-modelname-with-id12345
-  # after_commit :convert_file, :on => :create
   after_create :convert_file
 
   # scopes

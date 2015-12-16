@@ -19,7 +19,7 @@ class SlidesController < ApplicationController
     @slide = current_user.slides.new(slide_params)
     @slide.event = Event.find(params[:event_id]) if params[:event_id].present? && Event.exists?(params[:event_id])
     if @slide.save
-      render json: {status: "success", slide: {id: @slide.id}}
+      render json: {status: "success", slide: {id: @slide.id, event_id: @slide.event_id}}
     else
       render json: {errors: @slide.errors.full_messages.join(";")}
     end

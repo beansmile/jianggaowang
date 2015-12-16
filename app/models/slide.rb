@@ -1,10 +1,11 @@
 require 'pdf_converter'
 
 class Slide < ActiveRecord::Base
+  # attr related macros
   mount_uploader :file, PDFUploader
+  enum status: { transforming: 1, done: 2, failed: 3 }
 
-  validates :title, :description, :user_id, :file, presence: true
-
+  # association
   has_many :previews, dependent: :destroy
   has_many :likes
   has_many :liking_users, through: :likes, source: :user
@@ -14,11 +15,17 @@ class Slide < ActiveRecord::Base
   belongs_to :user
   belongs_to :event
 
+  # validation macros
+  validates :title, :description, :user_id, :file, presence: true
+
+  # callbacks
+  after_create :convert_file
+
+  # scopes
   scope :hotest, -> { where('visits_count > 0').order(visits_count: :desc).limit(12) }
   scope :newest, -> { order(created_at: :desc).limit(12) }
 
-  after_create :convert_file_later
-
+  # instance method
   def truncated_title
     if title =~ /\p{Han}+/u   # 包含中文
       title.truncate(14)
@@ -28,21 +35,19 @@ class Slide < ActiveRecord::Base
   end
 
   def convert
-    return if previews.any?
+    return if previews.any? || !File.exist?(self.file.path)
+    temp_directory = Rails.root.join("tmp/slides/#{id}")
 
-    temp_directory = "tmp/slides/#{id}/"
-    file_name_prefix = "preview"
-    previews_count = PDFConverter.convert(file.path, temp_directory, file_name_prefix)
-    0.upto(previews_count - 1).each do |page|
-      self.previews.create(file: File.open("#{temp_directory}/#{file_name_prefix}-#{page}.jpg"))
+    PDFConverter.convert(file.path, temp_directory)
+    Dir.glob("#{temp_directory}/preview-*.jpg").each do |preview|
+      self.previews.create(file: File.open(preview))
     end
 
     FileUtils.rm_rf(temp_directory) # clear existed files
   end
 
   def convert!
-    previews.destroy_all                    # clear existed previews
-
+    previews.destroy_all # clear existed previews
     convert
   end
 
@@ -51,8 +56,8 @@ class Slide < ActiveRecord::Base
   end
 
   private
-  def convert_file_later
+  def convert_file
     SlideConvertJob.perform_later(id)
-    # convert!
+    self.transforming!
   end
 end

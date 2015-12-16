@@ -1,12 +1,15 @@
 class EventsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
-  before_action :set_current_event, only: [:edit, :update, :destroy, :show]
+  before_action :authenticate_user!, except: [:show]
+  before_action :set_current_event, only: [:edit, :update, :destroy]
 
   def index
-    @events = current_user.events.all
+    @events = current_user.events.order_by_created_at_desc.page(params[:page]).per(params[:per_page])
   end
 
+  # show action is open to guest so that they see the events and the slides.
   def show
+    @event = Event.find params[:id]
+    @slides = @event.slides.page(params[:page]).per(10)
   end
 
   def new
@@ -14,10 +17,10 @@ class EventsController < ApplicationController
   end
 
   def create
-    @slide = current_user.events.new(event_params)
-    if @slide.save
+    @event = current_user.events.new(event_params)
+    if @event.save
       respond_to do |format|
-        format.html { redirect_to events_path }
+        format.html { redirect_to @event }
       end
     else
       render :new

@@ -1,11 +1,8 @@
-<% if slide.persistent_state == 'transforming' %>
+<% if slide.transforming? %>
   <h4>对不起，您的讲稿正在处理中，请稍待几分钟后刷新重试。</h4>
-  您可以：
-  <%= link_to "刷新处理状态", process_retrieve_slide_path(slide) %>
-<% elsif slide.persistent_state == 'failed' %>
+<% elsif slide.failed? %>
   <h4>对不起，您的讲稿由于网络问题等原因处理失败。</h4>
   您可以尝试：
+  <%# TODO: implement the retry %>
   <%= link_to "重新处理", manual_process_slide_path(slide) %>
-<% else slide.persistent_id.nil? %>
-  <h4>您的讲稿正在后台处理中，此过程根据讲稿页面数量不同需要花费几秒钟到几分钟时间，请稍后刷新页面重试。</h4>
 <% end %>

@@ -1,11 +1,9 @@
 class SlideConvertJob < ActiveJob::Base
-  queue_as :default
+  queue_as :jianggaowang
 
   def perform(slide_id)
-    slide = Slide.find_by id: slide_id
-    return unless slide.present?
-
-    puts "Converting slide with id=#{slide_id}"
+    slide = Slide.find slide_id
     slide.convert!
+    slide.done!
   end
 end

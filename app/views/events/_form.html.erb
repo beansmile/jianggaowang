@@ -37,12 +37,12 @@
 
     <div class="form-group">
       <%= f.label :start_at, "活动开始时间", for: "start_at" %>
-      <%= f.date_field :start_at, min: Date.today, placeholder: "活动详情", class: "form-control", required: true, id: "event-start_at" %>
+      <%= f.date_field :start_at, placeholder: "活动开始时间", class: "form-control", required: true, id: "event-start_at" %>
     </div>
 
     <div class="form-group">
       <%= f.label :end_at, "活动结束时间", for: "end_at" %>
-      <%= f.date_field :end_at, min: Date.today, placeholder: "活动详情", class: "form-control", required: true, id: "event-end_at" %>
+      <%= f.date_field :end_at, placeholder: "活动结束时间", class: "form-control", required: true, id: "event-end_at" %>
     </div>
   </div>
 <% end %>

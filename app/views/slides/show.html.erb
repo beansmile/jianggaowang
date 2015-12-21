@@ -14,7 +14,8 @@
           <i class="glyphicon glyphicon-fullscreen"></i>
         <% end %>
 
-        <%= link_to collect_slide_path(@slide), id: 'collect_slide_btn', class: 'btn btn-sm btn-primary pull-right', disabled: current_user && current_user.collected_slide?(@slide), style: 'margin-left: 5px;', method: :post, remote: true do %>
+        <%# https://trello.com/c/Xi7rWbt1/30-1  %>
+        <% link_to collect_slide_path(@slide), id: 'collect_slide_btn', class: 'btn btn-sm btn-primary pull-right', disabled: current_user && current_user.collected_slide?(@slide), style: 'margin-left: 5px;', method: :post, remote: true do %>
           <span class="glyphicon glyphicon-pushpin"></span>
           收藏 (<span id='collections_count'><%= @slide.collections_count %></span>)
         <% end %>

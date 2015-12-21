@@ -81,6 +81,8 @@ GEM
     bootstrap-sass (3.3.4.1)
       autoprefixer-rails (>= 5.0.0.1)
       sass (>= 3.2.19)
+    bootstrap-wysihtml5-rails (0.3.3.7)
+      railties (>= 3.0)
     bourbon (4.1.1)
       sass (~> 3.3)
       thor
@@ -309,6 +311,7 @@ DEPENDENCIES
   better_errors (~> 2.0.0)
   binding_of_caller (~> 0.7.2)
   bootflat-rails (~> 0.1.9)
+  bootstrap-wysihtml5-rails (~> 0.3.3.7)
   byebug (~> 8.0.1)
   capistrano (~> 3.4.0)
   capistrano-bundler (~> 1.1.4)

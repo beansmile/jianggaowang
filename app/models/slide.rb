@@ -38,9 +38,16 @@ class Slide < ActiveRecord::Base
     return if previews.any? || !File.exist?(self.file.path)
     temp_directory = Rails.root.join("tmp/slides/#{id}")
 
-    PDFConverter.convert(file.path, temp_directory)
-    Dir.glob("#{temp_directory}/preview-*.jpg").each do |preview|
-      self.previews.create(file: File.open(preview))
+    previews_count = PDFConverter.convert(file.path, temp_directory)
+    0.upto(previews_count - 1).each do |page_count|
+      preview_path = if previews_count == 1
+                       "#{temp_directory}/preview.jpg"
+                     else
+                       "#{temp_directory}/preview-#{page_count}.jpg"
+                     end
+      if File.exist? preview_path
+        self.previews.create(file: File.open(preview_path))
+      end
     end
 
     FileUtils.rm_rf(temp_directory) # clear existed files

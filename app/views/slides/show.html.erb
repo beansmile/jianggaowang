@@ -4,7 +4,7 @@
 
 <div class="row slide-page">
   <div class="col-md-8">
-    <% if @slide.previews.any? %>
+    <% if @slide.done? && @slide.previews.any? %>
       <div class="pages-container">
         <%= render 'pages', slide: @slide %>
       </div>

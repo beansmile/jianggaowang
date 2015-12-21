@@ -55,4 +55,11 @@ namespace :deploy do
     end
   end
 
+  desc 'Visit the app'
+  task :visit_web do
+    system "open #{fetch(:app_url)}"
+  end
+
+  after :deploy, "deploy:visit_web"
+end
 end

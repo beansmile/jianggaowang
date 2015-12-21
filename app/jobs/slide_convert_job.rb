@@ -4,6 +4,5 @@ class SlideConvertJob < ActiveJob::Base
   def perform(slide_id)
     slide = Slide.find slide_id
     slide.convert!
-    slide.done!
   end
 end

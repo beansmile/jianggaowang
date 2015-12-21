@@ -66,10 +66,10 @@ group :development do
 
   gem 'thin', '~> 1.6.2'
 
-  gem 'capistrano', '~> 3.2.1'
+  gem 'capistrano', '~> 3.4.0'
   gem 'capistrano-rvm', '~> 0.1.1'
-  gem 'capistrano-bundler', '~> 1.1.3'
-  gem 'capistrano-rails', '~> 1.1.2'
+  gem 'capistrano-bundler', '~> 1.1.4'
+  gem 'capistrano-rails', '~> 1.1.5'
 
   gem 'capistrano-sidekiq', '~> 0.3.8'
 end

@@ -26,7 +26,7 @@ set :log_level, :info
 set :linked_files, %w{config/database.yml config/secrets.yml}
 
 # Default value for linked_dirs is []
-set :linked_dirs, %w{tmp/pids}
+set :linked_dirs, fetch(:linked_dirs, []).push('log', 'vendor/bundle', 'public/uploads', 'tmp/pids')
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }

@@ -18,5 +18,6 @@
 //= require galleria
 //= require galleria.classic
 //= require jquery-fileupload/basic
+//= require bootstrap-wysihtml5
 //= require_tree ./frontend
 //= require_tree ./shared

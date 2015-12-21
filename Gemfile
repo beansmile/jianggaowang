@@ -100,3 +100,6 @@ gem 'jquery-fileupload-rails', '~> 0.4.1'
 
 # gem 'sidekiq', '~> 3.5', '>= 3.5.3'
 gem 'sidekiq', '~> 4.0.1'
+
+# https://github.com/Nerian/bootstrap-wysihtml5-rails
+gem 'bootstrap-wysihtml5-rails', '~> 0.3.3.7'

@@ -95,7 +95,7 @@ namespace :remote do
     on roles(:app) do
       with_verbosity Logger::DEBUG do
         log_file = ENV['file'] || fetch(:rails_env)
-        execute "tail -f #{shared_path}/log/#{log_file}.log"
+        execute "tail -f #{current_path}/log/#{log_file}.log"
       end
     end
   end

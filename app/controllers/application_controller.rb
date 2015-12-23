@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  before_action :detect_device_format
+  before_action :detect_device_format, :set_redirect_to_path
 
   helper_method :current_user
 
@@ -53,6 +53,12 @@ class ApplicationController < ActionController::Base
       request.variant = :tablet
     when /Windows Phone/i
       request.variant = :phone
+    end
+  end
+
+  def set_redirect_to_path
+    if self.class != UserPasswordsController && self.class != SessionsController && self.class != UsersController && !request.xhr?
+      session[:return_to] = request.url
     end
   end
 end

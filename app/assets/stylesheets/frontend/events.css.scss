@@ -73,3 +73,10 @@
     text-align: center;
   }
 }
+
+
+#events_new {
+  .modal-backdrop {
+    position: inherit;
+  }
+}

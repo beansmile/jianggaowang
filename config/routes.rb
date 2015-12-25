@@ -29,8 +29,10 @@ Rails.application.routes.draw do
   delete '/logout' => 'sessions#destroy'
   resources :sessions, only: [:create]
 
-  get '/signup' => 'users#new'
-  resources :users, only: [:show, :create]
+  # disable signup for now
+  # get '/signup' => 'users#new'
+  # resources :users, only: [:show, :create]
+  resources :users, only: [:show]
 
   resources :slides, only: [:show, :new, :create, :destroy] do
     collection do

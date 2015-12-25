@@ -34,7 +34,7 @@ Rails.application.routes.draw do
   # resources :users, only: [:show, :create]
   resources :users, only: [:show]
 
-  resources :slides, only: [:show, :new, :create, :destroy] do
+  resources :slides, only: [:show, :new, :create, :destroy, :edit, :update] do
     collection do
       get 'upload_result'
       get 'search'

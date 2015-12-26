@@ -43,7 +43,10 @@ class SlidesController < ApplicationController
   def update
     @slide = Slide.find params[:id]
     if @slide.update_attributes(slide_params)
-      render json: {status: "success", slide: {id: @slide.id}}
+      respond_to do |format|
+        format.html { redirect_to @slide }
+        format.json { render json: {status: "success", slide: {id: @slide.id}} }
+      end
     end
   end
 

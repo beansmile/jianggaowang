@@ -1,0 +1,41 @@
+<h3>编辑讲稿</h3>
+
+<div class="row slide-form-container">
+  <%= form_for @slide, html: {id: 'edit_upload_form'} do |f| %>
+    <%# add the slide to a event %>
+    <% if params[:event_id].present? %>
+      <%= hidden_field_tag(:event_id, params[:event_id]) %>
+    <% end %>
+
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= f.label :title, "讲稿标题", for: "title" %>
+        <%= f.text_field :title, placeholder: '讲稿标题', class: "form-control", required: true, id: "title", autofocus: true %>
+      </div>
+
+      <div class="form-group">
+        <button id='select_file' class='btn btn-primary'>
+          上传讲稿
+        </button>
+        <br>
+        <small>注意：目前仅支持PDF格式文件</small>
+
+        <%= f.file_field :file, class: "form-control", accept: "application/pdf", id: "file" %>
+
+        <div class="progress progress-striped active" id='upload_progress_bar'>
+          <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :description, "讲稿简介", for: "description" %>
+        <%= f.text_area :description, placeholder: "讲稿简介", rows: 10, class: "form-control", required: true, id: "description" %>
+      </div>
+
+      <div style='text-align: left;'>
+        <%= f.submit "上传", id: 'upload', class: 'btn btn-primary btn-lg', data: { 'disable-with' => '正在上传' } %>
+      </div>
+    </div>
+  <% end %>
+</div>

@@ -20,6 +20,7 @@ class Slide < ActiveRecord::Base
 
   # callbacks
   after_create :convert_file
+  after_update :update_file
 
   # scopes
   scope :hotest, -> { where('visits_count > 0').order(visits_count: :desc).limit(12) }
@@ -50,7 +51,7 @@ class Slide < ActiveRecord::Base
       end
     end
 
-    if self.previews.count == previews_count
+    if previews_count >= 1 && self.previews.count == previews_count
       self.done!
     else
       self.failed!
@@ -72,5 +73,13 @@ class Slide < ActiveRecord::Base
   def convert_file
     SlideConvertJob.perform_later(id)
     self.transforming!
+  end
+
+  def update_file
+    # self.transforming! will case the callback again
+    if self.file_changed? && !self.status_changed?
+      self.transforming!
+      SlideConvertJob.perform_later(id)
+    end
   end
 end

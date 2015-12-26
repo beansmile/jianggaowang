@@ -50,7 +50,7 @@ class Slide < ActiveRecord::Base
       end
     end
 
-    if self.previews.count == previews_count
+    if previews_count >= 1 && self.previews.count == previews_count
       self.done!
     else
       self.failed!

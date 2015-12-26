@@ -42,17 +42,6 @@
 
   <div class="col-md-4 slide-page-sidebar">
     <div class="author-infos">
-      <div class="col-md-3">
-        <a href="<%= user_path(@slide.user) %>" class="author-avatar-link">
-          <%= image_tag @slide.user.avatar.url, class: 'author-avatar img-rounded' %>
-        </a>
-      </div>
-      <div class='author col-md-8'>
-        <h4><%= link_to @slide.user.name, @slide.user, class: 'author-name' %></h4>
-        <div class="author-bio">
-          <%= @slide.user.friendly_bio %>
-        </div>
-      </div>
 
       <div class="clearfix"></div>
 

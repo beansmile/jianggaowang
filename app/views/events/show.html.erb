@@ -6,17 +6,11 @@
   <div class="row">
     <div class="col-md-8">
       <% if @event.cover.present? %>
-      <div class="event-cover">
-        <%= image_tag @event.cover.medium.url %>
-      </div>
+        <div class="event-cover">
+          <%= image_tag @event.cover.medium.url %>
+        </div>
       <% end %>
-      <div class="slide-infos">
-        <h4><%= @event.header %></h4>
-        <p><%= sanitize @event.content %></p>
-      </div>
-    </div>
 
-    <div class="col-md-4 slide-page-sidebar">
       <div class="author-infos">
 
         <div class="">
@@ -41,21 +35,22 @@
         <% end %>
       </div>
     </div>
-  </div>
 
-  <div class="col-md-12">
-    <% if @slides.any? %>
-      <div id="newest-slides" class='category-featured'>
-        <div>
-          <span class="category-title">讲稿</span>
-          <%= render 'slides/slides', slides: @slides %>
-        </div>
+    <div class="col-md-8">
+      <h4 class="event-info">活动内容</h4>
+
+      <div class="slide-infos">
+        <h4><%= @event.header %></h4>
+        <p><%= sanitize @event.content %></p>
       </div>
-    <% else %>
-      暂无讲稿。 点击<%= link_to "上传讲稿", new_slide_path(event_id: @event.id) %>
-    <% end %>
-    <div class="row text-center">
-      <%= paginate @slides %>
+    </div>
+
+    <div class="col-md-12 event-slides">
+      <% if @slides.any? %>
+        <%= render 'slides/slides', slides: @slides %>
+      <% else %>
+        暂无讲稿。 点击<%= link_to "上传讲稿", new_slide_path(event_id: @event.id) %>
+      <% end %>
     </div>
   </div>
 </div>

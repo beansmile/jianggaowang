@@ -23,6 +23,7 @@
           <span class="glyphicon glyphicon-thumbs-up"></span>
           赞 (<span id='likes_count'><%= @slide.likes_count %></span>)
         <% end %>
+
         <div class="clearfix"></div>
       </div>
     <% else %>
@@ -105,6 +106,18 @@
                     <% end %>
                   </p>
                 <% end %>
+              </div>
+            </li>
+          <% end %>
+
+
+          <% if @slide.user == current_user %>
+            <li class="list-group-item">
+              <div>
+                <%= link_to "编辑", edit_slide_path(@slide) %>
+              </div>
+              <div>
+                <%= link_to "删除", slide_path(@slide), method: :delete, data: { toggle: 'tooltip', confirm: "确认删除？" } %>
               </div>
             </li>
           <% end %>

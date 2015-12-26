@@ -113,3 +113,78 @@ $(document).on 'page:reloaded', ->
       else
         location.href = "http://#{location.host}/slides/#{slide.id}"
 
+  $editUploadForm = $('form#edit_upload_form')
+  if $editUploadForm.length
+    $selectFileBtn = $('#select_file')
+    $uploadBtn = $('#upload')
+    $uploadProgressBarContainer = $('#upload_progress_bar')
+    $uploadProgressBar = $uploadProgressBarContainer.find('.progress-bar')
+
+    $editUploadForm.fileupload
+      autoUpload: false
+      dataType: "json"
+      add: (e, data) ->
+        selectedFileName = data.files[0].name
+        $uploadProgressBar.text selectedFileName
+        $selectFileBtn.text(selectedFileName)
+        # $uploadBtn.unbind 'click'  # unbind previours bindings, otherwise the whole upload queue will be uploaded
+        data.context = $uploadBtn.click ->
+          uploadSlideForm = $(this).parents('form#upload_form');
+          titleInput = uploadSlideForm.find("#title")
+          descriptionInput = uploadSlideForm.find("#description")
+          if (titleInput.val() == "") or (descriptionInput.val() == "")
+            noty
+              text: '请填写文稿的标题和简介'
+              type: 'error'
+          else
+            $(this).text('上传讲稿中').attr('disabled', 'disabled')
+            data.submit()
+            false
+
+      progressall: (e, data) ->
+        progress = parseInt(data.loaded / data.total * 100, 10)
+
+        # $uploadProgressBarContainer.show()
+        $uploadProgressBar
+          .css('width', "#{progress}%")
+          .attr('aria-valuenow', progress)
+
+      done: (e, data) ->
+        slideUploadDoneHandler(data)
+
+      failure: (e, data) ->
+        console.log data
+
+    $selectFileBtn.click ->
+      $('#file').click()
+      false
+
+    slideUploadDoneHandler = (data) ->
+      # hideAndResetProgressBar()
+      resetUploadBtn()
+
+      console.log data
+      result = data.result
+      if result.status == 'success'
+        goToSlidePage(result.slide)
+      else
+        noty
+          text: result.errors
+          type: 'warning'
+
+    hideAndResetProgressBar = ->
+      $uploadProgressBarContainer.fadeOut()
+      $uploadProgressBar
+        .css('width', 0)
+        .attr('aria-valuenow', 0)
+        .text('')
+
+    resetUploadBtn = ->
+      $uploadBtn.text('重新上传').removeAttr('disabled')
+
+    goToSlidePage = (slide) ->
+      if slide.event_id
+        location.href = "http://#{location.host}/events/#{slide.event_id}"
+      else
+        location.href = "http://#{location.host}/slides/#{slide.id}"
+

@@ -9,7 +9,7 @@ class EventsController < ApplicationController
   # show action is open to guest so that they see the events and the slides.
   def show
     @event = Event.find params[:id]
-    @slides = @event.slides.page(params[:page]).per(10)
+    @slides = @event.slides
   end
 
   def new

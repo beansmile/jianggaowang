@@ -36,6 +36,20 @@ class SlidesController < ApplicationController
     redirect_to :back
   end
 
+  def edit
+    @slide = Slide.find params[:id]
+  end
+
+  def update
+    @slide = Slide.find params[:id]
+    if @slide.update_attributes(slide_params)
+      respond_to do |format|
+        format.html { redirect_to @slide }
+        format.json { render json: {status: "success", slide: {id: @slide.id}} }
+      end
+    end
+  end
+
   def like
     slide = Slide.find params[:id]
     slide.likes.build user: current_user

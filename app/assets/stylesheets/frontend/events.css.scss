@@ -69,7 +69,24 @@
 
 #event-show-page {
   .event-cover {
-    // width: 100%;
-    text-align: center;
+    float: left;
+    margin-right: 29px;
+  }
+
+  .event-info {
+    border-bottom: 1px solid #666666;
+    padding-bottom: 15px;
+  }
+
+  .event-slides {
+    margin-top: 20px;
+    margin-left: -15px;
+  }
+}
+
+
+#events_new {
+  .modal-backdrop {
+    position: inherit;
   }
 }

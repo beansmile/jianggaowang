@@ -55,4 +55,60 @@ namespace :deploy do
     end
   end
 
+  desc 'Visit the app'
+  task :visit_web do
+    system "open #{fetch(:app_url)}"
+  end
+
+  after :deploy, "deploy:visit_web"
 end
+
+namespace :remote do
+  desc "run rake task, usage: `cap staging remote:rake task='db:create'` "
+  task :rake do
+    on primary(:app) do
+      within release_path do
+        with rails_env: fetch(:rails_env) do
+          info "run `rake #{ENV['task']}`"
+          # inspired by https://github.com/capistrano/capistrano/issues/807
+          execute :rake, ENV['task']
+        end
+      end
+    end
+  end
+
+  desc "run rake task, usage: `cap staging remote:run command='pwd'` "
+  task :run do
+    on primary(:app) do
+      within release_path do
+        with rails_env: fetch(:rails_env) do
+          info "run `run command='your-command'`"
+          # inspired by https://github.com/capistrano/capistrano/issues/807
+          execute ENV['command']
+        end
+      end
+    end
+  end
+
+  desc "tail rails logs, usage: `cap staging remote:tail_log file=unicorn`"
+  task :tail_log do
+    on roles(:app) do
+      with_verbosity Logger::DEBUG do
+        log_file = ENV['file'] || fetch(:rails_env)
+        execute "tail -f #{current_path}/log/#{log_file}.log"
+      end
+    end
+  end
+
+  # available output verbosity: ['Logger::DEBUG' 'Logger::INFO' 'Logger::ERROR' 'Logger::WARN']
+  def with_verbosity(output_verbosity)
+    old_verbosity = SSHKit.config.output_verbosity
+    begin
+      SSHKit.config.output_verbosity = output_verbosity
+      yield
+    ensure
+      SSHKit.config.output_verbosity = old_verbosity
+    end
+  end
+end
+

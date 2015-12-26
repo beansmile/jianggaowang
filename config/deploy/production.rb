@@ -8,6 +8,7 @@ role :app, %w{deploy@jianggaowang.com}
 role :web, %w{deploy@jianggaowang.com}
 role :db,  %w{deploy@jianggaowang.com}
 
+set :app_url, 'http://jianggaowang.com'
 
 # Extended Server Syntax
 # ======================

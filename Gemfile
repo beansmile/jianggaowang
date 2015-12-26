@@ -70,6 +70,7 @@ group :development do
   gem 'capistrano-rvm', '~> 0.1.1'
   gem 'capistrano-bundler', '~> 1.1.4'
   gem 'capistrano-rails', '~> 1.1.5'
+  gem 'capistrano-rails-console', '~> 1.0', '>= 1.0.2'
 
   gem 'capistrano-sidekiq', '~> 0.3.8'
 end

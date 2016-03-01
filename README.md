@@ -15,12 +15,12 @@
 ```sh
 cp config/database.yml.example config/database.yml
 ```
-并且按照您自己的数据库配置，修改`config/database.yml`中的相关配置，比如数据库用户名以及密码。  
+并且按照您自己的数据库配置，修改`config/database.yml`中的相关配置，比如数据库用户名以及密码。
 2. 打开ngrok映射本地3000端口（或者是其他用于稍后的Rails server的端口）到公网
 ```sh
 ngrok 3000    # 如果您已经在ngrok网站上注册了新用户，您就可以加上subdomain参数尝试绑定指定二级域名，比如`ngrok -subdomain=jgw 3000`
 ```
-3. [拷贝一份`secrets.yml`文件并且执行配置](#%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AEsecretsyml%E6%96%87%E4%BB%B6)  
+3. [拷贝一份`secrets.yml`文件并且执行配置](#%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AEsecretsyml%E6%96%87%E4%BB%B6)
 4. 启动Rails服务器
   ```sh
   rails s
@@ -67,6 +67,23 @@ development:
 * `mail`: 用于配置邮件发送的相关参数，邮件目前使用163，如果需要使用其他邮件厂商的邮箱，请记得同时修改`config/initializers/smtp.rb`中的邮箱配置，但是请记得不要提交这部分的更改。
     `username`: 邮箱用户名
     `password`: 用于登陆邮箱的密码
+
+#### 配置redis数据库
+
+```sh
+# 先安装redis
+brew install redis
+```
+
+```sh
+# 再运行redis
+redis-server
+```
+
+#### 启动sidekiq
+```sh
+bundle exec sidekiq -C config/sidekiq.yml
+```
 
 #### PDF 文件转换系统环境依赖
 1. GhostScript

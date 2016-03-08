@@ -1,65 +1,90 @@
-body {
-  font-family: 'Open Sans', Arial, 'Hiragino Sans GB', 'Microsoft YaHei', 微软雅黑, STHeiti, 'WenQuanYi Micro Hei', SimSun, sans-serif;
-  background-image: image-url('ricepaper.png');
-}
+@import 'shared/normalize';
+@import 'shared/color';
 
+.hide {
+  display: none;
+}
 header {
-  .navbar {
-    border-radius: 0;
-    padding: 0 10%;
-    background-color: #434a54;
-
-    .navbar-brand-desc {
-      font-size: 70%;
+  width: 100%;
+  color: $white;
+  background-color: $headercolor;
+  a {
+    color: $white;
+  }
+  a:hover {
+    color: $hovercolor;
+  }
+  .navigation {
+    position: relative;
+    height: 80px;
+    overflow: hidden;
+    width: 1120px;
+    margin:0 auto;
+  }
+  .nav-logo {
+    position: absolute;
+    top:50%;
+    transform:translateY(-50%);
+    overflow: hidden;
+    & > a {
+      float: left;
+      font-size: 19px;
     }
-
-    .glyphicon {
-      margin-right: 5px;
-    }
-
-    .form-search .search-query {
-      border-radius: 4px;
-    }
-  }
-}
-
-#content {
-  margin: 0 10%;
-  margin-bottom: 50px;
-}
-
-footer {
-  .row {
-    margin-left: 0;
-    margin-right: 0;
-  }
-
-  .col-md-12 {
-    padding-left: 0;
-    padding-right: 0;
-  }
-
-  img.github {
-    vertical-align: bottom;
-  }
-}
-
-.pagination {
-  li.active {
-    a {
-      background-color: #4fc1e9;
-      border-color: #4fc1e9;
+    img {
+      vertical-align: middle;
     }
   }
-}
-
-.field_with_errors {
-  input.form-control {
-    border-color: #DA4453;
+  .menu-list {
+    padding-left: 60px;
+    padding-top: 10px;
+    float: left;
+    li {
+      float: left;
+      margin-left: 25px;
+    }
+  }
+  .search-area {
+    padding-left: 60px;
+    float: left;
+    margin-top: 10px;
+  }
+  .search-speech {
+    width: 280px;
+    height: 30px;
+    margin-top: -5px;
+    border-radius: 2px;
+    background: $white;
+    input {
+      padding: 2px 5px 3px 5px;
+      width: 250px;
+      height: 30px;
+      line-height: 30px;
+      color: $headercolor;
+      font-size: 13px;
+      background: none;
+      border: none;
+      outline: none;
+      vertical-align: 1px;
+    }
+    img {
+      height: 20px;
+    }
+  }
+  .nav-menu {
+    @extend .nav-logo;
+    right: 0;
+    .per-list {
+      overflow: hidden;
+      & > li {
+        float: left;
+        margin-left: 10px;
+      }
+    }
+  }
+  .update-speech,
+  .update-username
+  {
+    padding: 5px;
   }
 }
 
-.thumbnail > img, .thumbnail a > img {
-  overflow: hidden;
-  height: 150px;
-}

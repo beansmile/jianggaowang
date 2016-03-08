@@ -1,43 +1,34 @@
 <li>
-  <%= link_to new_slide_path do %>
-    <span class="glyphicon glyphicon-upload"></span>上传讲稿
+  <%= link_to new_slide_path do  %>
+    <span class = "update-speech">上传</span>
+    <%= image_tag "Shape.png" %>
   <% end %>
 </li>
 
 <li>
-  <%= link_to new_event_path do %>
-    <span class="glyphicon glyphicon-upload"></span>创建活动
-  <% end %>
-</li>
-
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-    <span class="glyphicon glyphicon-user"></span>
-    <%= current_user.name %>
-    <b class="caret"></b>
+  <a href="#">
+    <span class = "update-username"><%= current_user.name %></span>
+    <%= image_tag "user.png" %>
   </a>
-  <ul class="dropdown-menu" role="menu">
-    <li class="dropdown-header">个人账号</li>
+  <ul class="hide">
     <li>
       <%= link_to profile_path do %>
-        <span class="glyphicon glyphicon-home"></span>我的主页
-      <% end %>
-    </li>
-    <li>
-      <%= link_to events_path do %>
-        <span class="glyphicon glyphicon-briefcase"></span>我的活动
+      <%= image_tag "mine.png" %>
+        我的主页
       <% end %>
     </li>
     <li>
       <%= link_to edit_profile_path do %>
-        <span class="glyphicon glyphicon-wrench"></span>修改个人资料
+      <%= image_tag "p-detail.png" %>
+        个人资料
       <% end %>
     </li>
 
     <li class="divider"></li>
     <li>
       <%= link_to logout_path, method: :delete do %>
-        <span class="glyphicon glyphicon-log-out"></span>退出登录
+      <%= image_tag "exit.png" %>
+        退出登录
       <% end %>
     </li>
   </ul>

@@ -1,8 +1,9 @@
 $(document).on 'page:reloaded', ->
   $('.pdf-pages').each ->
     Galleria.run '.pdf-pages',
-      responsive:true
-      height:0.8
+      responsive: true
+      height: 0.8
+      thumbnails: 'numbers'
       transition: 'flash'
       swipe: true
       showInfo: false

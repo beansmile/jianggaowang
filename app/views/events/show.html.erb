@@ -4,10 +4,10 @@
 
 <div id="event-show-page">
   <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-12 col-sm-12">
       <% if @event.cover.present? %>
         <div class="event-cover">
-          <%= image_tag @event.cover.medium.url %>
+          <%= image_tag @event.cover.medium.url, class: "img-responsive" %>
         </div>
       <% end %>
 
@@ -35,7 +35,9 @@
         <% end %>
       </div>
     </div>
+  </div>
 
+  <div class="row">
     <div class="col-md-12">
       <h4 class="event-info">活动内容</h4>
 

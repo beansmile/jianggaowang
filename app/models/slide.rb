@@ -16,7 +16,7 @@ class Slide < ActiveRecord::Base
   belongs_to :event
 
   # validation macros
-  validates :title, :description, :user_id, :file, presence: true
+  validates :title, :description, :user_id, :file, :author, presence: true
 
   # callbacks
   after_create :convert_file

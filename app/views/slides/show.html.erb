@@ -55,10 +55,8 @@
                 《<%= @slide.title %>》
               </p>
               <p>
-                分类：
-                <%= link_to @category do %>
-                  <%= @category.try(:name) %>
-                <% end %>
+                作者：
+                <%= @slide.author %>
               </p>
               <p>
                 总页数：

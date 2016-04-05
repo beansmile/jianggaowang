@@ -14,6 +14,11 @@
       </div>
 
       <div class="form-group">
+        <%= f.label :author, "讲稿作者", for: "author" %>
+        <%= f.text_field :author, placeholder: '讲稿作者', class: "form-control", required: true, id: "author" %>
+      </div>
+
+      <div class="form-group">
         <button id='select_file' class='btn btn-primary'>
           上传讲稿
         </button>

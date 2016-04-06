@@ -39,4 +39,17 @@ class User < ActiveRecord::Base
     self.reset_password_token_expires_at = nil
     save
   end
+
+  def approved
+    !!approved_at
+  end
+
+  def approved=(val)
+    # ActiveAdmin use "1" to denote true
+    if val == "1"
+      self.approved_at = Time.current
+    else
+      self.approved_at = nil
+    end
+  end
 end

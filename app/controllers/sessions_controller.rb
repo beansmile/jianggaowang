@@ -1,13 +1,16 @@
 class SessionsController < ApplicationController
+  before_action :redirect_if_user_logined, except: :destroy
+  before_action :require_approved, only: :create
+
   def new
     @user = User.new
   end
 
   def create
-    if (@user = User.find_by name: params[:user].try(:[], :name))
-      if @user.authenticate(params[:user].try(:[], :password))
+    if login_user
+      if login_user.authenticate(params[:user].try(:[], :password))
         flash[:success] = "登录成功"
-        session[:user_id] = @user.id
+        session[:user_id] = login_user.id
 
         redirect_to after_sign_in_path
       else
@@ -30,5 +33,27 @@ class SessionsController < ApplicationController
     end
 
     redirect_to root_path
+  end
+
+  private
+
+  def redirect_if_user_logined
+    if current_user
+      flash[:warning] = '您已登录'
+      return redirect_to root_path
+    end
+
+    true
+  end
+
+  def login_user
+    @user ||= User.find_by name: params[:user].try(:[], :name)
+  end
+
+  def require_approved
+    unless login_user.try(:approved_at)
+      flash[:error] = "管理员还没有通过您的注册申请，请在收到申请通过邮件后再登录"
+      return redirect_to root_path
+    end
   end
 end

@@ -9,4 +9,11 @@ namespace :hotfix do
       end
     end
   end
+
+  desc 'Approve exist users'
+  task :approve_exist_users => :environment do
+    User.find_each do |user|
+      user.update_attribute :approved_at, Time.current
+    end
+  end
 end

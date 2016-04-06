@@ -31,10 +31,8 @@
         <span class="glyphicon glyphicon-exclamation-sign"></span>
         忘记密码？点击
         <%= link_to "重置密码", reset_user_passwords_path %>
-      </p>
 
-      <p>
-        目前内测阶段，有兴趣的朋友可以发送邮件到：<%= mail_to "kevin@beansmile.com" %> 进行申请
+        <span class="pull-right">还没有账户？去 <%= link_to "注册", signup_path %></span>
       </p>
     <% end %>
   </div>

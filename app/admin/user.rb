@@ -1,5 +1,5 @@
 ActiveAdmin.register User do
-  permit_params :name, :email, :password, :password_confirmation
+  permit_params :name, :email, :approved
 
   index do
     selectable_column
@@ -7,6 +7,7 @@ ActiveAdmin.register User do
     column :name
     column :bio
     column :email
+    column :approved
     column :avatar, class: 'user-avatar' do |user|
       image_tag user.avatar.url.gsub(/\A\/assets\//, '')
     end
@@ -17,8 +18,8 @@ ActiveAdmin.register User do
     f.inputs "Admin Details" do
       f.input :name
       f.input :email
-      f.input :password
-      f.input :password_confirmation
+      f.input :approved, as: :boolean
+      # TODO: Send user an email to notity him/her has been approved
     end
     f.actions
   end

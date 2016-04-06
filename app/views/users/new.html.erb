@@ -50,9 +50,18 @@
         <%= f.password_field :password_confirmation, class: 'form-control', placeholder: '请确认您的密码', required: true %>
       </div>
 
+      <div class="input-group">
+        <span class="input-group-addon">
+          <span class="glyphicon glyphicon-lock"></span>
+        </span>
+
+        <%= f.text_area :bio, class: 'form-control', placeholder: '请输入您的个人简介及使用本网站的简要原因', required: true %>
+      </div>
+
       <div class="input-group submit-btn-container">
         <%= f.submit "提交", class: 'btn btn-primary' %>
       </div>
     <% end %>
   </div>
+  <p class="col-md-6 col-md-offset-3">* 本网站目前处于内测阶段，新注册用户需要填写个人简介及使用本网站的简要原因，待管理员审核通过后方可正常登录使用本网站提供的服务。</p>
 </div>

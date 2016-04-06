@@ -75,29 +75,6 @@
             </div>
           </li>
 
-          <% if @slide.downloadable || @slide.previews.any? %>
-            <li class="list-group-item">
-              <h4 class="list-group-item-heading">分享讲稿</h4>
-              <div class="list-group-item-text">
-                <% if @slide.previews.any? %>
-                  <p>
-                    新浪微博分享
-                    <wb:share-button appkey="4Mxe3p" addition="number" type="button" ralateUid="5283496115" default_text="我在讲稿网发现了一个很不错的讲稿《<%= @slide.title %>》，作者是<%= @slide.user.try(:name) %>，分享给各位朋友！" url=<%= request.url %> pic="<%= image_url @slide.previews.first.file.url %>"></wb:share-button>
-                  </p>
-                <% end %>
-
-                <% if @slide.downloadable %>
-                  <p>
-                    <%= link_to @slide.file.url do %>
-                      <span class="glyphicon glyphicon-cloud-download"></span>下载原版PDF
-                    <% end %>
-                  </p>
-                <% end %>
-              </div>
-            </li>
-          <% end %>
-
-
           <% if @slide.user == current_user %>
             <li class="list-group-item">
               <div>

@@ -3,6 +3,8 @@ require 'pdf_converter'
 class Slide < ActiveRecord::Base
   # attr related macros
   mount_uploader :file, PDFUploader
+  mount_uploader :audio, AudioUploader
+
   enum status: { transforming: 1, done: 2, failed: 3 }
 
   # association

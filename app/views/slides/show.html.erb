@@ -81,7 +81,7 @@
                 <%= link_to "编辑", edit_slide_path(@slide) %>
               </div>
               <div>
-                <%= link_to "删除", slide_path(@slide), method: :delete, data: { toggle: 'tooltip', confirm: "确认删除？" } %>
+                <%= link_to "删除", slide_path(@slide, from: :show), method: :delete, data: { toggle: 'tooltip', confirm: "确认删除？" } %>
               </div>
             </li>
           <% end %>

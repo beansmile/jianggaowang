@@ -1,2 +1,0 @@
-$ ->
-  $('.slide-list img').lazyload()

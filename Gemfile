@@ -1,5 +1,4 @@
-source 'https://ruby.taobao.org'
-
+source 'https://gems.ruby-china.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
@@ -32,8 +31,6 @@ gem "lazyload-rails"
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring', '~> 1.3.4',        group: :development
 
-gem 'bootflat-rails', '~> 0.1.9'
-
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
@@ -41,6 +38,14 @@ gem 'carrierwave', '~> 0.10.0'
 gem 'carrierwave-qiniu', '~> 0.1.3'
 
 gem 'kaminari', '~> 0.16.1'
+
+# jQuery plugin for drop-in fix binded events problem caused by Turbolinks
+# https://github.com/kossnocorp/jquery.turbolinks
+gem 'jquery-turbolinks', '~> 2.1'
+
+# A set of small, responsive CSS modules
+# https://github.com/brunohenrique/purecss-rails
+gem 'purecss-rails', '~> 0.6.0'
 
 # Flexible authentication solution for Rails with Warden
 # Only required by activeadmin

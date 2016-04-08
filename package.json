@@ -1,5 +1,6 @@
 {
   "devDependencies": {
+    "eslint": "^2.7.0",
     "postcss": "^5.0.19",
     "stylelint": "^5.3.0",
     "stylelint-config-standard": "^5.0.0"

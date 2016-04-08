@@ -109,3 +109,7 @@ gem 'sidekiq', '~> 4.0.1'
 
 # https://github.com/Nerian/bootstrap-wysihtml5-rails
 gem 'bootstrap-wysihtml5-rails', '~> 0.3.3.7'
+
+# autoprefix for css
+# https://github.com/ai/autoprefixer-rails
+gem 'autoprefixer-rails'

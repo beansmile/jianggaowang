@@ -1,0 +1,18 @@
+/* for reset the tag style  */
+ul {
+  list-style-type: none;
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+  -webkit-padding-start: 0;
+}
+p {
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+}
+a {
+  text-decoration: none;
+}
+input, button {
+  padding: 0;
+  border: 0;
+}

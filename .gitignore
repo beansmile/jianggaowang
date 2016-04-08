@@ -21,3 +21,6 @@
 /config/secrets.yml
 public/uploads/
 public/slides/
+
+# Ignore node_modules
+/node_modules

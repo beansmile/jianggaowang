@@ -25,8 +25,8 @@
         line-height: 64px;
       }
     }
-    .login-register {
-      .title {
+    .login-wrap {
+      .user-toggle {
         display: flex;
         margin-bottom: 27px;
         justify-content: center;
@@ -50,8 +50,7 @@
           margin-left: 70px;
         }
       }
-      form {
-        display: none;
+      .user-info {
         width: 100%;
         input {
           width: 298px;
@@ -95,8 +94,23 @@
           font-weight: 200;
         }
       }
-      form.active {
-        display: block;
+      .user-login {
+        .email,
+        .confirm-password,
+        .register-btn {
+          display: none;
+        }
+      }
+      .user-register {
+        .login-btn,
+        .forget-password {
+          display: none;
+        }
+        .email,
+        .confirm-password,
+        .register-btn {
+          display: block;
+        }
       }
     }
   }

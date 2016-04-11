@@ -3,17 +3,22 @@ var Jianggaowang = Jianggaowang || {};
 Jianggaowang.UserPage = {
   // clik login or register button
   toggleLoginRegister: function() {
-    var $loginRegister = $('.login-register');
-    var $title = $loginRegister.find('.title');
-    var $li = $title.find('li');
-    $li.on('click', function(e) {
-      e.preventDefault();
-      e.stopPropagation();
-      var currentName= $(this).attr('class');
-      $title.find('.active').removeClass('active');
-      $(this).addClass('active');
-      $loginRegister.find('form.active').removeClass('active');
-      $loginRegister.find('.'+currentName).addClass('active');
+    var $a=$('.user-toggle li a');
+    $a.on('click', function() {
+      var $this = $(this);
+      var currentName=$this.text();
+      var $activeLi=$('.user-toggle li.active');
+      var $userInfo =$('.user-info');
+      $activeLi.removeClass('active');
+      $this.parent().addClass('active');
+      if(currentName==='注册') {
+        $userInfo.removeClass('user-login');
+        $userInfo.addClass('user-register');
+      }
+      else {
+        $userInfo.removeClass('user-register');
+        $userInfo.addClass('user-login');
+      }
     });
   },
   init: function() {

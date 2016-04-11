@@ -2,7 +2,12 @@
 html {
   font-family: "PingFang SC", "Microsoft YaHei", "微软雅黑", "SimHei", "sans-serif";
 }
-.clearfix:after {
+
+body {
+  font-size: 14px;
+}
+
+.clearfix::after {
   content: "";
   display: block;
   height: 0;

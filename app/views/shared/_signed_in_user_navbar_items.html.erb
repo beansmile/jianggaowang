@@ -1,44 +1,29 @@
-<li>
-  <%= link_to new_slide_path do %>
-    <span class="glyphicon glyphicon-upload"></span>上传讲稿
-  <% end %>
-</li>
-
-<li>
-  <%= link_to new_event_path do %>
-    <span class="glyphicon glyphicon-upload"></span>创建活动
-  <% end %>
-</li>
-
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-    <span class="glyphicon glyphicon-user"></span>
-    <%= current_user.name %>
-    <b class="caret"></b>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li class="dropdown-header">个人账号</li>
-    <li>
-      <%= link_to profile_path do %>
-        <span class="glyphicon glyphicon-home"></span>我的主页
-      <% end %>
-    </li>
-    <li>
-      <%= link_to events_path do %>
-        <span class="glyphicon glyphicon-briefcase"></span>我的活动
-      <% end %>
-    </li>
-    <li>
-      <%= link_to edit_profile_path do %>
-        <span class="glyphicon glyphicon-wrench"></span>修改个人资料
-      <% end %>
-    </li>
-
-    <li class="divider"></li>
-    <li>
-      <%= link_to logout_path, method: :delete do %>
-        <span class="glyphicon glyphicon-log-out"></span>退出登录
-      <% end %>
-    </li>
-  </ul>
-</li>
+<ul class="pure-menu-list pure-u-1 pure-u-lg-4-24 header-user">
+  <li class="pure-menu-item">
+    <%= link_to new_slide_path, class: 'pure-menu-link' do %>
+      上传讲稿 <i class="icon-upload"></i>
+    <% end %>
+  </li>
+  <li class="pure-menu-item pure-menu-has-children pure-menu-allow-hover">
+    <a href="#" id="menuLink1" class="pure-menu-link">
+      <%= current_user.name %> <i class="icon-user"></i>
+    </a>
+    <ul class="pure-menu-children">
+      <li class="pure-menu-item">
+        <%= link_to profile_path, class: 'pure-menu-link icon-menu' do %>
+          我的主页
+        <% end %>
+      </li>
+      <li class="pure-menu-item">
+        <%= link_to edit_profile_path, class: 'pure-menu-link icon-edit' do %>
+          个人资料
+        <% end %>
+      </li>
+      <li class="pure-menu-item">
+        <%= link_to logout_path, method: :delete, class: 'pure-menu-link icon-logout' do %>
+          退出登录
+        <% end %>
+      </li>
+    </ul>
+  </li>
+</ul>

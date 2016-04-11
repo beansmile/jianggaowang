@@ -1,0 +1,30 @@
+/****
+ * Color List
+ * All color variable names should come from:
+ * http://chir.ag/projects/name-that-color
+ ****/
+$black: #000;
+$cod-gray: #0c0c0c;
+$mine-shaft: #282828;
+$tundora: #404040;
+$scorpion: #5a5a5a;
+$gray: #808080;
+$silver: #b8b8b8;
+$alto: #d8d8d8;
+$concrete: #f2f2f2;
+$alabaster: #f9f9f9;
+$white: #fff;
+$flame-pea: #dc5b30;
+$orange: #fe6126;
+$dodger-blue: #13c1ff;
+$blue: #1cb3ff;
+$dark-blue: #50c4ff;
+
+/* Variables for header component */
+$header-bg: $mine-shaft;
+$header-logo-color: $concrete;
+$header-link-color: $white;
+$header-link-active-color: $flame-pea;
+$header-search-btn: $silver;
+$header-sub-menu-bg: $scorpion;
+$header-sub-menu-bg-active: $mine-shaft;

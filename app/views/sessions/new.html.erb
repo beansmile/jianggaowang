@@ -2,38 +2,24 @@
 用户登录
 <% end %>
 
-<div class="users-page login-page row">
-  <h3 class='page-title'>用户登录</h3>
-
-  <div class="form-container col-md-6 col-md-offset-3">
-    <%= form_for @user, url: sessions_path, method: :post do |f| %>
-      <div class="input-group">
-        <span class="input-group-addon">
-          <span class="glyphicon glyphicon-user"></span>
-        </span>
-
-        <%= f.text_field :name, class: 'form-control', placeholder: '请输入您的用户名', required: true, autofocus: true %>
-      </div>
-
-      <div class="input-group">
-        <span class="input-group-addon">
-          <span class="glyphicon glyphicon-lock"></span>
-        </span>
-
-        <%= f.password_field :password, class: 'form-control', placeholder: '请输入您的密码', required: true %>
-      </div>
-
-      <div class="input-group submit-btn-container">
-        <%= f.submit "登录", class: 'btn btn-primary' %>
-      </div>
-
-      <p>
-        <span class="glyphicon glyphicon-exclamation-sign"></span>
-        忘记密码？点击
-        <%= link_to "重置密码", reset_user_passwords_path %>
-
-        <span class="pull-right">还没有账户？去 <%= link_to "注册", signup_path %></span>
-      </p>
-    <% end %>
+<div class="user-page">
+  <div class="user-title clearfix">
+    <span class="logo"></span>
+    <p>讲稿网，让智慧流动</p>
+  </div>
+  <div class="login-wrap">
+    <ul class="user-toggle">
+      <li class="login active">登录</a></li>
+      <li class="register ">注册</a></li>
+    </ul>
+    <form class="user-info user-login">
+      <input placeholder="用户名" class="user-name">
+      <input placeholder="邮箱" class="email">
+      <input placeholder="密码" class="password">
+      <input placeholder="确认密码" class="confirm-password">
+      <button class="login-btn">登录</button>
+      <button class="register-btn">注册</button>
+      <a href="javascript:;" class="forget-password">忘记密码？</a>
+    </form>
   </div>
 </div>

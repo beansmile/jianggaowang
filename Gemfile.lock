@@ -64,6 +64,9 @@ GEM
     arbre (1.0.3)
       activesupport (>= 3.0.0)
     arel (6.0.3)
+    autoprefixer-rails (6.2.2)
+      execjs
+      json
     bcrypt (3.1.10)
     better_errors (2.0.0)
       coderay (>= 1.0.0)
@@ -304,6 +307,7 @@ PLATFORMS
 
 DEPENDENCIES
   activeadmin!
+  autoprefixer-rails
   bcrypt (~> 3.1.7)
   better_errors (~> 2.0.0)
   binding_of_caller (~> 0.7.2)

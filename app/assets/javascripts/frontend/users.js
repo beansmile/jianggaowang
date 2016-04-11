@@ -1,8 +1,8 @@
-var JiangGaoWang = JiangGaoWang || {};
+var Jianggaowang = Jianggaowang || {};
 
-JiangGaoWang.UserPage = {
+Jianggaowang.UserPage = {
   // clik login or register button
-  clickLoginRegister: function() {
+  toggleLoginRegister: function() {
     var $loginRegister = $('.login-register');
     var $title = $loginRegister.find('.title');
     var $li = $title.find('li');
@@ -17,10 +17,10 @@ JiangGaoWang.UserPage = {
     });
   },
   init: function() {
-    JiangGaoWang.UserPage.clickLoginRegister();
+    this.toggleLoginRegister();
   }
 };
 
 $(function() {
-  JiangGaoWang.UserPage.init();
+  Jianggaowang.UserPage.init();
 });

@@ -34,16 +34,13 @@
           display: inline-block;
           width: 60px;
           text-align: center;
-          a {
-            color: $silver;
-            font-size: 16px;
-            font-weight: 200;
-          }
+          color: $silver;
+          font-size: 16px;
+          font-weight: 200;
+          cursor: pointer;
           &.active {
             border-bottom: 2px solid $blue;
-            a {
-              color: $gray;
-            }
+            color: $gray;
           }
         }
         .register {

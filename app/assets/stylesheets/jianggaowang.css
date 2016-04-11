@@ -1,5 +1,6 @@
 /*
  *= require ./frontend/iconfont
+ *= require ./frontend/reset
  *= require ./frontend/common
  *= require ./frontend/users
  *= require_self

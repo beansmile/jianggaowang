@@ -1,0 +1,137 @@
+@import 'variables';
+
+.header {
+  width: 100%;
+  padding: 20px;
+  background-color: $header-bg;
+
+  .pure-form {
+    height: 40px;
+    line-height: 30px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    vertical-align: middle;
+    position: relative;
+    font-size: 12px;
+
+    input {
+      height: 30px;
+      padding-right: 35px;
+    }
+
+    button {
+      position: absolute;
+      top: 5px;
+      right: 0;
+      height: 30px;
+      width: 30px;
+      padding: 0;
+      color: $header-search-btn;
+      background: none;
+
+      &:hover,
+      &:focus {
+        color: $header-link-active-color;
+      }
+    }
+  }
+
+  .pure-menu-link {
+    padding: 0;
+    color: $header-link-color;
+
+    &:hover,
+    &:focus {
+      color: $header-link-active-color;
+      background-color: transparent;
+    }
+  }
+
+  .pure-menu-heading {
+    padding-left: 40px;
+    font-size: 19px;
+    background: transparent image-url('users/logo.png') left center no-repeat;
+    background-size: contain;
+  }
+}
+
+@media (min-width: 1024px) {
+  .header {
+    height: 80px;
+    line-height: 40px;
+
+    .header-logo {
+      width: 100px;
+    }
+
+    .pure-menu {
+      width: 100%;
+      height: 40px;
+      display: block;
+    }
+
+    .header-menu {
+      text-align: center;
+    }
+
+    .header-user {
+      text-align: right;
+      float: right;
+    }
+
+    .pure-menu-item + .pure-menu-item {
+      margin-left: 20px;
+    }
+
+    .pure-menu-has-children > .pure-menu-link::after {
+      content: none;
+    }
+
+    .pure-menu-children {
+      top: 40px;
+      left: 50%;
+      width: 110px;
+      padding-top: 19px;
+      margin-left: -55px;
+      background-color: $header-bg;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 50%;
+        margin-left: -5px;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid $header-sub-menu-bg;
+      }
+      .pure-menu-item {
+        margin-left: 0;
+        text-align: center;
+        background-color: $header-sub-menu-bg;
+
+        &:hover {
+          .pure-menu-link {
+            color: $header-link-color;
+          }
+          background-color: $header-sub-menu-bg-active;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .header {
+    .pure-menu {
+      width: 1140px;
+      padding: 0 10px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .pure-menu-children {
+    }
+  }
+}

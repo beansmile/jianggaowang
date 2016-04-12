@@ -1,8 +1,19 @@
 /* the file is place for common style, for example header component or .clearfix and so on */
+@import 'variables';
+
 html {
+  height: 100%;
   font-family: "PingFang SC", "Microsoft YaHei", "微软雅黑", "SimHei", "sans-serif";
 }
-.clearfix:after {
+
+body {
+  font-size: 14px;
+  position: relative;
+  min-height: 100%;
+  padding-bottom: $footer-h;
+}
+
+.clearfix::after {
   content: "";
   display: block;
   height: 0;

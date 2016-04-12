@@ -1,39 +1,34 @@
-<header>
-  <nav class="navbar navbar-inverse" role="navigation">
-    <div class="container-fluid">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-5">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        </button>
-        <%= link_to root_path, class: 'navbar-brand' do %>
-          讲稿网
-          <small class='navbar-brand-desc'>让智慧流动</small>
+<!-- header -->
+<header class="header">
+  <div class="pure-g pure-menu pure-menu-horizontal custom-can-transform">
+
+    <div class="pure-u-1 header-logo">
+      <%= link_to root_path, class: 'pure-menu-heading pure-menu-link' do %>
+        讲稿网
+      <% end %>
+    </div>
+    
+    <ul class="pure-menu-list pure-u-1 pure-u-lg-6-24 header-menu">
+      <li class="pure-menu-item">
+        <%= link_to root_path, class: 'pure-menu-link' do %>
+          首页
         <% end %>
-      </div>
+      </li>
+      <li class="pure-menu-item"><a href="#" class="pure-menu-link">活动</a></li>
+      <li class="pure-menu-item"><a href="#" class="pure-menu-link">标签</a></li>
+    </ul>
 
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-5">
-        <ul class="nav navbar-nav navbar-right">
-          <% if current_user %>
-            <%= render "shared/signed_in_user_navbar_items" %>
-          <% else %>
-            <%= render "shared/guest_user_navbar_items" %>
-          <% end %>
+    <form action="" class="pure-form pure-u-1 pure-u-lg-6-24">
+       <input type="text" placeholder="输入关键字搜索" class="pure-u-1">
+       <button type="submit" class="pure-button"><i class="icon-search"></i></button>
+    </form>
 
-          <li>
-            <%= form_tag search_slides_path, method: :get, class: "navbar-form navbar-right", role: "search" do |f| %>
-            <form >
-              <div class="form-search search-only">
-                <i class="search-icon glyphicon glyphicon-search"></i>
-                <%= text_field_tag :keyword, @keyword, placeholder: "搜索讲稿", class: "form-control search-query" %>
-              </div>
-            <% end %>
-          </li>
-        </ul>
-      </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-  </nav>
+    <% if current_user %>
+      <%= render "shared/signed_in_user_navbar_items" %>
+    <% else %>
+      <%= render "shared/guest_user_navbar_items" %>
+    <% end %>
+
+  </div>
 </header>
+<!-- header END -->

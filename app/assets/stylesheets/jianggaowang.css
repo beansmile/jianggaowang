@@ -2,6 +2,8 @@
  *= require ./frontend/iconfont
  *= require ./frontend/reset
  *= require ./frontend/common
+ *= require ./frontend/header
+ *= require ./frontend/footer
  *= require ./frontend/users
  *= require_self
  */

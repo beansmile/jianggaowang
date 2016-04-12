@@ -8,18 +8,15 @@
     <p>讲稿网，让智慧流动</p>
   </div>
   <div class="login-wrap">
-    <ul class="user-toggle">
-      <li class="login active">登录</li>
-      <li class="register ">注册</li>
-    </ul>
-    <form class="user-info user-login">
-      <input placeholder="用户名" class="user-name">
-      <input placeholder="邮箱" class="email">
-      <input placeholder="密码" class="password">
-      <input placeholder="确认密码" class="confirm-password">
-      <button class="login-btn">登录</button>
-      <button class="register-btn">注册</button>
-      <a href="javascript:;" class="forget-password">忘记密码？</a>
-    </form>
+    <%= render "shared/sign_up_in_tab" %>
+
+    <%= form_for @user, url: sessions_path, method: :post, html: { class: "user-info user-login" } do |f| %>
+      <%= f.text_field :name, class: "user-name", placeholder: "用户名" %>
+      <%= f.password_field :password, class: "password", placeholder: "密码" %>
+      <%= f.button "登录", class: "login-btn" %>
+
+      <%= link_to "忘记密码？", reset_user_passwords_path, class: "forget-password" %>
+    <% end %>
+
   </div>
 </div>

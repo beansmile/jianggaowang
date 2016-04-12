@@ -1,0 +1,136 @@
+@import "variables";
+
+.search-tips {
+  width: 100%;
+  height: 50px;
+  line-height: 30px;
+  font-size: 14px;
+  background-color: $search-tips-bg;
+  color: $search-tips-color;
+
+  & + .card-list {
+    margin-top: 20px;
+  }
+}
+
+.group {
+  margin-top: 40px;
+
+  & + & {
+    margin-top: 5px;
+  }
+
+  .group-header {
+    display: block;
+    font-weight: lighter;
+
+    &,
+    a {
+      color: $group-link-color;
+    }
+
+    .group-title {
+      padding-bottom: 5px;
+      font-size: 20px;
+    }
+    .group-link {
+      float: right;
+      padding-top: 14px;
+      padding-bottom: 5px;
+      text-align: right;
+      font-size: 16px;
+
+      &:hover,
+      &:focus {
+        color: $group-link-hover-color;
+      }
+    }
+  }
+}
+
+.card-list {
+  .card-list-item {
+    padding: 10px 10px 20px;
+  }
+
+  .card {
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    border: 1px solid rgba(128, 128, 128, 0.5);
+    border-radius: 2px;
+    background-color: #fff;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      box-shadow: 0 0 10px rgba(128, 128, 128, 0.5);
+    }
+  }
+
+  .card-header {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 0;
+    padding-top: 61.886%;
+
+    a {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  .card-footer {
+    padding: 20px 20px 15px;
+    text-align: center;
+    line-height: 2em;
+  }
+
+  .card-title {
+    margin: 0;
+    font-size: 16px;
+
+    a {
+      display: block;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      color: $card-title;
+
+      &:hover,
+      &:focus {
+        color: $card-title-hover;
+      }
+    }
+  }
+
+  .card-author {
+    font-size: 12px;
+    font-style: normal;
+
+    a {
+      color: $card-author;
+
+      &:hover,
+      &:focus {
+        color: $card-author-hover;
+      }
+    }
+  }
+
+  .card-date {
+    font-size: 12px;
+    font-weight: lighter;
+    color: $card-date;
+  }
+
+}

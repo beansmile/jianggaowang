@@ -29,6 +29,10 @@ $header-link-active-color: $flame-pea;
 $header-search-btn: $silver;
 $header-sub-menu-bg: $scorpion;
 $header-sub-menu-bg-active: $mine-shaft;
+$search-input-bg: $concrete;
+$search-input-bg-focus: $white;
+$search-input-border: $silver;
+$search-input-border-focus: $dodger-blue;
 
 /* Variables for footer component */
 $footer-h: 100px;
@@ -36,3 +40,18 @@ $footer-bg: $mine-shaft;
 $footer-color: $gray;
 $footer-link-color: $gray;
 $footer-link-hover-color: $flame-pea;
+
+/* Variables for Group */
+$group-link-color: $tundora;
+$group-link-hover-color: $flame-pea;
+
+/* Variables for Card list */
+$card-title: $tundora;
+$card-title-hover: $flame-pea;
+$card-author: $dodger-blue;
+$card-author-hover: $dark-blue;
+$card-date: $gray;
+
+/* Variables for Search Tips */
+$search-tips-bg: $silver;
+$search-tips-color: $tundora;

@@ -2,14 +2,10 @@
 
 .header {
   width: 100%;
-  padding: 20px;
+  padding: 10px 0;
   background-color: $header-bg;
 
   .pure-form {
-    height: 40px;
-    line-height: 30px;
-    padding-top: 5px;
-    padding-bottom: 5px;
     vertical-align: middle;
     position: relative;
     font-size: 12px;
@@ -17,12 +13,19 @@
     input {
       height: 30px;
       padding-right: 35px;
+      background-color: $search-input-bg;
+      border: 1px solid $search-input-border;
+
+      &:focus {
+        background-color: $search-input-bg-focus;
+        border: 1px solid $search-input-border-focus;
+      }
     }
 
     button {
       position: absolute;
-      top: 5px;
-      right: 0;
+      top: 15px;
+      right: 10px;
       height: 30px;
       width: 30px;
       padding: 0;
@@ -61,12 +64,10 @@
     line-height: 40px;
 
     .header-logo {
-      width: 100px;
+      width: 120px;
     }
 
     .pure-menu {
-      width: 100%;
-      height: 40px;
       display: block;
     }
 
@@ -118,17 +119,6 @@
           background-color: $header-sub-menu-bg-active;
         }
       }
-    }
-  }
-}
-
-@media (min-width: 1200px) {
-  .header {
-    .pure-menu {
-      width: 1140px;
-      padding: 0 10px;
-      margin-left: auto;
-      margin-right: auto;
     }
   }
 }

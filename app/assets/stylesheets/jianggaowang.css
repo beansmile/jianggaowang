@@ -4,6 +4,7 @@
  *= require ./frontend/header
  *= require ./frontend/footer
  *= require ./frontend/cards
+ *= require ./frontend/pagination
  *= require ./frontend/users
  *= require_self
  */

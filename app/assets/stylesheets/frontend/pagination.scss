@@ -1,0 +1,51 @@
+@import "variables";
+
+.group + .pagination,
+.card-list + .pagination {
+  .page-list {
+    padding-top: 0;
+  }
+}
+
+.pagination {
+  margin-left: auto;
+  margin-right: auto;
+
+  .page-list {
+    padding-bottom: 20px;
+    margin: 0 auto;
+    text-align: center;
+    letter-spacing: -4px;
+
+    > li {
+      display: inline-block;
+    }
+
+    .page-ellipsis {
+      letter-spacing: 0;
+    }
+  }
+  .page-link {
+    display: block;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    border: 1px solid $page-border;
+    border-radius: 2px;
+    margin: 0 5px;
+    color: $page-text;
+    background-color: $page-bg;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+
+    &.disabled {
+      display: none;
+    }
+
+    &.active,
+    &:hover {
+      background-color: $page-hover;
+    }
+  }
+}

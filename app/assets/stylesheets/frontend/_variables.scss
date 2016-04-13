@@ -19,7 +19,7 @@ $orange: #fe6126;
 $dodger-blue: #13c1ff;
 $blue: #1cb3ff;
 $dark-blue: #50c4ff;
-$red: #ff0000;
+$red: #f00;
 
 /* Variables for header component */
 $header-bg: $mine-shaft;
@@ -44,6 +44,7 @@ $footer-link-hover-color: $flame-pea;
 /* Variables for Group */
 $group-link-color: $tundora;
 $group-link-hover-color: $flame-pea;
+$group-tag-border: $alto;
 
 /* Variables for Card list */
 $card-title: $tundora;
@@ -55,3 +56,17 @@ $card-date: $gray;
 /* Variables for Search Tips */
 $search-tips-bg: $silver;
 $search-tips-color: $tundora;
+
+/* Variables for Pagination */
+$page-text: $mine-shaft;
+$page-border: $alto;
+$page-bg: $white;
+$page-hover: $alto;
+
+/* Variables for Tag */
+$tag-border: $gray;
+$tag-color: $tundora;
+$tag-bg: $white;
+$tag-border-hover: $tundora;
+$tag-color-hover: $white;
+$tag-bg-hover: $tundora;

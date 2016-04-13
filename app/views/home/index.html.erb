@@ -2,15 +2,48 @@
   首页
 <% end %>
 
-<div id="events-index-page">
-  <div class="row" id="isotope-container">
+<section class="group">
+  <header class="group-header pure-g clearfix">
+    <h4 class="group-title pure-u-1-2">最新活动</h4>
+    <%= link_to "查看全部", events_path, class: "group-link pure-u-1-2" %>
+  </header>
+
+  <ul class="card-list pure-g">
     <% if @events.any? %>
       <%= render partial: "events/event_item", collection: @events, as: :event %>
     <% else %>
       没有活动。
     <% end %>
-  </div>
-  <div class="row text-center">
-    <%= paginate @events %>
-  </div>
-</div>
+  </ul>
+</section>
+
+<section class="group">
+  <header class="group-header pure-g clearfix">
+    <h4 class="group-title pure-u-1-2">热门讲稿</h4>
+    <%= link_to "查看全部", hotest_slides_path, class: "group-link pure-u-1-2" %>
+  </header>
+
+  <ul class="card-list pure-g">
+    <% if @hotest_slides.any? %>
+      <%= render partial: "slides/slide_item", collection: @hotest_slides, as: :slide %>
+    <% else %>
+      没有讲稿。
+    <% end %>
+  </ul>
+</section>
+
+<section class="group">
+  <header class="group-header pure-g clearfix">
+    <h4 class="group-title pure-u-1-2">最新讲稿</h4>
+    <%= link_to "查看全部", slides_path, class: "group-link pure-u-1-2" %>
+  </header>
+
+  <ul class="card-list pure-g">
+    <% if @newest_slides.any? %>
+      <%= render partial: "slides/slide_item", collection: @newest_slides, as: :slide %>
+    <% else %>
+      没有讲稿。
+    <% end %>
+  </ul>
+</section>
+

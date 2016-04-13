@@ -1,7 +1,8 @@
 @import "variables";
 
 #sessions_new,
-#user_passwords_reset {
+#user_passwords_reset,
+#users_new {
   background-image: image-url("users/user-bg.svg");
 
   .user-page {
@@ -78,6 +79,9 @@
             border-bottom: 2px solid $blue;
             color: $gray;
           }
+          > a {
+            color: $gray;
+          }
         }
 
         .register {
@@ -88,30 +92,41 @@
       .user-info {
         width: 100%;
 
-        input {
+        input,
+        textarea {
           width: 298px;
           height: 44px;
           border: 1px solid $alto;
           color: $silver;
           font-size: 16px;
-          text-indent: 20px;
+          padding-left: 20px;
+          padding-right: 20px;
           font-weight: 200;
         }
 
-        .user-name {
-          border-top-left-radius: 2px;
-          border-top-right-radius: 2px;
+        input {
+          line-height: 1em;
         }
 
+        textarea {
+          resize: none;
+          height: 88px;
+          padding-top: 10px;
+        }
+
+        .user-name,
         .password,
-        .confirm-password {
+        .confirm-password,
+        .user-bio {
           border-bottom-left-radius: 2px;
           border-bottom-right-radius: 2px;
         }
 
-        input:nth-child(2),
-        input:nth-child(3),
-        input:nth-child(4) {
+        input:nth-child(4),
+        input:nth-child(5),
+        input:nth-child(5),
+        input:nth-child(6),
+        textarea {
           border-top: 0;
         }
 
@@ -145,17 +160,21 @@
       }
 
       .user-register {
-        .login-btn,
-        .forget-password {
-          display: none;
-        }
-
         .email,
         .confirm-password,
         .register-btn {
           display: block;
         }
       }
+    }
+  }
+
+  .user-register-tips {
+    p {
+      margin-top: 1.5em;
+      text-align: center;
+      font-size: 0.8em;
+      color: $gray;
     }
   }
 }

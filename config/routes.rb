@@ -32,10 +32,11 @@ Rails.application.routes.draw do
   get '/signup' => 'users#new'
   resources :users, only: [:show, :create]
 
-  resources :slides, only: [:show, :new, :create, :destroy, :edit, :update] do
+  resources :slides, only: [:index, :show, :new, :create, :destroy, :edit, :update] do
     collection do
       get 'upload_result'
       get 'search'
+      get 'hotest'
     end
 
     member do

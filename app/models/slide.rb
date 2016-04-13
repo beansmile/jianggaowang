@@ -23,8 +23,8 @@ class Slide < ActiveRecord::Base
   after_update :update_file
 
   # scopes
-  scope :hotest, -> { where('visits_count > 0').order(visits_count: :desc).limit(12) }
-  scope :newest, -> { order(created_at: :desc).limit(12) }
+  scope :hotest, -> { where('visits_count > 0').order(visits_count: :desc) }
+  scope :newest, -> { order(created_at: :desc) }
 
   # instance method
   def truncated_title

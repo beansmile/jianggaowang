@@ -2,6 +2,10 @@ class SlidesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :like, :collect]
   after_action :increase_slide_visits_count, only: [:show]
 
+  def index
+    # TODO: Implement index page
+  end
+
   def show
     @slide = Slide.includes(:previews).find(params[:id])
     @category = @slide.category
@@ -107,6 +111,10 @@ class SlidesController < ApplicationController
     else
       @slides = Slide.page(params[:page])
     end
+  end
+
+  def hotest
+    # TODO: Implement hotest page
   end
 
   private

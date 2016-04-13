@@ -1,0 +1,44 @@
+@import "variables";
+
+.group {
+  margin-top: 40px;
+
+  & + & {
+    margin-top: 5px;
+  }
+
+  .group-header {
+    display: block;
+    font-weight: lighter;
+
+    &,
+    a {
+      color: $group-link-color;
+    }
+
+    .group-title {
+      padding-bottom: 5px;
+      font-size: 20px;
+
+      &.group-tag::after {
+        content: "";
+        display: block;
+        margin: 15px 0;
+        border-bottom: 1px solid $group-tag-border;
+      }
+    }
+
+    .group-link {
+      float: right;
+      padding-top: 14px;
+      padding-bottom: 5px;
+      text-align: right;
+      font-size: 16px;
+
+      &:hover,
+      &:focus {
+        color: $group-link-hover-color;
+      }
+    }
+  }
+}

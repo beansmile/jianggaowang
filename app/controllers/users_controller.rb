@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :redirect_if_user_logined, except: :show
+
   def show
     @user = User.find params[:id]
 
@@ -31,5 +33,12 @@ class UsersController < ApplicationController
     params.require(:user).permit(
       :name, :email, :password, :password_confirmation, :bio
     )
+  end
+
+  def redirect_if_user_logined
+    if current_user
+      flash[:warning] = '您已登录'
+      redirect_to root_path
+    end
   end
 end

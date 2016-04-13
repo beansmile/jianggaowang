@@ -3,7 +3,11 @@
  *= require ./frontend/common
  *= require ./frontend/header
  *= require ./frontend/footer
+ *= require ./frontend/search_tips
+ *= require ./frontend/groups
+ *= require ./frontend/tags
  *= require ./frontend/cards
+ *= require ./frontend/pagination
  *= require ./frontend/users
  *= require_self
  */

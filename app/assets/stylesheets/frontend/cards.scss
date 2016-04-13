@@ -1,53 +1,5 @@
 @import "variables";
 
-.search-tips {
-  width: 100%;
-  height: 50px;
-  line-height: 30px;
-  font-size: 14px;
-  background-color: $search-tips-bg;
-  color: $search-tips-color;
-
-  & + .card-list {
-    margin-top: 20px;
-  }
-}
-
-.group {
-  margin-top: 40px;
-
-  & + & {
-    margin-top: 5px;
-  }
-
-  .group-header {
-    display: block;
-    font-weight: lighter;
-
-    &,
-    a {
-      color: $group-link-color;
-    }
-
-    .group-title {
-      padding-bottom: 5px;
-      font-size: 20px;
-    }
-    .group-link {
-      float: right;
-      padding-top: 14px;
-      padding-bottom: 5px;
-      text-align: right;
-      font-size: 16px;
-
-      &:hover,
-      &:focus {
-        color: $group-link-hover-color;
-      }
-    }
-  }
-}
-
 .card-list {
   .card-list-item {
     padding: 10px 10px 20px;
@@ -132,5 +84,4 @@
     font-weight: lighter;
     color: $card-date;
   }
-
 }

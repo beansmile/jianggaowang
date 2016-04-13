@@ -1,5 +1,7 @@
 @import "variables";
 
+/* TODO: group should change to panel */
+
 .group {
   margin-top: 40px;
 
@@ -9,6 +11,10 @@
 
   &.group-for-tag {
     margin-top: 25px;
+  }
+
+  &.group-for-article {
+    margin-top: 0;
   }
 
   .group-header {
@@ -21,8 +27,10 @@
     }
 
     .group-title {
+      margin: 0;
       padding-bottom: 5px;
       font-size: 20px;
+      font-weight: lighter;
 
       &.group-tag::after {
         content: "";

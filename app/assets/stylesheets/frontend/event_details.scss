@@ -1,0 +1,131 @@
+@import "variables";
+
+/* event details page */
+.event-details-page {
+  background-color: $white;
+  padding: 10px 0 20px;
+}
+
+.event-details {
+  .event-header {
+    .event-cover {
+      position: relative;
+      height: 0;
+      padding-top: 61.92%;
+
+      img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .event-info {
+      .event-title {
+        font-size: 26px;
+        font-weight: 200;
+        color: $tundora;
+        margin-bottom: 10px;
+      }
+
+      .event-date {
+        display: block;
+        white-space: nowrap;
+      }
+
+      .event-date,
+      .event-position,
+      .event-slides-num {
+        color: $gray;
+        line-height: 2em;
+        font-size: 14px;
+        padding-left: 25px;
+        position: relative;
+
+        [class*="icon"] {
+          position: absolute;
+          top: auto;
+          left: 0;
+        }
+      }
+    }
+
+    .event-action {
+      padding: 10px 0;
+
+      .btn {
+        display: inline-block;
+        width: 110px;
+        height: 40px;
+        border: 1px solid $blue;
+        border-radius: 2px;
+        color: $white;
+        background-color: $dark-blue;
+        text-align: center;
+        line-height: 38px;
+        font-weight: 200;
+        box-shadow: inset 0 1px 3px $white;
+      }
+
+      .btn-warning {
+        background-color: $coral;
+        border-color: $orange;
+      }
+
+      a + a {
+        margin-left: 20px;
+      }
+    }
+  }
+
+  .event-content {
+    line-height: 1.5em;
+    color: $gray;
+
+    p {
+      text-indent: 2em;
+      margin: 1em 0;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: $tundora;
+      font-weight: bolder;
+    }
+
+    strong {
+      font-weight: bolder;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .event-details {
+    .event-header {
+      height: 290px;
+
+      .event-cover {
+        height: 100%;
+        padding-top: 0;
+      }
+
+      .event-info {
+        height: 100%;
+        padding-left: 20px;
+        position: relative;
+      }
+
+      .event-action {
+        position: absolute;
+        bottom: 0;
+        left: auto;
+      }
+    }
+  }
+}

@@ -1,15 +1,15 @@
 <!-- search tips -->
-<section class="search-tips">
+<div class="search-tips">
   <div class="pure-g">
     <p class="tip-info pure-u-1">“关键字”的讲稿搜索结果</p>
   </div>
-</section>
+</div>
 <!-- End search tips -->
 
 <!-- Group: include a title and a card list -->
 <section class="group">
   <header class="group-header pure-g clearfix">
-    <h4 class="group-title pure-u-1-2">最新活动</h4>
+    <h1 class="group-title pure-u-1-2">最新活动</h1>
     <a href="" class="group-link pure-u-1-2">查看全部</a>
   </header>
 
@@ -83,7 +83,7 @@
 <!-- Group: include a tag-title and a card list -->
 <section class="group">
   <header class="group-header pure-g clearfix">
-    <h4 class="group-title group-tag pure-u-1">ruby</h4>
+    <h1 class="group-title group-tag pure-u-1">ruby</h1>
   </header>
 
   <!-- Card list with author -->
@@ -169,10 +169,10 @@
 <!-- Group: include a tag-title and a tag list -->
 <section class="group group-for-tag">
   <header class="group-header pure-g clearfix">
-    <h4 class="group-title group-tag pure-u-1">讲稿标签</h4>
+    <h1 class="group-title group-tag pure-u-1">讲稿标签</h1>
   </header>
 
-  <!-- Card list with author -->
+  <!-- Tag list -->
   <ul class="tag-list pure-g">
     <li class="tag-list-item">
       <a href="#" class="tag">ruby</a>
@@ -198,14 +198,13 @@
     <li class="tag-list-item">
       <a href="#" class="tag">ruby on rails</a>
     </li>
-
   </ul>
-  <!-- END card list -->
+  <!-- END tag list -->
 </section>
 <!-- END Group -->
 
 <!-- Pagination -->
-<section class="pagination pure-g">
+<div class="pagination pure-g">
   <ul class="page-list pure-u-1">
     <!-- disabled page-link will be hiddened -->
     <li><a href="#1" class="page-link disabled">&lt;</a></li>
@@ -214,7 +213,65 @@
     <li><a href="#3" class="page-link">3</a></li>
     <li class="page-ellipsis">···</li>
     <li><a href="#8" class="page-link">8</a></li>
-    <li><a href="#3" class="page-link">&gt;</a></li>
+    <li><a href="#3" class="page-link page-next">&gt;</a></li>
   </ul>
-</section>
+</div>
 <!-- END Pagination -->
+
+<!-- activities details info -->
+<div class="event-details-page">
+  <div class="pure-g">
+    <article class="event-details pure-u-1 pure-u-lg-2-3">
+      <header class="event-header pure-g">
+        <div class="pure-u-1 pure-u-lg-3-5">
+          <div class="event-cover">
+            <img src="/assets/placeholder.png" alt="" style="background: orange;">
+          </div>
+        </div>
+        <div class="event-info pure-u-1 pure-u-lg-2-5">
+          <h1 class="event-title">第27次GZRuby活动</h1>
+          <time class="event-date">
+            <i class="icon-time"></i>2015-10-23 18:00～2015-10-23 20:00
+          </time>
+          <p class="event-position">
+            <i class="icon-position"></i>活动地点：广州珠江新城碧海湾
+          </p>
+          <p class="event-slides-num"><i class="icon-book"></i>讲稿数量：4</p>
+          <div class="event-action">
+            <a href="#" class="btn">上传讲稿</a><a href="#" class="btn btn-warning">收藏</a>
+          </div>
+        </div>
+      </header>
+
+      <!-- Group: include a tag-title and a tag list -->
+      <section class="group group-for-article">
+        <header class="group-header pure-g clearfix">
+          <h1 class="group-title group-tag pure-u-1">活动内容</h1>
+        </header>
+
+        <section class="event-content">
+          <h2>Hello Rubyist! </h2>
+
+          <p>阔别大家已经一个多月了(上次活动链接)，在度过了辞旧迎新的农历新年之后，大家是否已经重新踏上征途，完全恢复作战状态？在过去的这段时间里，我们 Ruby 的世界也是辞旧迎新：Ruby 1.9.3 宣布不再维护，Ruby 2.2 释出，Rails 4.2 释出，Passenger 5 的正式版更是在吊足大家的胃口之后于上个月正式发布…… </p>
+
+          <p>作为用为人先的 Rubyist 们，你们是否已经开始在你们的生产环境中用上了这些最新发布的武器呢？Ruby 2.2中的垃圾回收，Rails 4.2 中的新成员——ActiveJob 以及 Mail Preview，Passenger 5 中宣称的更快好省的性能，你们是否已经尝过鲜了？欢迎来跟我们一起分享哦！ </p>
+
+          <p>羊年的第一场 <strong>GZRuby</strong> 的聚会将定于 4 月 17 号（星期五），新的时间定为当天晚上的 19：00 - 21：30。这样的调整，是因为我们希望新的时间（周五晚的晚上）能够方便于更多的朋友加入我们的聚会。 </p>
+
+          <h2>活动主题 </h2>
+
+          <p>按照以往惯例，我们不限主题内容，我们欢迎任何与 Ruby 或者 Web 领域相关的话题或者演讲。我们还在此持续更新我们收集到的演讲主题名称，请大家保持关注。</p>
+          
+          <ul>
+            <li>hooopo - 《Rails + MySQL 实现数据仓库系统》 </li>
+            <li>chanshunli - 《Use Emacs To Write Your Code》 </li>
+            <li>jasli2 - 《Realtime Web - The Meteorjs Way》 </li>
+            <li>嘉豪 - 《开放数据与 civic hacking》</li>
+          </ul>
+        </section>
+      </section>
+      <!-- END Group -->
+    </article>
+  </div>
+</div>
+<!-- END activities details info -->

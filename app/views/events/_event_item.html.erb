@@ -1,23 +1,241 @@
-<div class="col-sm-6 col-md-4 isotope-item">
-  <div class="portfolio-item event-isotope">
-    <div class="event-img">
-      <%= link_to image_tag(event.cover.small.url), event_path(event), class: 'img-responsive' %>
-    </div>
-    <div class="event-box">
-      <%= link_to event.header, event, data: { 'no-turbolink' => true }, title: event.header %>
-    </div>
-    <p class="text-muted event-box">
-      <%= event.start_time %>
-      -
-      <%= event.end_time %>
-    </p>
-
-    <div class="text-muted event-box">
-      <% if current_user && current_user == event.creator %>
-        <%= link_to event_path(event), method: :delete, title: "删除活动", class: 'delete-slide-link', data: { toggle: 'tooltip', confirm: "确认删除？" } do %>
-          <span class="glyphicon glyphicon-trash"></span>
-        <% end %>
-      <% end %>
-    </div>
+<!-- search result tips -->
+<section class="search-tips">
+  <div class="pure-g">
+    <p class="tip-info pure-u-1">“关键字”的讲稿搜索结果</p>
   </div>
-</div>
+</section>
+
+
+<!-- Group: include a title and a card list -->
+<section class="group">
+  <header class="group-header pure-g clearfix">
+    <h4 class="group-title pure-u-1-2">最新活动</h4>
+    <a href="" class="group-link pure-u-1-2">查看全部</a>
+  </header>
+
+  <!-- Card list -->
+  <ul class="card-list pure-g">
+    <li class="pure-u-1 pure-u-lg-1-4 card-list-item">
+      <figcaption class="card">
+        <header class="card-header">
+          <a href="#" class="card-img">
+            <img src="/assets/placeholder.png" alt="demo">
+          </a>
+        </header>
+        <footer class="card-footer">
+          <figure class="card-title">
+            <a href="#">我是长标题我是长标题我是长标题我是长标题我是长标题我是长标题</a>
+          </figure>
+          <time class="card-date">2016年4月11日</time>
+        </footer>
+      </figcaption>
+    </li>
+    <li class="pure-u-1 pure-u-lg-1-4 card-list-item">
+      <figcaption class="card">
+        <header class="card-header">
+          <a href="#" class="card-img">
+            <img src="/assets/placeholder.png" alt="demo">
+          </a>
+        </header>
+        <footer class="card-footer">
+          <figure class="card-title">
+            <a href="#">我是长标题我是长标题我是长标题我是长标题我是长标题我是长标题</a>
+          </figure>
+          <time class="card-date">2016年4月11日</time>
+        </footer>
+      </figcaption>
+    </li>  
+    <li class="pure-u-1 pure-u-lg-1-4 card-list-item">
+      <figcaption class="card">
+        <header class="card-header">
+          <a href="#" class="card-img">
+            <img src="/assets/placeholder.png" alt="demo">
+          </a>
+        </header>
+        <footer class="card-footer">
+          <figure class="card-title">
+            <a href="#">我是长标题我是长标题我是长标题我是长标题我是长标题我是长标题</a>
+          </figure>
+          <time class="card-date">2016年4月11日</time>
+        </footer>
+      </figcaption>
+    </li>  
+    <li class="pure-u-1 pure-u-lg-1-4 card-list-item">
+      <figcaption class="card">
+        <header class="card-header">
+          <a href="#" class="card-img">
+            <img src="/assets/placeholder.png" alt="demo">
+          </a>
+        </header>
+        <footer class="card-footer">
+          <figure class="card-title">
+            <a href="#">我是长标题我是长标题我是长标题我是长标题我是长标题我是长标题</a>
+          </figure>
+          <time class="card-date">2016年4月11日</time>
+        </footer>
+      </figcaption>
+    </li>
+  </ul>
+  <!-- END Group -->
+</section>
+<!-- END Group -->
+
+
+
+<!-- Group: include a title and a card list -->
+<section class="group">
+  <header class="group-header pure-g clearfix">
+    <h4 class="group-title pure-u-1-2">最新活动</h4>
+    <a href="" class="group-link pure-u-1-2">查看全部</a>
+  </header>
+
+  <!-- Card list -->
+  <ul class="card-list pure-g">
+    <li class="pure-u-1 pure-u-lg-1-4 card-list-item">
+      <figcaption class="card">
+        <header class="card-header">
+          <a href="#" class="card-img">
+            <img src="/assets/placeholder.png" alt="demo">
+          </a>
+        </header>
+        <footer class="card-footer">
+          <figure class="card-title">
+            <a href="#">我是长标题我是长标题我是长标题我是长标题我是长标题我是长标题</a>
+          </figure>
+          <address class="card-author">
+            <a href="#">zack, zhang</a>
+          </address>
+          <time class="card-date">2016年4月11日</time>
+        </footer>
+      </figcaption>
+    </li>
+    <li class="pure-u-1 pure-u-lg-1-4 card-list-item">
+      <figcaption class="card">
+        <header class="card-header">
+          <a href="#" class="card-img">
+            <img src="/assets/placeholder.png" alt="demo">
+          </a>
+        </header>
+        <footer class="card-footer">
+          <figure class="card-title">
+            <a href="#">我是长标题我是长标题我是长标题我是长标题我是长标题我是长标题</a>
+          </figure>
+          <address class="card-author">
+            <a href="#">zack, zhang</a>
+          </address>
+          <time class="card-date">2016年4月11日</time>
+        </footer>
+      </figcaption>
+    </li>  
+    <li class="pure-u-1 pure-u-lg-1-4 card-list-item">
+      <figcaption class="card">
+        <header class="card-header">
+          <a href="#" class="card-img">
+            <img src="/assets/placeholder.png" alt="demo">
+          </a>
+        </header>
+        <footer class="card-footer">
+          <figure class="card-title">
+            <a href="#">我是长标题我是长标题我是长标题我是长标题我是长标题我是长标题</a>
+          </figure>
+          <address class="card-author">
+            <a href="#">zack, zhang</a>
+          </address>
+          <time class="card-date">2016年4月11日</time>
+        </footer>
+      </figcaption>
+    </li>  
+    <li class="pure-u-1 pure-u-lg-1-4 card-list-item">
+      <figcaption class="card">
+        <header class="card-header">
+          <a href="#" class="card-img">
+            <img src="/assets/placeholder.png" alt="demo">
+          </a>
+        </header>
+        <footer class="card-footer">
+          <figure class="card-title">
+            <a href="#">我是长标题我是长标题我是长标题我是长标题我是长标题我是长标题</a>
+          </figure>
+          <address class="card-author">
+            <a href="#">zack, zhang</a>
+          </address>
+          <time class="card-date">2016年4月11日</time>
+        </footer>
+      </figcaption>
+    </li>
+    <li class="pure-u-1 pure-u-lg-1-4 card-list-item">
+      <figcaption class="card">
+        <header class="card-header">
+          <a href="#" class="card-img">
+            <img src="/assets/placeholder.png" alt="demo">
+          </a>
+        </header>
+        <footer class="card-footer">
+          <figure class="card-title">
+            <a href="#">我是长标题我是长标题我是长标题我是长标题我是长标题我是长标题</a>
+          </figure>
+          <address class="card-author">
+            <a href="#">zack, zhang</a>
+          </address>
+          <time class="card-date">2016年4月11日</time>
+        </footer>
+      </figcaption>
+    </li>
+    <li class="pure-u-1 pure-u-lg-1-4 card-list-item">
+      <figcaption class="card">
+        <header class="card-header">
+          <a href="#" class="card-img">
+            <img src="/assets/placeholder.png" alt="demo">
+          </a>
+        </header>
+        <footer class="card-footer">
+          <figure class="card-title">
+            <a href="#">我是长标题我是长标题我是长标题我是长标题我是长标题我是长标题</a>
+          </figure>
+          <address class="card-author">
+            <a href="#">zack, zhang</a>
+          </address>
+          <time class="card-date">2016年4月11日</time>
+        </footer>
+      </figcaption>
+    </li>  
+    <li class="pure-u-1 pure-u-lg-1-4 card-list-item">
+      <figcaption class="card">
+        <header class="card-header">
+          <a href="#" class="card-img">
+            <img src="/assets/placeholder.png" alt="demo">
+          </a>
+        </header>
+        <footer class="card-footer">
+          <figure class="card-title">
+            <a href="#">我是长标题我是长标题我是长标题我是长标题我是长标题我是长标题</a>
+          </figure>
+          <address class="card-author">
+            <a href="#">zack, zhang</a>
+          </address>
+          <time class="card-date">2016年4月11日</time>
+        </footer>
+      </figcaption>
+    </li>  
+    <li class="pure-u-1 pure-u-lg-1-4 card-list-item">
+      <figcaption class="card">
+        <header class="card-header">
+          <a href="#" class="card-img">
+            <img src="/assets/placeholder.png" alt="demo">
+          </a>
+        </header>
+        <footer class="card-footer">
+          <figure class="card-title">
+            <a href="#">我是长标题我是长标题我是长标题我是长标题我是长标题我是长标题</a>
+          </figure>
+          <address class="card-author">
+            <a href="#">zack, zhang</a>
+          </address>
+          <time class="card-date">2016年4月11日</time>
+        </footer>
+      </figcaption>
+    </li>
+  </ul>
+  <!-- END Group -->
+</section>
+<!-- END Group -->

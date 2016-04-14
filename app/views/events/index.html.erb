@@ -1,26 +1,14 @@
 <% content_for :title do %>
-"活动"
+活动
 <% end %>
 
-<div id="events-index-page">
-  <div class="row">
-    <div class="col-sm-12">
-      <h1 class="title-lg first-child">
-        <span class="popular">
-          我的活动
-        </span>
-      </h1>
-    </div>
-  </div>
-
-  <div class="row" id="isotope-container">
+<section class="group">
+  <ul class="card-list pure-g">
     <% if @events.any? %>
       <%= render partial: "event_item", collection: @events, as: :event %>
+      <%= paginate @events %>
     <% else %>
       没有活动。
     <% end %>
-  </div>
-  <div class="row text-center">
-    <%= paginate @events %>
-  </div>
-</div>
+  </ul>
+</section>

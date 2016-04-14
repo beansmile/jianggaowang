@@ -11,10 +11,10 @@ class Event < ActiveRecord::Base
   scope :order_by_created_at_desc, -> { order(created_at: :desc) }
 
   def start_time
-    start_at.strftime("%Y/%m/%d") if start_at
+    start_at.strftime("%Y-%m-%d") if start_at
   end
 
   def end_time
-    end_at.strftime("%Y/%m/%d") if end_at
+    end_at.strftime("%Y-%m-%d") if end_at
   end
 end

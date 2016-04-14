@@ -1,0 +1,18 @@
+<% content_for :title do %>
+最新讲稿
+<% end %>
+
+<section class="group">
+  <header class="group-header pure-g clearfix">
+    <h4 class="group-title group-tag pure-u-1">最新讲稿</h4>
+  </header>
+
+  <ul class="card-list pure-g">
+    <% if @slides.any? %>
+      <%= render partial: "slide_item", collection: @slides, as: :slide %>
+    <% else %>
+      没有活动。
+    <% end %>
+  </ul>
+</section>
+<%= paginate @slides %>

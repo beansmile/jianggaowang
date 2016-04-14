@@ -6,9 +6,10 @@
   <ul class="card-list pure-g">
     <% if @events.any? %>
       <%= render partial: "event_item", collection: @events, as: :event %>
-      <%= paginate @events %>
     <% else %>
       没有活动。
     <% end %>
   </ul>
 </section>
+
+<%= paginate @events %>

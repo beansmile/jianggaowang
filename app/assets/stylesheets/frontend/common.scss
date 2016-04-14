@@ -46,3 +46,14 @@ a {
 [class*="pure-u-"] {
   padding: 10px;
 }
+
+/* for reset the input autocomplete's attritube */
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+}
+

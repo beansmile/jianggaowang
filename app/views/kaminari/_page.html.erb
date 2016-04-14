@@ -1,3 +1,8 @@
-<li class="<%= 'active' if page.current? %>">
-  <%= link_to page, page.current? ? '#' : url, {:remote => remote, :rel => page.next? ? 'next' : page.prev? ? 'prev' : nil} %>
+<li>
+  <%= link_to page,
+              page.current? ? '#' : url,
+              remote: remote,
+              rel: (page.next? ? 'next' : (page.prev? ? 'prev' : nil)),
+              class: "page-link #{'active' if page.current?}"
+  %>
 </li>

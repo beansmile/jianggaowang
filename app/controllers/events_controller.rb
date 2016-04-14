@@ -3,7 +3,7 @@ class EventsController < ApplicationController
   before_action :set_current_event, only: [:edit, :update, :destroy]
 
   def index
-    @events = Event.order_by_created_at_desc.page(params[:page]).per(params[:per_page])
+    @events = Event.order_by_created_at_desc.page(params[:page])
   end
 
   # show action is open to guest so that they see the events and the slides.

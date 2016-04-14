@@ -3,7 +3,7 @@ class SlidesController < ApplicationController
   after_action :increase_slide_visits_count, only: [:show]
 
   def index
-    # TODO: Implement index page
+    @slides = Slide.newest.page(params[:page])
   end
 
   def show

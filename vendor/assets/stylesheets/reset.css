@@ -132,10 +132,16 @@ input[type=button] {width: auto; overflow: visible;}
 /* scale images in IE7 more attractively */
 .ie7 img {-ms-interpolation-mode: bicubic;}
 
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+}
+
 /* prevent BG image flicker upon hover
    (commented out as usage is rare, and the filter syntax messes with some pre-processors)
 .ie6 html {filter: expression(document.execCommand("BackgroundImageCache", false, true));}
 */
-
-/* let's clear some floats */
-.clearfix:after { content: " "; display: block; clear: both; }

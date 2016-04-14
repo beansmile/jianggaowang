@@ -114,12 +114,14 @@
           padding-top: 10px;
         }
 
-        .user-name,
-        .password,
-        .confirm-password,
         .user-bio {
           border-bottom-left-radius: 2px;
           border-bottom-right-radius: 2px;
+        }
+
+        .user-name {
+          border-top-left-radius: 2px;
+          border-top-right-radius: 2px;
         }
 
         input:nth-child(4),
@@ -128,6 +130,10 @@
         input:nth-child(6),
         textarea {
           border-top: 0;
+        }
+
+        input:-webkit-autofill {
+          -webkit-text-fill-color: $silver;
         }
 
         button {
@@ -157,6 +163,11 @@
         .register-btn {
           display: none;
         }
+
+        .password {
+          border-bottom-left-radius: 2px;
+          border-bottom-right-radius: 2px;
+        }
       }
 
       .user-register {
@@ -165,6 +176,7 @@
         .register-btn {
           display: block;
         }
+
       }
     }
   }

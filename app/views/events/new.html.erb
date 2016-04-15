@@ -1,5 +1,35 @@
-<h3>创建活动</h3>
-
-<div class="row slide-form-container">
-  <%= render "form", event: @event %>
-</div>
+<section class="group new-events clearfix">
+  <header class="group-header pure-g clearfix">
+    <h1 class="group-title group-tag pure-u-1">创建活动</h1>
+  </header>
+  <div class="events-wrap pure-g">
+    <div class="file-upload pure-u-1-2">
+      <div class="cover">
+      </div>
+      <div class="cover-upload">
+        <input id="events-cover" type="file" name="pic" accept="image/*" required="false">
+        <span>上传封面</span><span class="upload"></span>
+      </div>
+    </div>
+    <form class="file-info pure-u-1-2">
+      <div class="title clearfix">
+        <label>活动标题</label>
+        <input type="text">
+      </div>
+      <div class="time clearfix">
+        <label>活动时间</label>
+          <input type="text" placeholder="2015-11-11 08:20">
+          <span>~</span>
+          <input type="text" placeholder="2015-11-11 16:20">
+      </div>
+      <div class="introduction clearfix">
+        <label>活动介绍</label>
+        <textarea></textarea>
+      </div>
+      <div class="btn-operate">
+        <a href="#" class="btn-default btn-delete">删除活动</a>
+        <a href="#" class="btn-default btn-warning">创建活动</a>
+      </div>
+    </form>
+  </div>
+</section>

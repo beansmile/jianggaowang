@@ -1,47 +1,33 @@
-<h3>上传讲稿</h3>
-
-<div class="row slide-form-container">
-  <%= form_for @slide, html: {id: 'upload_form'} do |f| %>
-    <%# add the slide to a event %>
-    <% if params[:event_id].present? %>
-      <%= hidden_field_tag(:event_id, params[:event_id]) %>
-    <% end %>
-
-    <div class="col-md-6">
-      <div class="form-group">
-        <%= f.label :title, "讲稿标题", for: "title" %>
-        <%= f.text_field :title, placeholder: '讲稿标题', class: "form-control", required: true, id: "title", autofocus: true %>
+<section class="group new-slides clearfix">
+  <header class="group-header pure-g clearfix">
+    <h1 class="group-title group-tag pure-u-1">上传讲稿</h1>
+  </header>
+  <div class="slides-wrap pure-g">
+    <div class="file-upload pure-u-1-2">
+      <div class="cover">
       </div>
-
-      <div class="form-group">
-        <%= f.label :author, "讲稿作者", for: "author" %>
-        <%= f.text_field :author, placeholder: '讲稿作者', class: "form-control", required: true, id: "author" %>
-      </div>
-
-
-      <div class="form-group">
-        <button id='select_file' class='btn btn-primary'>
-          上传讲稿
-        </button>
-        <br>
-        <small>注意：目前仅支持PDF格式文件</small>
-
-        <%= f.file_field :file, class: "form-control", accept: "application/pdf", required: true, id: "file" %>
-
-        <div class="progress progress-striped active" id='upload_progress_bar'>
-          <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
-          </div>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <%= f.label :description, "讲稿简介", for: "description" %>
-        <%= f.text_area :description, placeholder: "讲稿简介", rows: 10, class: "form-control", required: true, id: "description" %>
-      </div>
-
-      <div style='text-align: left;'>
-        <%= link_to "上传", '#upload', id: 'upload', class: 'btn btn-primary btn-lg', data: { 'disable-with' => '正在上传' } %>
+      <div class="cover-upload">
+        <input type="file" name="pic" accept="image/*" required="false">
+        <span>上传讲稿</span><span class="upload"></span>
       </div>
     </div>
-  <% end %>
-</div>
+    <form class="file-info pure-u-1-2">
+      <div class="title clearfix">
+        <label>讲稿标题</label>
+        <input type="text">
+      </div>
+      <div class="tag clearfix">
+        <label>标签</label>
+        <input type="text">
+      </div>
+      <div class="introduction clearfix">
+        <label>讲稿介绍</label>
+        <textarea></textarea>
+      </div>
+      <div class="btn-operate">
+        <a href="#" class="btn-default btn-delete">删除讲稿</a>
+        <a href="#" class="btn-default btn-warning">上传讲稿</a>
+      </div>
+    </form>
+  </div>
+</section>

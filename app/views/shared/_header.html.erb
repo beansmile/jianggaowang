@@ -10,14 +10,14 @@
 
     <ul class="pure-menu-list pure-u-1 pure-u-lg-6-24 header-menu">
       <li class="pure-menu-item">
-        <%= link_to root_path, class: 'pure-menu-link' do %>
+        <%= link_to root_path, class: "pure-menu-link #{active_link('home', controller_name)}" do %>
           首页
         <% end %>
       </li>
       <li class="pure-menu-item">
-        <%= link_to "活动", events_path, class: "pure-menu-link" %>
+        <%= link_to "活动", events_path, class: "pure-menu-link #{active_link('events', controller_name)}" %>
       </li>
-      <li class="pure-menu-item"><a href="#" class="pure-menu-link">标签</a></li>
+      <li class="pure-menu-item"><a href="#" class="pure-menu-link #{active_link('tags', controller_name)}">标签</a></li>
     </ul>
 
     <form action="" class="pure-form pure-u-1 pure-u-lg-6-24">

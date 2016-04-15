@@ -10,4 +10,8 @@ module ApplicationHelper
       'default_preview.gif'
     end
   end
+
+  def active_link(page, controller_name)
+    page == controller_name ? "active" : nil
+  end
 end

@@ -1,0 +1,51 @@
+@import "variables";
+
+/* for the profiles_edit page*/
+#profiles_edit {
+
+  .pure-g {
+    width: 800px;
+    margin: auto;
+  }
+
+  .person-info,
+  .edit-password {
+    margin-top: 20px;
+  }
+
+  .form-default {
+    padding-left: 0;
+  }
+
+  .avatar-wrap {
+    float: left;
+
+    .edit-avatar {
+      width: 108px;
+    }
+
+    img {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+    }
+    .user-name {
+      margin: 10px 0 20px;
+      display: block;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      color: $gray;
+      font-size: 14px;
+    }
+  }
+
+  .btn-operate {
+    .btn-warning {
+      margin-left: 358px;
+    }
+  }
+  .edit-password {
+    margin-bottom: 72px;
+  }
+}

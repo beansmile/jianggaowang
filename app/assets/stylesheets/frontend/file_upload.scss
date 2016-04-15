@@ -11,6 +11,11 @@
   header {
     padding: 0;
   }
+
+  .events-wrap,
+  .slides-wrap {
+    margin-top: 20px;
+  }
 }
 
 .file-upload {
@@ -56,87 +61,5 @@
       background-image: image-url("events/icon_upload.png");
       background-size: contain;
     }
-  }
-}
-.file-info {
-  float: left;
-  padding-left: 40px;
-
-  label {
-    float: left;
-    margin-right: 10px;
-    width: 56px;
-    color: $gray;
-    font-size: 14px;
-    line-height: 30px;
-    font-weight: lighter;
-  }
-
-  input,
-  textarea {
-    float: left;
-    border: 1px solid $alto;
-    border-radius: 2px;
-    box-shadow: 0 1px 0 $white;
-    background-color: $concrete;
-    color: $silver;
-    font-size: 14px;
-    font-weight: lighter;
-  }
-
-  input:focus,
-  textarea:focus {
-    border: 1px solid $blue;
-    background-color: $white;
-  }
-
-  .title,
-  .time,
-  .tag {
-    margin-bottom: 20px;
-  }
-
-  .tag label {
-    text-align: right;
-  }
-
-  .title,
-  .tag {
-      input {
-      width: 400px;
-      height: 30px;
-    }
-  }
-
-  .time {
-
-    input {
-      padding: 0 20px;
-      width: 184px;
-      height: 30px;
-      line-height: 30px;
-      background: image-url("events/icon-date.svg") center right no-repeat;
-    }
-
-    span {
-      float: left;
-      margin: 0 12px;
-      color: $alto;
-      font-size: 16px;
-      font-weight: lighter;
-      line-height: 30px;
-    }
-  }
-  .introduction {
-    textarea {
-      width: 400px;
-      height: 240px;
-    }
-  }
-  .btn-delete {
-    margin: 20px 20px 0 226px;
-  }
-  .btn-warning {
-    margin-top: 20px;
   }
 }

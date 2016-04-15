@@ -14,7 +14,7 @@
  *= require ./frontend/event_details
  *= require ./frontend/file_upload
  *= require ./frontend/form_common
- *= require ./frontend/profiles_edit
+ *= require ./frontend/profile_edit
  *= require ./frontend/select_event
  *= require_self
  */

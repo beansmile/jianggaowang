@@ -1,6 +1,6 @@
 Jianggaowang.EventsPage = {
   uploadEventsCover: function() {
-    $('#events-cover').change(function(e) {
+    $('#events_cover').change(function(e) {
       var len = e.originalEvent.srcElement.files.length;
       for (var i = 0; i < len; i++) {
         var file = e.originalEvent.srcElement.files[i];
@@ -15,8 +15,8 @@ Jianggaowang.EventsPage = {
     });
   },
   initDatePicker: function() {
-    $('#start-time').datetimepicker();
-    $('#end-time').datetimepicker();
+    $('#start_time').datetimepicker();
+    $('#end_time').datetimepicker();
   },
   init: function() {
     this.uploadEventsCover();

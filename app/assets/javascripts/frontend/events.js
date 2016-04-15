@@ -1,4 +1,3 @@
-var Jianggaowang = Jianggaowang || {};
 
 Jianggaowang.EventsPage = {
   uploadEventsCover: function() {

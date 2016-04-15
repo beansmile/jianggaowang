@@ -14,13 +14,9 @@ class SessionsController < ApplicationController
 
         redirect_to after_sign_in_path
       else
-        flash[:warning] = "密码错误，请重新输入"
+        flash.now[:warning] = "用户名/密码错误"
         render 'new'
       end
-    else
-      @user = User.new
-      flash[:warning] = "用户名不存在，请重新确认您的输入"
-      render 'new'
     end
   end
 

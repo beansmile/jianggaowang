@@ -6,3 +6,4 @@
 //= require ./frontend/carousel
 //= require ./frontend/slides_details
 //= require ./frontend/header
+//= require ./frontend/messages

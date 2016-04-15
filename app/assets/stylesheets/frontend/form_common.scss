@@ -1,0 +1,78 @@
+@import "variables";
+
+/* for events_new page and slide_new page and profile_edit page */
+.form-default {
+  float: left;
+  padding-left: 40px;
+
+  label {
+    float: left;
+    margin-right: 10px;
+    width: 56px;
+    color: $gray;
+    font-size: 14px;
+    line-height: 30px;
+    font-weight: lighter;
+    text-align: right;
+  }
+
+  input,
+  textarea {
+    float: left;
+    border: 1px solid $alto;
+    border-radius: 2px;
+    box-shadow: 0 1px 0 $white;
+    background-color: $concrete;
+    color: $silver;
+    font-size: 14px;
+    font-weight: lighter;
+  }
+
+  input {
+    margin-bottom: 20px;
+    width: 400px;
+    height: 30px;
+    padding-left: 10px;
+  }
+
+  textarea {
+    padding: 5px 0 0 10px;
+    width: 400px;
+    height: 240px;
+  }
+
+  input:focus,
+  textarea:focus {
+    border: 1px solid $blue;
+    background-color: $white;
+    color: $tundora;
+  }
+
+  .time {
+
+    input {
+      padding: 0 20px;
+      width: 184px;
+      height: 30px;
+      line-height: 30px;
+      background: image-url("events/icon-date.svg") center right no-repeat;
+    }
+
+    span {
+      float: left;
+      margin: 0 12px;
+      color: $alto;
+      font-size: 16px;
+      font-weight: lighter;
+      line-height: 30px;
+    }
+  }
+
+  .btn-delete {
+    margin: 20px 20px 0 226px;
+  }
+  .btn-warning {
+    margin-top: 20px;
+  }
+}
+

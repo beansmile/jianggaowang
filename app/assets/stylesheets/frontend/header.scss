@@ -44,6 +44,7 @@
     font-weight: lighter;
     color: $header-link-color;
 
+    &.active,
     &:hover,
     &:focus {
       color: $header-link-active-color;

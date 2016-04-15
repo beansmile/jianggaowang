@@ -1,8 +1,8 @@
-
 Jianggaowang.EventsPage = {
   uploadEventsCover: function() {
     $('#events-cover').change(function(e) {
-      for (var i = 0; i < e.originalEvent.srcElement.files.length; i++) {
+      var len = e.originalEvent.srcElement.files.length;
+      for (var i = 0; i < len; i++) {
         var file = e.originalEvent.srcElement.files[i];
         var img = document.createElement("img");
         var reader = new FileReader();

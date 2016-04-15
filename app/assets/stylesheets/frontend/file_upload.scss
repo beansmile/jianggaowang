@@ -1,0 +1,142 @@
+@import "variables";
+
+/* for events_new page and slide_new page */
+#events_new,
+#slides_new {
+
+  .group {
+    margin-bottom: 130px;
+  }
+
+  header {
+    padding: 0;
+  }
+}
+
+.file-upload {
+  float: left;
+  height: 345px;
+  background-color: $white;
+
+  .cover {
+    margin: 20px 20px 0;
+    height: 270px;
+    background-color: $concrete;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .cover-upload {
+    position: relative;
+    margin: 16px 0 0 20px;
+
+    input {
+      position: absolute;
+      width: 14px;
+      height: 15px;
+      left: 55px;
+      opacity: 0;
+    }
+
+    span {
+      color: $gray;
+      font-size: 12px;
+      font-weight: lighter;
+      vertical-align: top;
+    }
+
+    .upload {
+      display: inline-block;
+      margin-left: 6px;
+      width: 14px;
+      height: 15px;
+      background-image: image-url("events/icon_upload.png");
+      background-size: contain;
+    }
+  }
+}
+.file-info {
+  float: left;
+  padding-left: 40px;
+
+  label {
+    float: left;
+    margin-right: 10px;
+    width: 56px;
+    color: $gray;
+    font-size: 14px;
+    line-height: 30px;
+    font-weight: lighter;
+  }
+
+  input,
+  textarea {
+    float: left;
+    border: 1px solid $alto;
+    border-radius: 2px;
+    box-shadow: 0 1px 0 $white;
+    background-color: $concrete;
+    color: $silver;
+    font-size: 14px;
+    font-weight: lighter;
+  }
+
+  input:focus,
+  textarea:focus {
+    border: 1px solid $blue;
+    background-color: $white;
+  }
+
+  .title,
+  .time,
+  .tag {
+    margin-bottom: 20px;
+  }
+
+  .tag label {
+    text-align: right;
+  }
+
+  .title,
+  .tag {
+      input {
+      width: 400px;
+      height: 30px;
+    }
+  }
+
+  .time {
+
+    input {
+      padding: 0 20px;
+      width: 184px;
+      height: 30px;
+      line-height: 30px;
+      background: image-url("events/icon-date.svg") center right no-repeat;
+    }
+
+    span {
+      float: left;
+      margin: 0 12px;
+      color: $alto;
+      font-size: 16px;
+      font-weight: lighter;
+      line-height: 30px;
+    }
+  }
+  .introduction {
+    textarea {
+      width: 400px;
+      height: 240px;
+    }
+  }
+  .btn-delete {
+    margin: 20px 20px 0 226px;
+  }
+  .btn-warning {
+    margin-top: 20px;
+  }
+}

@@ -1,5 +1,6 @@
 /*
  *= require ./frontend/iconfont
+ *= require ./frontend/button
  *= require ./frontend/common
  *= require ./frontend/header
  *= require ./frontend/footer
@@ -10,5 +11,6 @@
  *= require ./frontend/pagination
  *= require ./frontend/users
  *= require ./frontend/event_details
+ *= require ./frontend/file_upload
  *= require_self
  */

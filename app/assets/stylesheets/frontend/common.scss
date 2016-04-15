@@ -4,7 +4,7 @@
 html,
 .pure-g [class *="pure-u"] {
   height: 100%;
-  font-family: "PingFang SC", "Microsoft YaHei", "微软雅黑", "SimHei", "sans-serif";
+  font-family: "PingFang SC", "STXihei", "Microsoft YaHei", "微软雅黑", "SimHei", "sans-serif";
 }
 
 body {
@@ -46,3 +46,14 @@ a {
 [class*="pure-u-"] {
   padding: 10px;
 }
+
+/* for reset the input autocomplete's attritube */
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+}
+

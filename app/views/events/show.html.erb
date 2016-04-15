@@ -2,57 +2,49 @@
   <%= @event.header %>, <%= @event.content.truncate(20) %>
 <% end %>
 
-<div id="event-show-page">
-  <div class="row">
-    <div class="col-md-12 col-sm-12">
-      <% if @event.cover.present? %>
-        <div class="event-cover">
-          <%= image_tag @event.cover.medium.url, class: "img-responsive" %>
-        </div>
-      <% end %>
-
-      <div class="author-infos">
-
-        <div class="">
-          <%= @event.start_time %> - <%= @event.end_time %>
-        </div>
-
-        <div>
-          讲稿数量： <%= @event.slides.count %>
-        </div>
-
-        <div>
-          <%= link_to "上传讲稿", new_slide_path(event_id: @event.id) %>
-        </div>
-
-        <% if @event.creator == current_user %>
-          <div>
-            <%= link_to "编辑", edit_event_path(@event) %>
-          </div>
-          <div>
-            <%= link_to "删除", event_path(@event), method: :delete, data: { toggle: 'tooltip', confirm: "确认删除？" } %>
+<div class="event-details">
+  <div class="pure-g">
+    <article class="event pure-u-1 pure-u-lg-2-3">
+      <header class="event-header pure-g">
+        <% if @event.cover.present? %>
+          <div class="pure-u-1 pure-u-lg-3-5">
+            <div class="event-cover">
+              <%= image_tag @event.cover.medium.url, class: "img-responsive" %>
+            </div>
           </div>
         <% end %>
-      </div>
-    </div>
-  </div>
+        <div class="event-info pure-u-1 pure-u-lg-2-5">
+          <h1 class="event-title"><%= @event.header %></h1>
+          <time class="event-date">
+            <i class="icon-time"></i><%= @event.start_time %>～<%= @event.end_time %>
+          </time>
+          <% if @event.venue.present? %>
+            <p class="event-position">
+              <i class="icon-position"></i>活动地点：<%= @event.venue %>
+            </p>
+          <% end %>
+          <p class="event-slides-num"><i class="icon-book"></i>讲稿数量：<%= @event.slides.count %></p>
+          <div class="event-action">
+            <%= link_to "上传讲稿", new_slide_path(event_id: @event.id), class: "btn" %>
+          </div>
+        </div>
+      </header>
 
-  <div class="row">
-    <div class="col-md-12">
-      <h4 class="event-info">活动内容</h4>
+      <section class="group group-for-article">
+        <header class="group-header pure-g clearfix width-hr">
+          <h1 class="group-title pure-u-1">活动内容</h1>
+        </header>
+      </section>
 
-      <div class="slide-infos">
-        <h4><%= @event.header %></h4>
-        <p><%= sanitize @event.content %></p>
-      </div>
-    </div>
-
-    <div class="col-md-12 event-slides">
-      <% if @slides.any? %>
-        <%= render 'slides/slides', slides: @slides %>
-      <% else %>
-        暂无讲稿。 点击<%= link_to "上传讲稿", new_slide_path(event_id: @event.id) %>
-      <% end %>
+      <section class="event-content">
+        <%= sanitize @event.content %>
+      </section>
     </div>
   </div>
 </div>
+
+<section class="group">
+  <ul class="card-list pure-g">
+    <%= render partial: "slides/slide_item", collection: @event.slides, as: :slide %>
+  </ul>
+</section>

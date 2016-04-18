@@ -21,7 +21,16 @@
     float: left;
 
     .edit-avatar {
+      position: relative;
       width: 108px;
+
+      input {
+        position: absolute;
+        width: 108px;
+        height: 40px;
+        bottom: 0;
+        opacity: 0;
+      }
     }
 
     img {

@@ -16,6 +16,23 @@
   .slides-wrap {
     margin-top: 20px;
   }
+
+  .slides-wrap .cover {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    span {
+      display: none;
+      color: $gray;
+      font-size: 16px;
+      font-weight: lighter;
+    }
+
+    .upload-done {
+      font-size: 12px;
+    }
+  }
 }
 
 .file-upload {
@@ -40,9 +57,8 @@
 
     input {
       position: absolute;
-      width: 14px;
-      height: 15px;
-      left: 55px;
+      top: 0;
+      left: 58px;
       opacity: 0;
     }
 
@@ -53,13 +69,65 @@
       vertical-align: top;
     }
 
-    .upload {
+    .upload-lecture,
+    .upload-audio,
+    .live-record,
+    .upload-cover {
+      position: relative;
       display: inline-block;
-      margin-left: 6px;
-      width: 14px;
-      height: 15px;
-      background-image: image-url("events/icon_upload.png");
-      background-size: contain;
+      height: 17px;
+
+      span {
+        display: inline-block;
+      }
+
+      .icon {
+        margin-left: 6px;
+      }
+    }
+
+    .upload-lecture,
+    .upload-cover {
+
+      .upload {
+        width: 14px;
+        height: 15px;
+        background-image: image-url("events/icon-upload@2x.png");
+        background-size: contain;
+      }
+
+      input {
+        width: 14px;
+        height: 15px;
+      }
+    }
+
+    .upload-audio {
+      margin-left: 16px;
+
+      .upload {
+        width: 20px;
+        height: 15px;
+        background-image: image-url("events/icon-camera@2x.png");
+        background-size: contain;
+      }
+
+      input {
+        width: 20px;
+        height: 15px;
+      }
+    }
+
+    .live-record {
+      display: none;
+      margin-left: 12px;
+
+      .icon-x {
+        width: 15px;
+        height: 15px;
+        background-image: image-url("events/icon-close@2x.png");
+        background-size: contain;
+      }
     }
   }
 }

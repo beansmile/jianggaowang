@@ -1,10 +1,10 @@
 Jianggaowang.EventsPage = {
   uploadEventsCover: function() {
-    $('#events-cover').change(function(e) {
+    $('#events_cover').change(function(e) {
       var len = e.originalEvent.srcElement.files.length;
       for (var i = 0; i < len; i++) {
         var file = e.originalEvent.srcElement.files[i];
-        var img = document.createElement("img");
+        var img = document.createElement('img');
         var reader = new FileReader();
         reader.onloadend = function() {
           img.src = reader.result;
@@ -14,8 +14,13 @@ Jianggaowang.EventsPage = {
       }
     });
   },
+  initDatePicker: function() {
+    $('#start_time').datetimepicker();
+    $('#end_time').datetimepicker();
+  },
   init: function() {
     this.uploadEventsCover();
+    this.initDatePicker();
   }
 };
 

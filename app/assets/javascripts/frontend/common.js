@@ -1,5 +1,5 @@
 /* for the common function */
-Jianggaowang.CommonFunction = {
+Jianggaowang.Common = {
   uploadImage: function(input, cover) {
     input.change(function(e) {
       cover.find('img').remove();

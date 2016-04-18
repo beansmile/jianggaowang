@@ -5,10 +5,25 @@
   <div class="slides-wrap pure-g">
     <div class="file-upload pure-u-1-2">
       <div class="cover">
+        <span class="progress"></span>
+        <span class="upload-done">正在后台转换中...</span>
       </div>
       <div class="cover-upload">
-        <input type="file" name="pic" accept="image/*" required="false">
-        <span>上传讲稿</span><span class="upload"></span>
+        <div class="upload-lecture">
+          <span>上传讲稿</span>
+          <span class="upload icon"></span>
+          <input id="upload_lecture" type="file" name="lecture" accept="application/pdf" required="false">
+        </div>
+        <div class="upload-audio">
+          <span>上传音频</span>
+          <span class="upload icon"></span>
+          <input id="upload_audio" type="file" name="audio" accept="audio/*" required="false">
+        </div>
+        <!--上传音频上传完之后才会显示-->
+        <div class="live-record">
+          <span>现场录音.mp3</span>
+          <span class="icon-x icon"></span>
+        </div>
       </div>
     </div>
     <form class="file-info form-default pure-u-1-2">
@@ -26,7 +41,7 @@
       </div>
       <div class="btn-operate">
         <a href="#" class="btn-default btn-delete">删除讲稿</a>
-        <a href="#" class="btn-default btn-warning">上传讲稿</a>
+        <a href="#" class="btn-default btn-warning">完成上传</a>
       </div>
     </form>
   </div>

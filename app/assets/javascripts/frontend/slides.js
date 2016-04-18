@@ -21,10 +21,7 @@ Jianggaowang.SlidesPage = {
       },100);
     };
 
-    $('#upload_lecture').change(function() {
-      progress();
-    });
-    $('#upload_audio').change(function() {
+    $('#upload_lecture, #upload_audio').change(function() {
       progress();
     });
   },

@@ -7,8 +7,8 @@ Jianggaowang.Carousel = {
       variableWidth:  true,
       respondTo: 'min',
       focusOnSelect: true,
-      'slidesToShow': 1,
-      'slidesToScroll': 1,
+      slidesToShow: 1,
+      slidesToScroll: 1,
       responsive: [
         {
           breakpoint: 1140,

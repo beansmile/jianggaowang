@@ -1,0 +1,166 @@
+@import "variables";
+
+.slides {
+  padding-top: 20px;
+  background-color: $white;
+}
+
+.slides-content {
+  width: 100%;
+  height: 0;
+  padding: 30px;
+  margin-bottom: 10px;
+  background-color: #f9f9f9;
+
+  .slides-img {
+    width: 100%;
+    height: 0;
+    padding-top: 75%;
+    position: relative;
+    background-color: $white;
+    border: 10px solid $white;
+
+    img {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+      width: 100%;
+    }
+  }
+
+  .slider-nav {
+    line-height: 20px;
+    font-size: 20px;
+    padding-top: 30px;
+    color: #808080;
+    text-align: center;
+
+    .slider-btn {
+      width: 0;
+      height: 0;
+      padding: 0;
+      border: 0;
+      margin: 0 10px;
+      background: 0;
+      text-indent: -9999px;
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+      vertical-align: bottom;
+
+      &.slider-prev {
+        border-right: 20px solid #808080;
+      }
+
+      &.slider-next {
+        border-left: 20px solid #808080;
+      }
+    }
+  }
+}
+
+.slides-info,
+.slides-operate {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.slides-operate {
+  .btn-default + .btn-default {
+    margin-left: 20px;
+  }
+
+  .slides-watched {
+    float: right;
+    font-size: 16px;
+    line-height: 40px;
+    color: #fe6126;
+
+    .icon-glass {
+      margin-right: 10px;
+      color: #808080;
+    }
+  }
+}
+
+.slides-tag {
+  color: $blue;
+
+  & + & {
+    margin-left: 10px;
+  }
+}
+
+.slides-title {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.slides-author {
+  font-size: 12px;
+  font-style: normal;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.slides-author img {
+  width: 38px;
+  height: 38px;
+  border: 1px solid #d8d8d8;
+  border-radius: 50%;
+  vertical-align: middle;
+  overflow: hidden;
+}
+
+.slides-date,
+.slides-belong {
+  font-size: 12px;
+  margin-left: 30px;
+}
+
+.slides-intro {
+  header {
+    font-size: 16px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: 200;
+  }
+
+  line-height: 1.5em;
+  color: $gray;
+
+  p {
+    text-indent: 2em;
+    margin: 1em 0;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: $tundora;
+    font-weight: bolder;
+  }
+
+  strong {
+    font-weight: bolder;
+  }
+}
+
+.slides-recommend {
+  padding-left: 50px;
+  padding-right: 40px;
+
+  > header {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  .card-list {
+    padding-left: 20px;
+  }
+}

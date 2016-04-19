@@ -17,5 +17,6 @@
  *= require ./frontend/profile_edit
  *= require ./frontend/select_event
  *= require ./frontend/carousel
+ *= require ./frontend/slides
  *= require_self
  */

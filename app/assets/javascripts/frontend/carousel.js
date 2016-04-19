@@ -4,7 +4,7 @@ Jianggaowang.Carousel = {
       arrows: false,
       centerMode: true,
       speed: 500,
-      variableWidth:  true,
+      variableWidth: true,
       respondTo: 'min',
       focusOnSelect: true,
       slidesToShow: 1,

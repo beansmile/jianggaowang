@@ -4,3 +4,4 @@
 //= require turbolinks
 //= require jquery.lazyload
 //= require jquery.datetimepicker.full
+//= require jquery.slick

@@ -16,5 +16,6 @@
  *= require ./frontend/form_common
  *= require ./frontend/profile_edit
  *= require ./frontend/select_event
+ *= require ./frontend/carousel
  *= require_self
  */

@@ -113,3 +113,8 @@ gem 'bootstrap-wysihtml5-rails', '~> 0.3.3.7'
 # autoprefix for css
 # https://github.com/ai/autoprefixer-rails
 gem 'autoprefixer-rails'
+
+# Integrates Slick carousel, a jQuery plugin by Ken Wheeler.
+# https://github.com/kenwheeler/slick
+# https://rubygems.org/gems/jquery-slick-rails
+gem 'jquery-slick-rails', '~> 1.6', '>= 1.6.0.1'

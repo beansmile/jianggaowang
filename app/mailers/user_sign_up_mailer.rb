@@ -4,7 +4,7 @@ class UserSignUpMailer < ActionMailer::Base
   def notify_admin(new_user)
     @new_user = new_user
 
-    mail to: @new_user.email
+    mail to: Rails.application.secrets.mail['admin']
   end
 
   def admin_approved(user)

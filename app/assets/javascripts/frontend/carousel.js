@@ -4,6 +4,8 @@ Jianggaowang.Carousel = {
       arrows: false,
       centerMode: true,
       speed: 500,
+      autoplay: true,
+      autoplaySpeed: 3000,
       variableWidth: true,
       respondTo: 'min',
       focusOnSelect: true,

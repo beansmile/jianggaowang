@@ -38,6 +38,17 @@
     color: #808080;
     text-align: center;
 
+    #fullscreen {
+      width: 20px;
+      height: 20px;
+      float: right;
+      cursor: pointer;
+
+      .icon-fullscreen {
+        font-size: 23px;
+      }
+    }
+
     .slider-btn {
       width: 0;
       height: 0;

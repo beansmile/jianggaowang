@@ -1,19 +1,19 @@
 /*
  *    Name: JiangGao-iconfont
  *  Author: Beansmile
- * Version: v1.0.2
- *    Date: 2016/04/19
+ * Version: v1.0.3
+ *    Date: 2016/04/20
  *   Usage: <i class="icon-search"></i>
  *     Url: http://iconfont.cn
  */
 
 @font-face {
   font-family: "iconfont";
-  src: font-url('iconfont.eot?t=1461052847'); /* IE9 */
-  src: font-url('iconfont.eot?t=1461052847#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       font-url('iconfont.woff?t=1461052847') format('woff'), /* chrome, firefox */
-       font-url('iconfont.ttf?t=1461052847') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
-       font-url('iconfont.svg?t=1461052847#iconfont') format('svg'); /* iOS 4.1- */
+  src: font-url('iconfont.eot?t=1461146123'); /* IE9 */
+  src: font-url('iconfont.eot?t=1461146123#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       font-url('iconfont.woff?t=1461146123') format('woff'), /* chrome, firefox */
+       font-url('iconfont.ttf?t=1461146123') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+       font-url('iconfont.svg?t=1461146123#iconfont') format('svg'); /* iOS 4.1- */
 }
 
 [class*="icon-"] {
@@ -24,6 +24,7 @@
   -webkit-text-stroke-width: 0.2px;
   -moz-osx-font-smoothing: grayscale;
 }
+.icon-fullscreen::before { content: "\e60b"; }
 .icon-search::before { content: "\e601"; }
 .icon-github::before { content: "\e600"; }
 .icon-menu::before { content: "\e602"; }

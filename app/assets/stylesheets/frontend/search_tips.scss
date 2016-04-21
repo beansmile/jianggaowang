@@ -2,14 +2,22 @@
 
 .search-tips {
   width: 100%;
-  height: 50px;
-  line-height: 30px;
-  font-size: 14px;
+  height: 40px;
+  line-height: 20px;
+  font-size: 12px;
   background-color: $search-tips-bg;
   color: $search-tips-color;
 
   & + .card-list,
   & + .group {
     margin-top: 20px;
+  }
+}
+
+@media (min-width: 768px) {
+  .search-tips {
+    height: 50px;
+    line-height: 30px;
+    font-size: 14px;
   }
 }

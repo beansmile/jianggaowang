@@ -28,3 +28,13 @@
     }
   }
 }
+
+@media (max-width: 767px) {
+  .tag-list {
+    .tag {
+      min-width: 66.6px;
+      min-height: 30px;
+      padding: 7px;
+    }
+  }
+}

@@ -1,30 +1,28 @@
 @import "variables";
 
-/* TODO: group should change to panel */
-
-.group {
+.panel {
   margin-top: 40px;
 
   & + & {
     margin-top: 5px;
   }
 
-  &.group-for-tag {
+  &.panel-for-tag {
     margin-top: 25px;
   }
 
-  &.group-for-article {
+  &.panel-for-article {
     margin-top: 0;
   }
 
-  .group-header {
+  .panel-header {
     display: block;
     line-height: 30px;
     font-weight: lighter;
 
     &,
     a {
-      color: $group-link-color;
+      color: $panel-link-color;
     }
 
     &.with-hr::after {
@@ -33,24 +31,24 @@
       display: block;
       height: 0;
       padding-top: 10px;
-      border-top: 1px solid $group-tag-border;
+      border-top: 1px solid $panel-tag-border;
       margin: 10px 10px 0;
     }
 
-    .group-title {
+    .panel-title {
       margin: 0;
       font-size: 20px;
       font-weight: normal;
     }
 
-    .group-link {
+    .panel-link {
       float: right;
       font-size: 16px;
       text-align: right;
 
       &:hover,
       &:focus {
-        color: $group-link-hover-color;
+        color: $panel-link-hover-color;
       }
     }
 

@@ -6,7 +6,7 @@
  *= require ./frontend/header
  *= require ./frontend/footer
  *= require ./frontend/search_tips
- *= require ./frontend/groups
+ *= require ./frontend/panel
  *= require ./frontend/tags
  *= require ./frontend/cards
  *= require ./frontend/pagination

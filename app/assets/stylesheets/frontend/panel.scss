@@ -73,5 +73,11 @@
         font-size: 12px;
       }
     }
+
+    &.panel-for-article {
+      .panel-header .panel-title {
+        font-size: 16px;
+      }
+    }
   }
 }

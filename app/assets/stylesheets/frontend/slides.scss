@@ -10,7 +10,7 @@
   height: 0;
   padding: 30px;
   margin-bottom: 10px;
-  background-color: #f9f9f9;
+  background-color: $alabaster;
 
   .slides-img {
     width: 100%;
@@ -35,7 +35,7 @@
     line-height: 20px;
     font-size: 20px;
     padding-top: 30px;
-    color: #808080;
+    color: $gray;
     text-align: center;
 
     #fullscreen {
@@ -62,11 +62,11 @@
       vertical-align: bottom;
 
       &.slider-prev {
-        border-right: 20px solid #808080;
+        border-right: 20px solid $gray;
       }
 
       &.slider-next {
-        border-left: 20px solid #808080;
+        border-left: 20px solid $gray;
       }
     }
   }
@@ -87,11 +87,11 @@
     float: right;
     font-size: 16px;
     line-height: 40px;
-    color: #fe6126;
+    color: $orange;
 
     .icon-glass {
       margin-right: 10px;
-      color: #808080;
+      color: $gray;
     }
   }
 }
@@ -119,7 +119,7 @@
 .slides-author img {
   width: 38px;
   height: 38px;
-  border: 1px solid #d8d8d8;
+  border: 1px solid $silver;
   border-radius: 50%;
   vertical-align: middle;
   overflow: hidden;

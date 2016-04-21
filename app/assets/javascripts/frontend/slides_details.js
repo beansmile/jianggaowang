@@ -15,17 +15,17 @@ Jianggaowang.SlidesDetailsPage = {
 
     // Set total pages number
     $('#total_page').html($('#slider .slides-page').length);
-    
+
     // Prev page btn
     $('.slider-prev').click(function() {
       $slider.slick('slickPrev');
     });
-    
+
     // Next page btn
     $('.slider-next').click(function() {
       $slider.slick('slickNext');
     });
-    
+
     // Set current page number
     $slider.on('afterChange', function(event, slick, currentSlide) {
       $('#currentPage').html(currentSlide + 1);
@@ -48,16 +48,16 @@ Jianggaowang.SlidesDetailsPage = {
 
     var openPhotoSwipe = function(items, currentIndex) {
       var pswpElement = document.querySelectorAll('.pswp')[0];
-      
+
       // define options (if needed)
       var options = {
-        // history & focus options are disabled on CodePen        
+        // history & focus options are disabled on CodePen
         history: false,
         focus: false,
         showAnimationDuration: 0,
         hideAnimationDuration: 0
       };
-      
+
       // Call the PhotoSwipe Plugin
       var gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options);
       gallery.init();

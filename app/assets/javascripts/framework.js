@@ -5,3 +5,4 @@
 //= require jquery.lazyload
 //= require jquery.datetimepicker.full
 //= require jquery.slick
+//= require photoswipe

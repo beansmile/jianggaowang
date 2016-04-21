@@ -118,3 +118,8 @@ gem 'autoprefixer-rails'
 # https://github.com/kenwheeler/slick
 # https://rubygems.org/gems/jquery-slick-rails
 gem 'jquery-slick-rails', '~> 1.6', '>= 1.6.0.1'
+
+# JavaScript image gallery for mobile and desktop.
+# https://github.com/dimsemenov/photoswipe
+# https://github.com/skakri/photoswipe-rails
+gem 'photoswipe-rails', '~> 4.1', '>= 4.1.1'

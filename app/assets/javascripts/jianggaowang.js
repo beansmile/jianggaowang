@@ -4,3 +4,4 @@
 //= require ./frontend/profile
 //= require ./frontend/slides
 //= require ./frontend/carousel
+//= require ./frontend/slides_details 

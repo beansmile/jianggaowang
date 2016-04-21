@@ -1,7 +1,7 @@
 @import "variables";
 
 .panel {
-  margin-top: 40px;
+  margin-top: 20px;
 
   & + & {
     margin-top: 5px;
@@ -18,7 +18,7 @@
   .panel-header {
     display: block;
     line-height: 30px;
-    font-weight: lighter;
+    font-weight: 200;
 
     &,
     a {
@@ -54,6 +54,24 @@
 
     [class*="pure-u-"] {
       padding-bottom: 0;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .panel {
+    margin: 0;
+
+    .panel-header {
+      line-height: 20px;
+
+      .panel-title {
+        font-size: 14px;
+      }
+
+      .panel-link {
+        font-size: 12px;
+      }
     }
   }
 }

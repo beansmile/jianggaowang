@@ -150,7 +150,15 @@
         &:last-child {
           border-bottom: 1px solid $emperor;
         }
+
       }
+    }
+
+    .pure-menu-link:hover,
+    .pure-menu-link:focus,
+    .pure-menu-link.active {
+      color: $white;
+      background-color: $mine-shaft;
     }
 
     .pure-form {

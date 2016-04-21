@@ -6,11 +6,16 @@
   left: 0;
   width: 100%;
   height: $footer-h;
-  padding: 30px 20px;
+  padding: 40px 20px;
   line-height: 20px;
   text-align: center;
   color: $footer-color;
   background-color: $footer-bg;
+
+  > span,
+  a {
+    white-space: nowrap;
+  }
 
   a {
     color: $footer-link-color;
@@ -19,11 +24,14 @@
     &:focus {
       color: $footer-link-hover-color;
     }
+
+    &.footer-github {
+      margin-left: 20px;
+    }
   }
 
   .icon-github {
     font-size: 20px;
-    margin-left: 20px;
   }
 }
 
@@ -31,5 +39,23 @@
 #user_passwords_reset {
   .footer {
     background-color: transparent;
+  }
+}
+
+@media (max-width: 767px) {
+  .footer {
+    height: auto;
+    padding: 15px 0 10px;
+    font-size: 12px;
+
+    > span,
+    > a {
+      display: block;
+    }
+
+    a.footer-github {
+      padding-top: 10px;
+      margin-left: 0;
+    }
   }
 }

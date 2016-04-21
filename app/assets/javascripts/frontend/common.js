@@ -10,10 +10,10 @@ Jianggaowang.Common = {
         var reader = new FileReader();
         reader.onloadend = function() {
           img.src = reader.result;
-        }
+        };
         reader.readAsDataURL(file);
         cover.prepend(img);
       }
     });
-  },
+  }
 };

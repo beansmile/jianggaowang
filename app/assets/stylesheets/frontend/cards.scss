@@ -81,7 +81,27 @@
 
   .card-date {
     font-size: 12px;
-    font-weight: lighter;
+    font-weight: 200;
     color: $card-date;
+  }
+}
+
+@media (max-width: 767px) {
+  .card-list {
+    .card-list-item {
+      padding: 10px;
+    }
+
+    .card-header {
+      padding-top: 58.57%;
+    }
+
+    .card-footer {
+      padding: 7px 10px 6px;
+    }
+
+    .card-title {
+      font-size: 14px;
+    }
   }
 }

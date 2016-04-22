@@ -18,7 +18,7 @@ Jianggaowang.Carousel = {
             variableWidth: false,
             arrows: false,
             centerMode: true,
-            centerPadding: '20px',
+            centerPadding: '0',
             slidesToShow: 1
           }
         }

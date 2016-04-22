@@ -4,8 +4,8 @@
 #events_new,
 #slides_new {
 
-  .group {
-    .group-header.with-hr::after {
+  .panel {
+    .panel-header.with-hr::after {
       margin: 10px 0;
     }
   }
@@ -159,7 +159,7 @@
   #events_new,
   #slides_new {
 
-    .group {
+    .panel {
       margin-bottom: 40px;
       width: 100%;
       padding: 0 20px;
@@ -204,7 +204,7 @@
   #events_new,
   #slides_new {
 
-    .group {
+    .panel {
       margin: 30px auto 80px;
       width: 74.21875%;
     }
@@ -246,7 +246,7 @@
   #events_new,
   #slides_new {
 
-    .group {
+    .panel {
       width: 1120px;
       margin: 10px auto 80px;
     }

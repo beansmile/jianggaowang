@@ -36,7 +36,7 @@
     }
   }
 
-  .group-tips {
+  .panel-tips {
     font-weight: 200;
 
     a {
@@ -44,7 +44,7 @@
 
       &:hover,
       &:focus {
-        color: $group-link-hover-color;
+        color: $panel-link-hover-color;
       }
     }
   }
@@ -52,10 +52,10 @@
 
 @media (min-width: 1024px) {
   .select-event {
-    .group-header {
+    .panel-header {
       display: block;
 
-      .group-title {
+      .panel-title {
         width: auto;
       }
 
@@ -63,7 +63,7 @@
         width: 190px;
       }
 
-      .group-tips {
+      .panel-tips {
         float: right;
         width: auto;
         padding-right: 20px;

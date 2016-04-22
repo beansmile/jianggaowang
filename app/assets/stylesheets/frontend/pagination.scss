@@ -1,6 +1,6 @@
 @import "variables";
 
-.group + .pagination,
+.panel + .pagination,
 .card-list + .pagination {
   .page-list {
     padding-top: 0;
@@ -53,6 +53,17 @@
     &.page-next,
     &.page-prev {
       line-height: 14px;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .pagination {
+    .page-link {
+      width: 40px;
+      height: 40px;
+      padding: 12px;
+      font-size: 14.4px;
     }
   }
 }

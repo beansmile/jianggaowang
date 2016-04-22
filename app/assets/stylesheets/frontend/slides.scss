@@ -132,15 +132,15 @@
 }
 
 .slides-intro {
+  line-height: 1.5em;
+  color: $gray;
+
   header {
     font-size: 16px;
     margin-top: 10px;
     margin-bottom: 10px;
     font-weight: 200;
   }
-
-  line-height: 1.5em;
-  color: $gray;
 
   p {
     text-indent: 2em;
@@ -173,5 +173,87 @@
 
   .card-list {
     padding-left: 20px;
+  }
+}
+
+@media (max-width: 767px) {
+  .slides-content {
+    padding: 10px;
+
+    .slides-img {
+      border-width: 5px;
+    }
+
+    .slider-nav {
+      line-height: 18px;
+      font-size: 12px;
+      padding-top: 10px;
+
+      #fullscreen {
+        width: 18px;
+        height: 18px;
+
+        .icon-fullscreen {
+          font-size: 18px;
+        }
+      }
+
+      .slider-btn {
+        margin: 2px 7px;
+        border-top: 7px solid transparent;
+        border-bottom: 7px solid transparent;
+
+        &.slider-prev {
+          border-right: 14px solid $gray;
+        }
+
+        &.slider-next {
+          border-left: 14px solid $gray;
+        }
+      }
+    }
+  }
+
+  .slides-info,
+  .slides-operate {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .slides-operate {
+    text-align: center;
+
+    .btn-default {
+      width: 80px;
+      height: 30px;
+      font-size: 12px;
+      line-height: 28px;
+    }
+
+    .slides-watched {
+      display: none;
+    }
+  }
+
+  .slides-info {
+    color: $gray;
+
+    .slides-title {
+      font-size: 16px;
+    }
+
+    .slides-author {
+      float: left;
+      padding-bottom: 5px;
+    }
+
+    .slides-date,
+    .slides-belong {
+      margin-left: 22px;
+    }
+  }
+
+  .slides-recommend {
+    display: none;
   }
 }

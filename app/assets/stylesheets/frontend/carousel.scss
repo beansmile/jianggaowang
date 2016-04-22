@@ -54,3 +54,20 @@
     }
   }
 }
+
+@media (max-width: 767px) {
+  #carousel {
+    .carousel-slide {
+      &::before {
+        padding-top: 43.75%;
+      }
+
+      .carousel-title {
+        height: 40px;
+        font-size: 14px;
+        padding: 0 20px;
+        line-height: 40px;
+      }
+    }
+  }
+}

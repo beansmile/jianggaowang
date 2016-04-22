@@ -2,7 +2,7 @@
 活动
 <% end %>
 
-<section class="group">
+<section class="panel">
   <ul class="card-list pure-g">
     <% if @events.any? %>
       <%= render partial: "event_item", collection: @events, as: :event %>

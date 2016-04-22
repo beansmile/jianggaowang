@@ -5,6 +5,17 @@
   padding: 10px 0;
   background-color: $header-bg;
 
+  .pure-g {
+    @media (min-width: 768px) {
+      width: 100%;
+      margin: auto;
+    }
+
+    @media (min-width: 1160px) {
+      width: 1160px;
+    }
+  }
+
   .pure-form {
     vertical-align: middle;
     position: relative;
@@ -228,10 +239,11 @@
 
     .pure-menu-children {
       top: 40px;
-      left: 50%;
+      left: auto;
+      right: 0;
       width: 110px;
       padding-top: 19px;
-      margin-left: -55px;
+      margin-right: -20px;
       background-color: $header-bg;
 
       &::before {
@@ -263,12 +275,16 @@
 
 @media (min-width: 1024px) {
   .header {
-    .header-logo {
-      padding-left: 10px;
-    }
-
     .pure-menu-heading {
       font-size: 19px;
+    }
+  }
+}
+
+@media (min-width: 1160px) {
+  .header {
+    .header-logo {
+      padding-left: 10px;
     }
 
     .header-user {

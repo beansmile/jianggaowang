@@ -32,11 +32,20 @@ a {
 }
 
 .pure-g {
+  width: 100%;
   padding: 0 10px;
+
+  @media (min-width: 768px) {
+    width: 79.427%;
+    margin: auto;
+  }
+
+  @media (min-width: 1024px) {
+    width: 100%;
+  }
 
   @media (min-width: 1160px) {
     width: 1160px;
-    margin: auto;
   }
 
   .pure-g {

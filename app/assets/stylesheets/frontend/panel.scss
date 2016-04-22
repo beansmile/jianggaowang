@@ -37,13 +37,11 @@
 
     .panel-title {
       margin: 0;
-      font-size: 20px;
-      font-weight: normal;
+      font-weight: 200;
     }
 
     .panel-link {
       float: right;
-      font-size: 16px;
       text-align: right;
 
       &:hover,
@@ -76,6 +74,34 @@
 
     &.panel-for-article {
       .panel-header .panel-title {
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .panel {
+    .panel-header {
+      .panel-title {
+        font-size: 18px;
+      }
+
+      .panel-link {
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .panel {
+    .panel-header {
+      .panel-title {
+        font-size: 20px;
+      }
+
+      .panel-link {
         font-size: 16px;
       }
     }

@@ -34,7 +34,7 @@ a {
 .pure-g {
   padding: 0 10px;
 
-  @media (min-width: 1200px) {
+  @media (min-width: 1160px) {
     width: 1160px;
     margin: auto;
   }
@@ -61,3 +61,8 @@ textarea:focus {
   outline: none;
 }
 
+.md-hidden {
+  @media (max-width: 1023px) {
+    display: none;
+  }
+}

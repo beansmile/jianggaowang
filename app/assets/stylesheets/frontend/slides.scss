@@ -132,15 +132,15 @@
 }
 
 .slides-intro {
+  line-height: 1.5em;
+  color: $gray;
+
   header {
     font-size: 16px;
     margin-top: 10px;
     margin-bottom: 10px;
     font-weight: 200;
   }
-
-  line-height: 1.5em;
-  color: $gray;
 
   p {
     text-indent: 2em;
@@ -212,5 +212,48 @@
         }
       }
     }
+  }
+
+  .slides-info,
+  .slides-operate {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .slides-operate {
+    text-align: center;
+
+    .btn-default {
+      width: 80px;
+      height: 30px;
+      font-size: 12px;
+      line-height: 28px;
+    }
+
+    .slides-watched {
+      display: none;
+    }
+  }
+
+  .slides-info {
+    color: $gray;
+
+    .slides-title {
+      font-size: 16px;
+    }
+
+    .slides-author {
+      float: left;
+      padding-bottom: 5px;
+    }
+
+    .slides-date,
+    .slides-belong {
+      margin-left: 22px;
+    }
+  }
+
+  .slides-recommend {
+    display: none;
   }
 }

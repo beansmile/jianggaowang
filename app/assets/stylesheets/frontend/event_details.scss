@@ -121,11 +121,16 @@
 
     .event-action {
       padding-bottom: 0;
+      text-align: center;
+
       .btn {
         width: 80px;
         height: 30px;
         font-size: 12px;
         line-height: 28px;
+      }
+
+      a + a {
         margin-left: 40px;
       }
     }

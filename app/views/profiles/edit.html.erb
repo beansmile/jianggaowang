@@ -1,9 +1,9 @@
 <section class="panel profile-edit clearfix">
-  <header class="panel-header with-hr pure-g clearfix">
-    <h1 class="panel-title pure-u-1">个人资料</h1>
+  <header class="panel-header with-hr clearfix">
+    <h1 class="panel-title">个人资料</h1>
   </header>
-  <div class="person-info pure-g clearfix">
-    <form class="form-default pure-u-3-4">
+  <div class="person-info clearfix">
+    <form class="form-default">
       <div class="user-name clearfix">
         <label>用户名</label>
         <input type="text">
@@ -11,31 +11,36 @@
       <div class="email clearfix">
         <label>邮箱</label>
         <input type="text">
+        <span class="verify-btn">验证</span>
       </div>
       <div class="introduction clearfix">
         <label>个人介绍</label>
         <textarea></textarea>
       </div>
-      <div class="btn-operate">
+      <div class="btn-operate clearfix">
         <a href="#" class="btn-default btn-warning">更新</a>
       </div>
     </form>
-    <div class="avatar-wrap pure-u-1-4">
-      <div class="edit-avatar">
-        <img src="/assets/users/default-avatar.jpg" class="avatar">
-        <span class="user-name">coco</span>
-        <a href="#" class="btn-default">修改头像</a>
-        <input id="modify_avatar" type="file" name="avatar" accept="image/*" required="false">
+    <div class="avatar-wrap">
+      <div class="edit-avatar clearfix">
+        <div>
+          <img src="/assets/users/default-avatar.jpg" class="avatar">
+          <span class="user-name">coco</span>
+        </div>
+        <div>
+          <a href="#" class="btn-default">修改头像</a>
+          <input id="modify_avatar" type="file" name="avatar" accept="image/*" required="false">
+        </div>
       </div>
     </div>
   </div>
 </section>
 <section class="panel profile-edit clearfix">
-  <header class="panel-header with-hr pure-g clearfix">
-    <h1 class="panel-title pure-u-1">修改密码</h1>
+  <header class="panel-header with-hr clearfix">
+    <h1 class="panel-title">修改密码</h1>
   </header>
-  <div class="edit-password pure-g clearfix">
-    <form class="form-default pure-u-1">
+  <div class="edit-password clearfix">
+    <form class="form-default">
       <div class="clearfix">
         <label>原密码</label>
         <input type="text">
@@ -48,7 +53,7 @@
         <label>确认密码</label>
         <input type="text">
       </div>
-      <div class="btn-operate">
+      <div class="btn-operate clearfix">
         <a href="#" class="btn-default btn-warning">修改</a>
       </div>
     </form>

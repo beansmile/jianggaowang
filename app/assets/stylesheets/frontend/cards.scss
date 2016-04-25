@@ -105,3 +105,31 @@
     }
   }
 }
+
+@media (min-width: 768px) {
+  .card-list {
+    .card-list-item {
+      &:nth-child(even) {
+        padding-left: 20px;
+      }
+
+      &:nth-child(odd) {
+        padding-right: 20px;
+      }
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .card-list {
+    .card-list-item {
+      &:nth-child(even) {
+        padding-left: 10px;
+      }
+
+      &:nth-child(odd) {
+        padding-right: 10px;
+      }
+    }
+  }
+}

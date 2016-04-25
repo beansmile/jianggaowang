@@ -10,11 +10,8 @@ Jianggaowang.SlidesDetailsPage = {
       slidesToScroll: 1,
       arrows: false,
       fade: true,
-      speed: 500
+      speed: 50
     });
-
-    // Set total pages number
-    $('#total_page').html($('#slider .slides-page').length);
 
     // Prev page btn
     $('.slider-prev').click(function() {

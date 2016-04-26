@@ -2,90 +2,118 @@
 <%= @slide.title %>, <%= @slide.description.truncate(20) %>
 <% end %>
 
-<div class="row slide-page">
-  <div class="col-md-8">
-    <% if @slide.done? && @slide.previews.any? %>
-      <div class="pages-container">
-        <%= render 'pages', slide: @slide %>
-      </div>
+<div class="slides-details-page">
+  <div class="pure-g">
+    <div class="slides-details pure-u-1 pure-u-lg-2-3">
+      <% if @slide.done? && @slide.previews.any? %>
+        <div class="slides-content pure-u-1">
+          <%= render 'pages', slide: @slide %>
+          <div class="slider-nav" id="slider_nav">
+            <button class="slider-btn slider-prev"></button>
+            <span id="currentPage">1</span> /
+            <span id="total_page">
+              <%= @slide.previews.any? ? @slide.previews.count : "处理中" %>
+            </span>
+            <button class="slider-btn slider-next"></button>
+            <div id="fullscreen"><i class="icon-fullscreen"></i></div>
+          </div>
+        </div>
 
-      <div class="operations">
-        <%= link_to '#fullscreen', class: 'fullscreen btn btn-sm btn-danger pull-right' do %>
-          <i class="glyphicon glyphicon-fullscreen"></i>
-        <% end %>
-
-        <%# https://trello.com/c/Xi7rWbt1/30-1  %>
-        <% link_to collect_slide_path(@slide), id: 'collect_slide_btn', class: 'btn btn-sm btn-primary pull-right', disabled: current_user && current_user.collected_slide?(@slide), style: 'margin-left: 5px;', method: :post, remote: true do %>
-          <span class="glyphicon glyphicon-pushpin"></span>
-          收藏 (<span id='collections_count'><%= @slide.collections_count %></span>)
-        <% end %>
-        <%= link_to like_slide_path(@slide), id: 'like_slide_btn', class: 'btn btn-sm btn-primary pull-right', disabled: current_user && current_user.liked_slide?(@slide), method: :post, remote: true do %>
-          <span class="glyphicon glyphicon-thumbs-up"></span>
-          赞 (<span id='likes_count'><%= @slide.likes_count %></span>)
-        <% end %>
-
-        <div class="clearfix"></div>
-      </div>
-    <% else %>
-      <% if current_user && current_user == @slide.user %>
-        <%= render 'manual_actions', slide: @slide %>
-      <% else %>
-        <h4>对不起，您查看的讲稿正在处理中，请稍待几分钟后刷新重试。</h4>
-      <% end %>
-    <% end %>
-
-    <div class="slide-infos">
-      <h4><%= @slide.title %></h4>
-      <p><%= @slide.description %></p>
-    </div>
-  </div>
-
-  <div class="col-md-4 slide-page-sidebar">
-    <div class="author-infos">
-
-      <div class="clearfix"></div>
-
-      <div class="share-panel">
-        <ul class="list-group">
-          <li class="list-group-item">
-            <h4 class="list-group-item-heading">讲稿详情</h4>
-            <div class="list-group-item-text">
-              <p>
-                标题：
-                《<%= @slide.title %>》
-              </p>
-              <p>
-                作者：
-                <%= @slide.author %>
-              </p>
-              <p>
-                总页数：
-                <%= @slide.previews.any? ? @slide.previews.count : "处理中" %>
-              </p>
-              <p>
-                总浏览量：
-                <%= @slide.visits_count %>
-              </p>
-              <p>
-                成功发表于：<%= l @slide.created_at, format: :long %>
-              </p>
-              <p>
-                是否支持原版PDF下载：<%= @slide.downloadable ? "是" : "否" %>
-              </p>
-            </div>
-          </li>
+        <div class="slides-operate pure-u-1">
 
           <% if @slide.user == current_user %>
-            <li class="list-group-item">
-              <div>
-                <%= link_to "编辑", edit_slide_path(@slide) %>
-              </div>
-              <div>
-                <%= link_to "删除", slide_path(@slide), method: :delete, data: { toggle: 'tooltip', confirm: "确认删除？" } %>
-              </div>
-            </li>
+
+            <%= link_to "编辑", edit_slide_path(@slide), class: 'btn-default' %>
+            <%= link_to "删除", slide_path(@slide), method: :delete, data: { toggle: 'tooltip', confirm: "确认删除？" }, class: 'btn-default btn-warning' %>
+
+          <% else %>
+
+            <% if @slide.downloadable %>
+              <a href="#" class="btn-default">下载</a>
+            <% end %>
+
+            <%= link_to like_slide_path(@slide), id: 'like_slide_btn', class: 'btn-default btn-warning', disabled: current_user && current_user.liked_slide?(@slide), method: :post, remote: true do %>
+              喜欢 <span id='likes_count'><%= @slide.likes_count %></span>
+            <% end %>
           <% end %>
-        </ul>
+
+          <% link_to collect_slide_path(@slide), id: 'collect_slide_btn', class: 'btn btn-sm btn-primary pull-right', disabled: current_user && current_user.collected_slide?(@slide), style: 'margin-left: 5px;', method: :post, remote: true do %>
+            <span class="glyphicon glyphicon-pushpin"></span>
+            收藏 (<span id='collections_count'><%= @slide.collections_count %></span>)
+          <% end %>
+
+          <span class="slides-watched"><i class="icon-glass"></i><%= @slide.visits_count %></span>
+        </div>
+      <% else %>
+        <% if current_user && current_user == @slide.user %>
+          <%= render 'manual_actions', slide: @slide %>
+        <% else %>
+          <h4>对不起，您查看的讲稿正在处理中，请稍待几分钟后刷新重试。</h4>
+        <% end %>
+      <% end %>
+
+      <article class="slides-info pure-u-1">
+        <header class="slides-header clearfix">
+          <h1 class="slides-title"><%= @slide.title %></h1>
+          <address class="slides-author">
+            <!-- <img src="#" alt="touxiang"> -->
+            作者：
+            <%= @slide.author %>
+          </address>
+          <span class="slides-date">
+            发布时间：<time><%= l @slide.created_at, format: :long %></time>
+          </span>
+          <span class="slides-belong">
+            所属活动：<span><%= @slide.event.header ? @slide.event.header : '暂无' %></span>
+          </span>
+        </header>
+        <section class="slides-intro">
+          <header>
+            <h2>内容简介：</h2>
+          </header>
+          <p><%= @slide.description %></p>
+          <footer>
+            <div class="slides-tags">
+              标签：<a href="#" class="slides-tag">暂无</a>
+            </div>
+          </footer>
+        </section>
+      </article>
+    </div>
+  </div>
+</div>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="pswp__bg"></div>
+  <div class="pswp__scroll-wrap">
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    <div class="pswp__ui pswp__ui--hidden">
+      <div class="pswp__top-bar">
+        <div class="pswp__counter"></div>
+        <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+        <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+        <div class="pswp__preloader">
+          <div class="pswp__preloader__icn">
+            <div class="pswp__preloader__cut">
+              <div class="pswp__preloader__donut"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+        <div class="pswp__share-tooltip"></div>
+      </div>
+      <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+      </button>
+      <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+      </button>
+      <div class="pswp__caption">
+        <div class="pswp__caption__center"></div>
       </div>
     </div>
   </div>

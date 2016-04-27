@@ -60,6 +60,10 @@ gem 'activeadmin', github: 'activeadmin'
 # https://github.com/minimagick/minimagick
 gem 'mini_magick', '~> 4.3', '>= 4.3.6'
 
+# Adds a Redis::Namespace class which can be used to namespace Redis keys
+# https://github.com/resque/redis-namespace
+gem 'redis-namespace', '~> 1.01'
+
 group :development do
   gem 'web-console', '~> 2.0'
 

@@ -79,6 +79,11 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
+staging:
+  <<: *default
+  databsae: jianggao_staging
+  username: jianggao_staging
+  password: <%= ENV['JIANGGAO_DATABASE_PASSWORD'] %>
 
 production:
   <<: *default

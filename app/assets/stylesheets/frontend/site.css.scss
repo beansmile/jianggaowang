@@ -1,9 +1,11 @@
 body {
+  position: relative;
+  padding-bottom: 103px;
   font-family: 'Open Sans', Arial, 'Hiragino Sans GB', 'Microsoft YaHei', 微软雅黑, STHeiti, 'WenQuanYi Micro Hei', SimSun, sans-serif;
   background-image: image-url('ricepaper.png');
 }
 
-header {
+#header {
   .navbar {
     border-radius: 0;
     padding: 0 10%;
@@ -28,7 +30,10 @@ header {
   margin-bottom: 50px;
 }
 
-footer {
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
   .row {
     margin-left: 0;
     margin-right: 0;

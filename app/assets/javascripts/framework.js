@@ -6,3 +6,4 @@
 //= require jquery.datetimepicker.full
 //= require jquery.slick
 //= require photoswipe
+//= require ./framework/jquery.noty-config

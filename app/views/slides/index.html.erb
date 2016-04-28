@@ -11,7 +11,7 @@
     <% if @slides.any? %>
       <%= render partial: "slide_item", collection: @slides, as: :slide %>
     <% else %>
-      没有活动。
+      <div class="pure-u-1">没有讲稿。</div>
     <% end %>
   </ul>
 </section>

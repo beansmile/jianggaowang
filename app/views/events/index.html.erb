@@ -7,7 +7,7 @@
     <% if @events.any? %>
       <%= render partial: "event_item", collection: @events, as: :event %>
     <% else %>
-      没有活动。
+      <div class="pure-u-1">没有活动。</div>
     <% end %>
   </ul>
 </section>

@@ -12,7 +12,7 @@
     <% if @events.any? %>
       <%= render partial: "events/event_item", collection: @events, as: :event %>
     <% else %>
-      没有活动。
+      <div class="pure-u-1">没有活动。</div>
     <% end %>
   </ul>
 </section>
@@ -27,7 +27,7 @@
     <% if @hotest_slides.any? %>
       <%= render partial: "slides/slide_item", collection: @hotest_slides, as: :slide %>
     <% else %>
-      没有讲稿。
+      <div class="pure-u-1">没有讲稿。</div>
     <% end %>
   </ul>
 </section>
@@ -42,7 +42,7 @@
     <% if @newest_slides.any? %>
       <%= render partial: "slides/slide_item", collection: @newest_slides, as: :slide %>
     <% else %>
-      没有讲稿。
+      <div class="pure-u-1">没有讲稿。</div>
     <% end %>
   </ul>
 </section>

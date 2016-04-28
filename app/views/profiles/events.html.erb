@@ -1,0 +1,21 @@
+<% content_for :title do %>
+  我创建的活动
+<% end %>
+<!-- panel: include a title and a card list -->
+<section class="panel">
+  <header class="panel-header pure-g clearfix with-hr">
+    <h1 class="panel-title pure-u-1">我创建的活动</h1>
+  </header>
+
+  <!-- Card list -->
+  <ul class="card-list pure-g">
+    <% if @events.any? %>
+      <%= render partial: "events/event_item", collection: @events, as: :event %>
+    <% else %>
+      <div class="pure-u-1">没有活动。</div>
+    <% end %>
+  </ul>
+  <!-- END card list -->
+</section>
+<!-- END panel -->
+<%= paginate @events %>

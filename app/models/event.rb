@@ -8,7 +8,7 @@ class Event < ActiveRecord::Base
   has_many :slides, dependent: :destroy
 
   # scope
-  scope :order_by_created_at_desc, -> { order(created_at: :desc) }
+  scope :newest, -> { order(created_at: :desc) }
 
   def start_time
     start_at.strftime("%Y-%m-%d") if start_at

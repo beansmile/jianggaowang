@@ -23,7 +23,12 @@ Rails.application.routes.draw do
     end
   end
 
-  resource :profile, only: [:show, :update, :edit]
+  resource :profile, only: [:show, :update, :edit] do
+    collection do
+      get 'events'
+      get 'slides'
+    end
+  end
 
   get '/login' => 'sessions#new'
   delete '/logout' => 'sessions#destroy'

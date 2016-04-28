@@ -1,0 +1,21 @@
+<% content_for :title do %>
+  我发布的讲稿
+<% end %>
+<!-- panel: include a title and a card list -->
+<section class="panel">
+  <header class="panel-header pure-g clearfix with-hr">
+    <h1 class="panel-title pure-u-1">我发布的讲稿</h1>
+  </header>
+
+  <!-- Card list -->
+  <ul class="card-list pure-g">
+    <% if @slides.any? %>
+      <%= render partial: "slides/slide_item", collection: @slides, as: :slide %>
+    <% else %>
+      <div class="pure-u-1">没有讲稿。</div>
+    <% end %>
+  </ul>
+  <!-- END card list -->
+</section>
+<!-- END panel -->
+<%= paginate @slides %>

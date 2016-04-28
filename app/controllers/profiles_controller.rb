@@ -1,9 +1,11 @@
 class ProfilesController < ApplicationController
   before_action :authenticate_user!
   before_action :check_password, only: [:update]
+  PROFILESPAGE_DEMO_COUNT = 8
 
   def show
-    @slides = current_user.slides.order(created_at: :desc).page(params[:page]).per(params[:per_page])
+    @events = current_user.events.order(created_at: :desc).limit(PROFILESPAGE_DEMO_COUNT)
+    @slides = current_user.slides.order(created_at: :desc).limit(PROFILESPAGE_DEMO_COUNT)
   end
 
   def edit

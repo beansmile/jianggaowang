@@ -1,13 +1,40 @@
-<div class="row profile-page">
-  <div class="col-md-8">
-    <div class="row" id='animated'>
-      <%= render 'slides/slides', slides: @slides %>
-    </div>
+<% content_for :title do %>
+  我的主页
+<% end %>
+<!-- panel: include a title and a card list -->
+<section class="panel">
+  <header class="panel-header pure-g clearfix">
+    <h1 class="panel-title pure-u-1-2">我创建的活动</h1>
+    <a href="" class="panel-link pure-u-1-2">查看全部</a>
+  </header>
 
-    <%= paginate @slides %>
-  </div>
+  <!-- Card list -->
+  <ul class="card-list pure-g">
+    <% if @events.any? %>
+      <%= render partial: "events/event_item", collection: @events, as: :event %>
+    <% else %>
+      <div class="pure-u-1">没有活动。</div>
+    <% end %>
+  </ul>
+  <!-- END card list -->
+</section>
+<!-- END panel -->
 
-  <div class="col-md-4 profile-page-sidebar">
-    <%= render 'profile_sidebar' %>
-  </div>
-</div>
+<!-- panel: include a title and a card list -->
+<section class="panel">
+  <header class="panel-header pure-g clearfix">
+    <h1 class="panel-title pure-u-1-2">我发布的讲稿</h1>
+    <a href="" class="panel-link pure-u-1-2">查看全部</a>
+  </header>
+
+  <!-- Card list -->
+  <ul class="card-list pure-g">
+    <% if @events.any? %>
+      <%= render partial: "slides/slide_item", collection: @slides, as: :slide %>
+    <% else %>
+      <div class="pure-u-1">没有讲稿。</div>
+    <% end %>
+  </ul>
+  <!-- END card list -->
+</section>
+<!-- END panel -->

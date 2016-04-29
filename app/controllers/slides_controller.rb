@@ -117,8 +117,8 @@ class SlidesController < ApplicationController
     end
   end
 
-  def hotest
-    # TODO: Implement hotest page
+  def hottest
+    @slides = Slide.hottest.page(params[:page])
   end
 
   private

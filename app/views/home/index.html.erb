@@ -28,12 +28,12 @@
 <section class="panel">
   <header class="panel-header pure-g clearfix">
     <h4 class="panel-title pure-u-1-2">热门讲稿</h4>
-    <%= link_to "查看全部", hotest_slides_path, class: "panel-link pure-u-1-2" %>
+    <%= link_to "查看全部", hottest_slides_path, class: "panel-link pure-u-1-2" %>
   </header>
 
   <ul class="card-list pure-g">
-    <% if @hotest_slides.any? %>
-      <%= render partial: "slides/slide_item", collection: @hotest_slides, as: :slide %>
+    <% if @hottest_slides.any? %>
+      <%= render partial: "slides/slide_item", collection: @hottest_slides, as: :slide %>
     <% else %>
       <div class="pure-u-1">没有讲稿。</div>
     <% end %>

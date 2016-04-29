@@ -1,0 +1,18 @@
+<% content_for :title do %>
+热门讲稿
+<% end %>
+
+<section class="panel">
+  <header class="panel-header pure-g clearfix with-hr">
+    <h4 class="panel-title pure-u-1">热门讲稿</h4>
+  </header>
+
+  <ul class="card-list pure-g">
+    <% if @slides.any? %>
+      <%= render partial: "slide_item", collection: @slides, as: :slide %>
+    <% else %>
+      <div class="pure-u-1">没有讲稿。</div>
+    <% end %>
+  </ul>
+</section>
+<%= paginate @slides %>

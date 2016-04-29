@@ -2,6 +2,14 @@
   首页
 <% end %>
 
+<div id="carousel">
+  <% @pinned_events.each do |event| %>
+    <div class="carousel-slide" style="background-image: url(<%= event.editor_choice_image %>);">
+      <%= link_to event.editor_choice_title, event_path(event) , class: "carousel-title" %>
+    </div>
+  <% end %>
+</div>
+
 <section class="panel">
   <header class="panel-header pure-g clearfix">
     <h4 class="panel-title pure-u-1-2">最新活动</h4>

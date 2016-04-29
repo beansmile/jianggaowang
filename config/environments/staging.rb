@@ -84,13 +84,4 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   config.assets.precompile << /\.(?:svg|eot|woff|ttf)$/
-  if ENV["LOCAL_ENV"]
-    config.serve_static_assets = true
-  else
-    config.middleware.use Sutui::Rack::ExceptionNotification, sutui: {
-      api_key: '6b47ad747ede4dc7b80dfd273e899098',
-      api_secret: '7089d1518daf4b4ab5df4191d9f24a0d',
-      channel_id: 22
-    }
-  end
 end

@@ -1,0 +1,73 @@
+@import "variables";
+
+.select-event {
+  .pure-form {
+    vertical-align: middle;
+    position: relative;
+    font-size: 12px;
+
+    input {
+      width: 100%;
+      height: 30px;
+      padding-right: 35px;
+      background-color: $search-input-bg-focus;
+      border: 1px solid $search-input-border;
+
+      &:focus {
+        background-color: $search-input-bg-focus;
+        border: 1px solid $search-input-border-focus;
+      }
+    }
+
+    button {
+      position: absolute;
+      top: 12px;
+      right: 10px;
+      height: 30px;
+      width: 30px;
+      padding: 0;
+      color: $header-search-btn;
+      background: none;
+
+      &:hover,
+      &:focus {
+        color: $header-link-active-color;
+      }
+    }
+  }
+
+  .panel-tips {
+    font-weight: 200;
+
+    a {
+      color: $blue;
+
+      &:hover,
+      &:focus {
+        color: $panel-link-hover-color;
+      }
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .select-event {
+    .panel-header {
+      display: block;
+
+      .panel-title {
+        width: auto;
+      }
+
+      .pure-form {
+        width: 190px;
+      }
+
+      .panel-tips {
+        float: right;
+        width: auto;
+        padding-right: 20px;
+      }
+    }
+  }
+}

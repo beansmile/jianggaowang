@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   Sidekiq::Web.use Rack::Auth::Basic do |username, password|
     username == Rails.application.secrets["sidekiq"]["username"] &&
     password == Rails.application.secrets["sidekiq"]["password"]
-  end if Rails.env.production?
+  end unless Rails.env.development?
   mount Sidekiq::Web => '/sidekiq'
 
   resources 'notifications', only: [] do
@@ -23,7 +23,12 @@ Rails.application.routes.draw do
     end
   end
 
-  resource :profile, only: [:show, :update, :edit]
+  resource :profile, only: [:show, :update, :edit] do
+    collection do
+      get 'events'
+      get 'slides'
+    end
+  end
 
   get '/login' => 'sessions#new'
   delete '/logout' => 'sessions#destroy'
@@ -32,10 +37,11 @@ Rails.application.routes.draw do
   get '/signup' => 'users#new'
   resources :users, only: [:show, :create]
 
-  resources :slides, only: [:show, :new, :create, :destroy, :edit, :update] do
+  resources :slides, only: [:index, :show, :new, :create, :destroy, :edit, :update] do
     collection do
       get 'upload_result'
       get 'search'
+      get 'hotest'
     end
 
     member do
@@ -58,6 +64,8 @@ Rails.application.routes.draw do
   resources :events
 
   root 'home#index'
+
+  get '/static_page' => 'home#static_page'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

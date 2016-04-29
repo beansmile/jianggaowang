@@ -1,5 +1,4 @@
-source 'https://ruby.taobao.org'
-
+source 'https://gems.ruby-china.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
@@ -32,8 +31,6 @@ gem "lazyload-rails"
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring', '~> 1.3.4',        group: :development
 
-gem 'bootflat-rails', '~> 0.1.9'
-
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
@@ -41,6 +38,14 @@ gem 'carrierwave', '~> 0.10.0'
 gem 'carrierwave-qiniu', '~> 0.1.3'
 
 gem 'kaminari', '~> 0.16.1'
+
+# jQuery plugin for drop-in fix binded events problem caused by Turbolinks
+# https://github.com/kossnocorp/jquery.turbolinks
+gem 'jquery-turbolinks', '~> 2.1'
+
+# A set of small, responsive CSS modules
+# https://github.com/brunohenrique/purecss-rails
+gem 'purecss-rails', '~> 0.6.0'
 
 # Flexible authentication solution for Rails with Warden
 # Only required by activeadmin
@@ -54,6 +59,10 @@ gem 'activeadmin', github: 'activeadmin'
 # Manipulate images with minimal use of memory via ImageMagick / GraphicsMagick
 # https://github.com/minimagick/minimagick
 gem 'mini_magick', '~> 4.3', '>= 4.3.6'
+
+# Adds a Redis::Namespace class which can be used to namespace Redis keys
+# https://github.com/resque/redis-namespace
+gem 'redis-namespace', '~> 1.01'
 
 group :development do
   gem 'web-console', '~> 2.0'
@@ -91,8 +100,6 @@ gem 'sinatra', '~> 1.4.6', :require => nil
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-gem 'sutui', github: 'beansmile/sutui'
-
 gem 'qiniu', '~> 6.2.1'
 
 gem 'noty-rails', '~> 2.3.4'
@@ -104,3 +111,17 @@ gem 'sidekiq', '~> 4.0.1'
 
 # https://github.com/Nerian/bootstrap-wysihtml5-rails
 gem 'bootstrap-wysihtml5-rails', '~> 0.3.3.7'
+
+# autoprefix for css
+# https://github.com/ai/autoprefixer-rails
+gem 'autoprefixer-rails'
+
+# Integrates Slick carousel, a jQuery plugin by Ken Wheeler.
+# https://github.com/kenwheeler/slick
+# https://rubygems.org/gems/jquery-slick-rails
+gem 'jquery-slick-rails', '~> 1.6', '>= 1.6.0.1'
+
+# JavaScript image gallery for mobile and desktop.
+# https://github.com/dimsemenov/photoswipe
+# https://github.com/skakri/photoswipe-rails
+gem 'photoswipe-rails', '~> 4.1', '>= 4.1.1'

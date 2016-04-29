@@ -1,19 +1,22 @@
-<!DOCTYPE html xmlns:wb=“http://open.weibo.com/wb”>
+<!DOCTYPE html>
 <html>
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>
     讲稿网
     <% if content_for?(:title) %>
       - <%= yield :title %>
     <% end %>
   </title>
-  <meta property="wb:webmaster" content="d441cc363f121e87" />
 
-  <%= stylesheet_link_tag    'galleria.classic', media: 'all', 'data-turbolinks-track' => true %>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
   <script>var Jianggaowang = {};</script>
+
+  <%= stylesheet_link_tag    'framework', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'jianggaowang', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'framework', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'jianggaowang', 'data-turbolinks-track' => true %>
+
   <%= render 'layouts/baidu_statistics' %>
   <%= csrf_meta_tags %>
 </head>
@@ -22,9 +25,7 @@
 
   <%= render 'shared/flash_messages' %>
 
-  <div class="container-fluid" id='content'><%= yield %></div>
+  <%= yield %>
   <%= render 'shared/footer' %>
-
-  <%= yield :additional_javascript %>
 </body>
 </html>

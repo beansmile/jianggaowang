@@ -1,0 +1,8 @@
+<ul class="user-toggle">
+  <li class="login <%= active_link('sessions', controller_name) %>">
+    <%= link_to "登录", login_path %>
+  </li>
+  <li class="register <%= active_link('users', controller_name) %>">
+    <%= link_to "注册", signup_path %>
+  </li>
+</ul>

@@ -1,23 +1,19 @@
-<div class="col-sm-6 col-md-4 isotope-item">
-  <div class="portfolio-item event-isotope">
-    <div class="event-img">
-      <%= link_to image_tag(event.cover.small.url), event_path(event), class: 'img-responsive' %>
-    </div>
-    <div class="event-box">
-      <%= link_to event.header, event, data: { 'no-turbolink' => true }, title: event.header %>
-    </div>
-    <p class="text-muted event-box">
-      <%= event.start_time %>
-      -
-      <%= event.end_time %>
-    </p>
-
-    <div class="text-muted event-box">
-      <% if current_user && current_user == event.creator %>
-        <%= link_to event_path(event), method: :delete, title: "删除活动", class: 'delete-slide-link', data: { toggle: 'tooltip', confirm: "确认删除？" } do %>
-          <span class="glyphicon glyphicon-trash"></span>
-        <% end %>
+<li class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-4 card-list-item">
+  <figcaption class="card">
+    <header class="card-header">
+      <%= link_to event_path(event), class: "card-img" do %>
+        <%= image_tag event.cover.url, alt: event.header %>
       <% end %>
-    </div>
-  </div>
-</div>
+    </header>
+    <footer class="card-footer">
+      <figure class="card-title">
+        <%= link_to event.header, event_path(event) %>
+      </figure>
+      <time class="card-date">
+        <%= l event.start_at.to_date, format: :long %>
+        ~
+        <%= l event.end_at.to_date, format: :long %>
+      </time>
+    </footer>
+  </figcaption>
+</li>

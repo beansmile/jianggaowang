@@ -1,0 +1,77 @@
+/* the file is place for common style, for example header component or .clearfix and so on */
+@import 'variables';
+
+html,
+.pure-g [class *="pure-u"] {
+  height: 100%;
+  font-family: "PingFang SC", "STXihei", "Microsoft YaHei", "微软雅黑", "SimHei", "sans-serif";
+}
+
+body {
+  font-size: 14px;
+
+  @media (max-width: 767px) {
+    font-size: 12px;
+  }
+  position: relative;
+  min-height: 100%;
+  padding-bottom: $footer-h;
+  background-color: $alabaster;
+}
+
+a {
+  text-decoration: none;
+}
+
+.clearfix::after {
+  content: "";
+  display: block;
+  height: 0;
+  visibility: hidden;
+  clear: both;
+}
+
+.pure-g {
+  width: 100%;
+  padding: 0 10px;
+
+  @media (min-width: 768px) {
+    width: 79.427%;
+    margin: auto;
+  }
+
+  @media (min-width: 1024px) {
+    width: 100%;
+  }
+
+  @media (min-width: 1160px) {
+    width: 1160px;
+  }
+
+  .pure-g {
+    width: auto;
+    padding: 0;
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+}
+
+[class*="pure-u-"] {
+  padding: 10px;
+}
+
+/* for reset the input autocomplete's attritube */
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+}
+
+.md-hidden {
+  @media (max-width: 1023px) {
+    display: none;
+  }
+}

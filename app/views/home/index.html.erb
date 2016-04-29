@@ -2,15 +2,56 @@
   首页
 <% end %>
 
-<div id="events-index-page">
-  <div class="row" id="isotope-container">
+<div id="carousel">
+  <% @pinned_events.each do |event| %>
+    <div class="carousel-slide" style="background-image: url(<%= event.editor_choice_image %>);">
+      <%= link_to event.editor_choice_title, event_path(event) , class: "carousel-title" %>
+    </div>
+  <% end %>
+</div>
+
+<section class="panel">
+  <header class="panel-header pure-g clearfix">
+    <h4 class="panel-title pure-u-1-2">最新活动</h4>
+    <%= link_to "查看全部", events_path, class: "panel-link pure-u-1-2" %>
+  </header>
+
+  <ul class="card-list pure-g">
     <% if @events.any? %>
       <%= render partial: "events/event_item", collection: @events, as: :event %>
     <% else %>
-      没有活动。
+      <div class="pure-u-1">没有活动。</div>
     <% end %>
-  </div>
-  <div class="row text-center">
-    <%= paginate @events %>
-  </div>
-</div>
+  </ul>
+</section>
+
+<section class="panel">
+  <header class="panel-header pure-g clearfix">
+    <h4 class="panel-title pure-u-1-2">热门讲稿</h4>
+    <%= link_to "查看全部", hotest_slides_path, class: "panel-link pure-u-1-2" %>
+  </header>
+
+  <ul class="card-list pure-g">
+    <% if @hotest_slides.any? %>
+      <%= render partial: "slides/slide_item", collection: @hotest_slides, as: :slide %>
+    <% else %>
+      <div class="pure-u-1">没有讲稿。</div>
+    <% end %>
+  </ul>
+</section>
+
+<section class="panel">
+  <header class="panel-header pure-g clearfix">
+    <h4 class="panel-title pure-u-1-2">最新讲稿</h4>
+    <%= link_to "查看全部", slides_path, class: "panel-link pure-u-1-2" %>
+  </header>
+
+  <ul class="card-list pure-g">
+    <% if @newest_slides.any? %>
+      <%= render partial: "slides/slide_item", collection: @newest_slides, as: :slide %>
+    <% else %>
+      <div class="pure-u-1">没有讲稿。</div>
+    <% end %>
+  </ul>
+</section>
+

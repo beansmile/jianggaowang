@@ -1,0 +1,22 @@
+/*
+ *= require reset
+ *= require ./frontend/iconfont
+ *= require ./frontend/button
+ *= require ./frontend/common
+ *= require ./frontend/header
+ *= require ./frontend/footer
+ *= require ./frontend/search_tips
+ *= require ./frontend/panel
+ *= require ./frontend/tags
+ *= require ./frontend/cards
+ *= require ./frontend/pagination
+ *= require ./frontend/users
+ *= require ./frontend/event_details
+ *= require ./frontend/file_upload
+ *= require ./frontend/form_common
+ *= require ./frontend/profile_edit
+ *= require ./frontend/select_event
+ *= require ./frontend/carousel
+ *= require ./frontend/slides
+ *= require_self
+ */

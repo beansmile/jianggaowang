@@ -1,0 +1,193 @@
+@import "variables";
+
+#sessions_new,
+#user_passwords_reset,
+#sessions_create,
+#users_new {
+  background-image: image-url("users/user-bg.svg");
+
+  .user-page {
+    display: block;
+    margin: 80px auto 0;
+    width: 300px;
+
+    .user-title {
+      margin-bottom: 50px;
+
+      .logo {
+        float: left;
+        display: block;
+        width: 46px;
+        height: 64px;
+        background-image: image-url("users/logo.png");
+        background-size: 46px 64px;
+      }
+
+      p {
+        float: left;
+        padding-left: 18px;
+        color: $gray;
+        font-size: 26px;
+        font-weight: lighter;
+        line-height: 64px;
+      }
+    }
+
+    .login-wrap,
+    .find-password {
+
+      h2 {
+        margin-bottom: 30px;
+        color: $gray;
+        font-size: 16px;
+        font-weight: 200;
+        text-align: center;
+      }
+
+      p {
+        margin-top: 30px;
+        color: $silver;
+        font-size: 14px;
+        font-weight: 200;
+      }
+
+      .user-email {
+        border-radius: 2px;
+      }
+
+      .account-tip {
+        display: none;
+        margin-top: 12px;
+        color: $red;
+        font-size: 12px;
+      }
+
+      .user-toggle {
+        display: flex;
+        margin-bottom: 27px;
+        justify-content: center;
+
+        li {
+          display: inline-block;
+          width: 60px;
+          text-align: center;
+          color: $silver;
+          font-size: 16px;
+          font-weight: 200;
+          cursor: pointer;
+
+          &.active {
+            border-bottom: 2px solid $blue;
+            color: $gray;
+          }
+          > a {
+            color: $gray;
+          }
+        }
+
+        .register {
+          margin-left: 70px;
+        }
+      }
+
+      .user-info {
+        width: 100%;
+
+        input,
+        textarea {
+          width: 298px;
+          height: 44px;
+          border: 1px solid $alto;
+          color: $silver;
+          font-size: 16px;
+          padding-left: 20px;
+          padding-right: 20px;
+          font-weight: 200;
+        }
+
+        input {
+          line-height: 1em;
+        }
+
+        textarea {
+          resize: none;
+          height: 88px;
+          padding-top: 10px;
+        }
+
+        .user-bio {
+          border-bottom-left-radius: 2px;
+          border-bottom-right-radius: 2px;
+        }
+
+        .user-name {
+          border-top-left-radius: 2px;
+          border-top-right-radius: 2px;
+        }
+
+        input:nth-child(4),
+        input:nth-child(5),
+        input:nth-child(5),
+        input:nth-child(6),
+        textarea {
+          border-top: 0;
+        }
+
+        input:-webkit-autofill {
+          -webkit-text-fill-color: $silver;
+        }
+
+        button {
+          margin-top: 30px;
+          width: 300px;
+          height: 44px;
+          border: 1px solid $blue;
+          border-radius: 2px;
+          color: $white;
+          background-color: $dark-blue;
+          font-weight: 200;
+          box-shadow: inset 0 1px 3px $white;
+        }
+
+        .forget-password {
+          display: block;
+          margin: 10px 0 0 230px;
+          color: $silver;
+          font-size: 14px;
+          font-weight: 200;
+        }
+      }
+
+      .user-login {
+        .email,
+        .confirm-password,
+        .register-btn {
+          display: none;
+        }
+
+        .password {
+          border-bottom-left-radius: 2px;
+          border-bottom-right-radius: 2px;
+        }
+      }
+
+      .user-register {
+        .email,
+        .confirm-password,
+        .register-btn {
+          display: block;
+        }
+
+      }
+    }
+  }
+
+  .user-register-tips {
+    p {
+      margin-top: 1.5em;
+      text-align: center;
+      font-size: 0.8em;
+      color: $gray;
+    }
+  }
+}

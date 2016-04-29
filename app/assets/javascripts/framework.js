@@ -1,0 +1,9 @@
+//= require jquery
+//= require jquery.turbolinks
+//= require jquery_ujs
+//= require turbolinks
+//= require jquery.lazyload
+//= require jquery.datetimepicker.full
+//= require jquery.slick
+//= require photoswipe
+//= require ./framework/jquery.noty-config

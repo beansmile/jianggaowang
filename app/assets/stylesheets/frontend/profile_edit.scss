@@ -1,0 +1,196 @@
+@import "variables";
+
+/* for the profiles_edit page*/
+#profiles_edit {
+
+  .person-info,
+  .edit-password {
+    margin-top: 20px;
+  }
+
+  .person-info .btn-warning {
+    margin-top: 20px;
+  }
+
+  .form-default {
+    padding-left: 0;
+    .email {
+      position: relative;
+      .verify-btn {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 50px;
+        height: 30px;
+        border: 1px solid $alto;
+        border-radius: 2px;
+        text-align: center;
+        background: -moz-linear-gradient(top, $white 0%, $concrete 100%);
+        background: linear-gradient(top, $white 0%, $concrete 100%);
+        color: $gray;
+        font-size: 12px;
+        line-height: 28px;
+        font-weight: lighter;
+      }
+    }
+  }
+
+  .avatar-wrap {
+    float: left;
+
+    .edit-avatar {
+      position: relative;
+      width: 108px;
+
+      input {
+        position: absolute;
+        width: 108px;
+        height: 40px;
+        bottom: 0;
+        opacity: 0;
+      }
+    }
+
+    img {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+    }
+    .user-name {
+      margin: 10px 0 20px;
+      display: block;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      color: $gray;
+      font-size: 14px;
+    }
+  }
+
+  .btn-operate {
+    .btn-warning {
+      float: right;
+    }
+  }
+  .edit-password {
+    margin-bottom: 72px;
+  }
+}
+
+@media (min-width: 320px) {
+  #profiles_edit {
+    .profile-edit {
+      max-width: 90%;
+      margin: 20px auto 0;
+      .person-info {
+        position: relative;
+        .form-default {
+          padding-top: 186px;
+        }
+      }
+      .form-default {
+        width: 100%;
+        div {
+          width: 90%;
+          margin: 0 auto;
+        }
+        input,
+        textarea {
+          width: 74%;
+        }
+      }
+      .avatar-wrap {
+        position: absolute;
+        margin-left: 14.125%;
+        top: 30px;
+        .edit-avatar {
+          width: 284px;
+          div {
+            float: left;
+          }
+          div:last-child {
+            margin: 30px 0 0 20px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (width: 375px) {
+  #profiles_edit .form-default .email .verify-btn {
+    right: 13px;
+  }
+}
+
+@media (width: 414px) {
+  #profiles_edit .form-default .email .verify-btn {
+    right: 22px;
+  }
+}
+
+
+@media (min-width: 768px) {
+
+  #profiles_edit {
+    .profile-edit {
+      max-width: 570px;
+      margin: 30px auto 0;
+      .form-default {
+        width: 466px;
+        div {
+          width: 100%;
+        }
+        input,
+        textarea {
+          width: 400px;
+        }
+      }
+      .avatar-wrap {
+        position: absolute;
+        top: 30px;
+        .edit-avatar {
+          width: 284px;
+          div {
+            float: left;
+          }
+          div:last-child {
+            margin: 30px 0 0 80px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  #profiles_edit {
+
+    .profile-edit {
+      max-width: 800px;
+      margin: 26px auto 0;
+      .person-info {
+        .form-default {
+          padding-top: 0;
+        }
+      }
+
+      .person-info .form-default {
+        padding-top: 0;
+      }
+
+      .avatar-wrap {
+        position: static;
+        .edit-avatar {
+          width: 108px;
+          div {
+            float: none;
+          }
+          div:last-child {
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+}

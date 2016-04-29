@@ -1,0 +1,40 @@
+@import "variables";
+
+.tag-list {
+  margin-bottom: 10px;
+
+  .tag-list-item {
+    display: inline-block;
+    letter-spacing: normal;
+    padding: 10px;
+  }
+
+  .tag {
+    display: block;
+    min-width: 80px;
+    padding: 10px;
+    text-align: center;
+    border-radius: 2px;
+    border: 1px solid $tag-border;
+    background-color: $tag-bg;
+    color: $tag-color;
+
+    &:hover,
+    &:focus {
+      border: 1px solid $tag-border-hover;
+      background-color: $tag-bg-hover;
+      color: $tag-color-hover;
+
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .tag-list {
+    .tag {
+      min-width: 66.6px;
+      min-height: 30px;
+      padding: 7px;
+    }
+  }
+}

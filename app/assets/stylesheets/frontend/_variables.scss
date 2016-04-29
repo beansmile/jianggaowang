@@ -1,0 +1,75 @@
+/****
+ * Color List
+ * All color variable names should come from:
+ * http://chir.ag/projects/name-that-color
+ ****/
+$black: #000;
+$cod-gray: #0c0c0c;
+$mine-shaft: #282828;
+$tundora: #404040;
+$light-tundora: #454545;
+$emperor: #505050;
+$scorpion: #5a5a5a;
+$gray: #808080;
+$silver: #b8b8b8;
+$alto: #d8d8d8;
+$concrete: #f2f2f2;
+$alabaster: #f9f9f9;
+$white: #fff;
+$flame-pea: #dc5b30;
+$orange: #fe6126;
+$coral: #ff8455;
+$dodger-blue: #13c1ff;
+$blue: #1cb3ff;
+$dark-blue: #50c4ff;
+$red: #f00;
+
+/* Variables for header component */
+$header-bg: $mine-shaft;
+$header-logo-color: $concrete;
+$header-link-color: $white;
+$header-link-active-color: $flame-pea;
+$header-search-btn: $silver;
+$header-sub-menu-bg: $scorpion;
+$header-sub-menu-bg-active: $mine-shaft;
+$search-input-bg: $concrete;
+$search-input-bg-focus: $white;
+$search-input-border: $silver;
+$search-input-border-focus: $dodger-blue;
+
+/* Variables for footer component */
+$footer-h: 100px;
+$footer-bg: $mine-shaft;
+$footer-color: $gray;
+$footer-link-color: $gray;
+$footer-link-hover-color: $flame-pea;
+
+/* Variables for panel */
+$panel-link-color: $tundora;
+$panel-link-hover-color: $flame-pea;
+$panel-tag-border: $alto;
+
+/* Variables for Card list */
+$card-title: $tundora;
+$card-title-hover: $flame-pea;
+$card-author: $dodger-blue;
+$card-author-hover: $dark-blue;
+$card-date: $gray;
+
+/* Variables for Search Tips */
+$search-tips-bg: $silver;
+$search-tips-color: $tundora;
+
+/* Variables for Pagination */
+$page-text: $mine-shaft;
+$page-border: $alto;
+$page-bg: $white;
+$page-hover: $alto;
+
+/* Variables for Tag */
+$tag-border: $gray;
+$tag-color: $tundora;
+$tag-bg: $white;
+$tag-border-hover: $tundora;
+$tag-color-hover: $white;
+$tag-bg-hover: $tundora;

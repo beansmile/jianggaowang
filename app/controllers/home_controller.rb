@@ -4,7 +4,7 @@ class HomeController < ApplicationController
   def index
     @events = Event.newest.limit(HOMEPAGE_DEMO_COUNT)
     @pinned_events = Event.pinned
-    @hotest_slides = Slide.hotest.limit(HOMEPAGE_DEMO_COUNT)
+    @hottest_slides = Slide.hottest.limit(HOMEPAGE_DEMO_COUNT)
     @newest_slides = Slide.newest.limit(HOMEPAGE_DEMO_COUNT)
   end
 

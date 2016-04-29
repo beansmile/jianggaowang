@@ -41,7 +41,7 @@ Rails.application.routes.draw do
     collection do
       get 'upload_result'
       get 'search'
-      get 'hotest'
+      get 'hottest'
     end
 
     member do

@@ -15,7 +15,7 @@ body {
   }
   position: relative;
   min-height: 100%;
-  padding-bottom: $footer-h;
+  padding-bottom: $footer-h + 10px;
   background-color: $alabaster;
 }
 
@@ -73,5 +73,20 @@ textarea:focus {
 .md-hidden {
   @media (max-width: 1023px) {
     display: none;
+  }
+}
+
+#sessions_new,
+#user_passwords_reset,
+#users_new {
+  overflow: auto;
+
+  .topbar,
+  .header {
+    display: none;
+  }
+
+  .footer {
+    background-color: transparent;
   }
 }

@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   Sidekiq::Web.use Rack::Auth::Basic do |username, password|
     username == Rails.application.secrets["sidekiq"]["username"] &&
     password == Rails.application.secrets["sidekiq"]["password"]
-  end if Rails.env.production?
+  end unless Rails.env.development?
   mount Sidekiq::Web => '/sidekiq'
 
   resources 'notifications', only: [] do

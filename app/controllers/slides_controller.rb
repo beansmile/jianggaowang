@@ -37,7 +37,11 @@ class SlidesController < ApplicationController
       flash[:warning] = "讲稿无法删除，请稍后重试"
     end
 
-    redirect_to :back
+    if params[:from] == 'show'
+      redirect_to event_path(@slide.event)
+    else
+      redirect_to :back
+    end
   end
 
   def edit

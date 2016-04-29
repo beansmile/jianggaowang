@@ -23,31 +23,31 @@ brew install ghostscript imagemagick # PDF 转换依赖
 ### 配置 Rails
 
 1. 拷贝一份 `database.yml` 文件：
-```sh
-cp config/database.yml.example config/database.yml
-```
+  ```sh
+  cp config/database.yml.example config/database.yml
+  ```
 并且按照您自己的数据库配置，修改 `config/database.yml` 中的相关配置，比如数据库用户名以及密码。
 
 2. 拷贝一份 `secrets.yml` 文件
-```sh
-cp config/secrets.yml.example config/secrets.yml
-```
+  ```sh
+  cp config/secrets.yml.example config/secrets.yml
+  ```
 
 3. Bundle & Create db
-```sh
-bundle install
-bundle exec rake db:create db:migrate
-```
+  ```sh
+  bundle install
+  bundle exec rake db:create db:migrate
+  ```
 
 4. 启动 Sidekiq
-```sh
-bundle exec sidekiq -C config/sidekiq.yml
-```
+  ```sh
+  bundle exec sidekiq -C config/sidekiq.yml
+  ```
 
 5. 本地开发环境搭建完成，启动Rails服务器
-```sh
-bundle exec rails s
-```
+  ```sh
+  bundle exec rails s
+  ```
 
 ### 配置 EsLint 和 StyleLint
 

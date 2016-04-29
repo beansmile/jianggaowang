@@ -2,3 +2,8 @@ zh-CN:
   user_password_mailer:
     reset_password:
       subject: "讲稿网-重置密码确认邮件"
+  user_sign_up_mailer:
+    notify_admin:
+      subject: "新用户注册"
+    admin_approved:
+      subject: "讲稿网已通过您的注册"

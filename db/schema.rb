@@ -109,6 +109,7 @@ ActiveRecord::Schema.define(version: 20160428091239) do
     t.integer  "event_id"
     t.integer  "status",            default: 0
     t.string   "author"
+    t.string   "audio"
   end
 
   create_table "users", force: :cascade do |t|

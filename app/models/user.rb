@@ -46,7 +46,7 @@ class User < ActiveRecord::Base
 
   def approved=(val)
     # ActiveAdmin use "1" to denote true
-    if val == "1"
+    if val == "1" || val == true
       self.approved_at = Time.current
     else
       self.approved_at = nil

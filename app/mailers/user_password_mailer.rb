@@ -1,5 +1,5 @@
 class UserPasswordMailer < ActionMailer::Base
-  default from: "jianggaowang@163.com"
+  default from: Rails.application.secrets.mail['admin']
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:

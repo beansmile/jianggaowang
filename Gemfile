@@ -100,8 +100,6 @@ gem 'sinatra', '~> 1.4.6', :require => nil
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-gem 'sutui', github: 'beansmile/sutui'
-
 gem 'qiniu', '~> 6.2.1'
 
 gem 'noty-rails', '~> 2.3.4'

@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show, :search]
   before_action :set_current_event, only: [:edit, :update, :destroy]
 
   def index
@@ -47,6 +47,14 @@ class EventsController < ApplicationController
 
   def choose
     @events = current_user.events.newest.page(params[:page])
+  end
+
+  def search
+    @keyword = params[:keyword]
+
+    events_query = Event.ransack(header_cont: @keyword)
+    events_query.sorts = Event::DEFAULT_SEARCH_SORTS
+    @events = events_query.result.page(params[:page])
   end
 
   private

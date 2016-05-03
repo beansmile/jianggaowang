@@ -1,6 +1,8 @@
 require 'pdf_converter'
 
 class Slide < ActiveRecord::Base
+  DEFAULT_SEARCH_SORTS = 'created_at desc'
+
   # attr related macros
   mount_uploader :file, PDFUploader
   mount_uploader :audio, AudioUploader

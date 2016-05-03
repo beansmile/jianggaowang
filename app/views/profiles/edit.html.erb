@@ -3,34 +3,34 @@
     <h1 class="panel-title">个人资料</h1>
   </header>
   <div class="person-info clearfix">
-    <form class="form-default">
+    <%= form_for @user, url: profile_path, method: :put, html: { class: "form-default" } do |f| %>
       <div class="user-name clearfix">
         <label>用户名</label>
-        <input type="text">
+        <%= f.text_field :name %>
       </div>
       <div class="email clearfix">
         <label>邮箱</label>
-        <input type="text">
+        <%= f.email_field :email %>
         <span class="verify-btn">验证</span>
       </div>
       <div class="introduction clearfix">
         <label>个人介绍</label>
-        <textarea></textarea>
+        <%= f.text_area :bio, rows: 25 %>
       </div>
       <div class="btn-operate clearfix">
-        <a href="#" class="btn-default btn-warning">更新</a>
+        <button type="submit" class="btn-default btn-warning">更新</button>
       </div>
-    </form>
+    <% end %>
     <div class="avatar-wrap">
       <div class="edit-avatar clearfix">
         <div>
-          <img src="/assets/users/default-avatar.jpg" class="avatar">
-          <span class="user-name">coco</span>
+          <%= image_tag @user.avatar.url, class: "avatar" %>
+          <span class="user-name"><%= @user.name %></span>
         </div>
-        <div>
+        <%= form_for @user, url: profile_path, method: :put do |f| %>
           <a href="#" class="btn-default">修改头像</a>
-          <input id="modify_avatar" type="file" name="avatar" accept="image/*" required="false">
-        </div>
+          <%= f.file_field :avatar, id: "modify_avatar", accept: "image/*", required: false %>
+        <% end %>
       </div>
     </div>
   </div>
@@ -40,22 +40,22 @@
     <h1 class="panel-title">修改密码</h1>
   </header>
   <div class="edit-password clearfix">
-    <form class="form-default">
+    <%= form_for @user, url: profile_path, method: :put, html: { class: "form-default" } do |f| %>
       <div class="clearfix">
         <label>原密码</label>
-        <input type="text">
+        <%= f.password_field :original_password %>
       </div>
       <div class="clearfix">
         <label>新密码</label>
-        <input type="text">
+        <%= f.password_field :password %>
       </div>
       <div class="clearfix">
         <label>确认密码</label>
-        <input type="text">
+        <%= f.password_field :password_confirmation %>
       </div>
       <div class="btn-operate clearfix">
-        <a href="#" class="btn-default btn-warning">修改</a>
+        <button type="submit" class="btn-default btn-warning">修改</button>
       </div>
-    </form>
+    <% end %>
   </div>
 </section>

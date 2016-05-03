@@ -9,6 +9,7 @@ class ProfilesController < ApplicationController
   end
 
   def edit
+    @user = current_user
   end
 
   def events
@@ -22,9 +23,10 @@ class ProfilesController < ApplicationController
   def update
     if current_user.update_attributes permitted_user_params
       flash[:success] = "您的资料更新成功"
-      redirect_to profile_path
+      redirect_to :back
     else
       flash[:danger] = "您的资料更新失败,原因:#{current_user.errors.full_messages.join('，')}"
+      @user = current_user
       render 'edit'
     end
   end
@@ -44,7 +46,7 @@ class ProfilesController < ApplicationController
 
     unless current_user.authenticate(user_params[:original_password])
       flash[:danger] = "更新失败，请提供正确的旧密码"
-      render 'edit' and return false
+      redirect_to :back and return false
     end
   end
 end

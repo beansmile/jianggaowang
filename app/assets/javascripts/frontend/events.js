@@ -1,7 +1,7 @@
 Jianggaowang.EventsPage = {
   uploadEventsCover: function() {
     var $input = $('#events_cover'),
-        $cover = $('#events_new .cover');
+        $cover = $('.cover');
     Jianggaowang.Common.uploadImage($input, $cover);
   },
   initDatePicker: function() {

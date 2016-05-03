@@ -2,10 +2,10 @@
 
 #users_create,
 #users_new {
-  min-height: 850px;
+  min-height: 800px;
 
   .user-page {
-    height: 700px;
+    height: 660px;
   }
 }
 
@@ -137,7 +137,14 @@
         width: 100%;
 
         .form-group {
+          width: 300px;
           position: relative;
+          border: 1px solid $alto;
+
+          input,
+          textarea {
+            border-width: 0;
+          }
 
           .tips {
             position: absolute;
@@ -151,9 +158,13 @@
           }
         }
 
+        .form-group + .form-group {
+          border-top: 0;
+        }
+
         input,
         textarea {
-          width: 300px;
+          width: 100%;
           height: 44px;
           border: 1px solid $alto;
           color: $silver;

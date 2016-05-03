@@ -42,6 +42,7 @@ Rails.application.routes.draw do
       get 'upload_result'
       get 'search'
       get 'hottest'
+      get 'tagged'
     end
 
     member do
@@ -65,7 +66,7 @@ Rails.application.routes.draw do
 
   root 'home#index'
 
-  resources :tags, only: [:index, :show]
+  resources :tags, only: :index
 
   get '/static_page' => 'home#static_page'
 

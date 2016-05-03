@@ -121,6 +121,11 @@ class SlidesController < ApplicationController
     @slides = Slide.hottest.page(params[:page])
   end
 
+  def tagged
+    @tag_name = params[:tag]
+    @slides = Slide.tagged_with(@tag_name).page(params[:page])
+  end
+
   private
   def increase_slide_visits_count
     unless request.env["HTTP_USER_AGENT"].match(/\(.*https?:\/\/.*\)/)

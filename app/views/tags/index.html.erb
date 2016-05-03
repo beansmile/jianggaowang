@@ -11,7 +11,7 @@
     <% if @tags.any? %>
       <% @tags.each do |tag| %>
         <li class="tag-list-item">
-          <%= link_to tag.name, tag_path(tag), class: "tag" %>
+          <%= link_to tag.name, tagged_slides_path(tag: tag.name), class: "tag" %>
         </li>
       <% end %>
     <% else %>

@@ -76,9 +76,11 @@ textarea:focus {
   }
 }
 
+#users_new,
+#users_create,
 #sessions_new,
-#user_passwords_reset,
-#users_new {
+#sessions_create,
+#user_passwords_reset {
   overflow: auto;
 
   .topbar,

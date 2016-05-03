@@ -65,6 +65,8 @@ Rails.application.routes.draw do
 
   root 'home#index'
 
+  resources :tags, only: [:index, :show]
+
   get '/static_page' => 'home#static_page'
 
   # The priority is based upon order of creation: first created -> highest priority.

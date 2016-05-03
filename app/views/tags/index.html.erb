@@ -1,0 +1,24 @@
+<% content_for :title do %>
+标签
+<% end %>
+
+<section class="panel panel-for-tag">
+  <header class="panel-header pure-g clearfix with-hr">
+    <h1 class="panel-title pure-u-1">讲稿标签</h1>
+  </header>
+
+  <ul class="tag-list pure-g">
+    <% if @tags.any? %>
+      <% @tags.each do |tag| %>
+        <li class="tag-list-item">
+          <%= link_to tag.name, tag_path(tag), class: "tag" %>
+        </li>
+      <% end %>
+    <% else %>
+      <div class="pure-u-1">没有标签。</div>
+    <% end %>
+  </ul>
+</section>
+
+<%= paginate @tags %>
+

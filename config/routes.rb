@@ -37,7 +37,7 @@ Rails.application.routes.draw do
   get '/signup' => 'users#new'
   resources :users, only: [:show, :create]
 
-  resources :slides, only: [:index, :show, :new, :create, :destroy, :edit, :update] do
+  resources :slides, only: [:index, :show, :create, :destroy, :edit, :update] do
     collection do
       get 'upload_result'
       get 'search'
@@ -61,7 +61,14 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :events
+  resources :events do
+    collection do
+      get 'choose'
+    end
+    member do
+      get 'slides/new' => 'slides#new'
+    end
+  end
 
   root 'home#index'
 

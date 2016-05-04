@@ -1,0 +1,22 @@
+<% content_for :title do %>
+活动
+<% end %>
+
+<section class="panel clearfix">
+  <header class="panel-header pure-g clearfix with-hr">
+    <h4 class="panel-title pure-u-1-2">选择你要上传的讲稿所属的活动</h4>
+    <%= link_to "点击这里创建", new_event_path, class: 'pure-u-1-2 panel-link' %>
+  </header>
+  <ul class="card-list pure-g">
+    <% if @events.any? %>
+      <% @events.each do |event| %>
+        <%= render partial: "event_item",
+                   locals: { event: event, link: slides_new_event_path(event) } %>
+      <% end %>
+    <% else %>
+      <div class="pure-u-1">没有活动。</div>
+    <% end %>
+  </ul>
+</section>
+
+<%= paginate @events %>

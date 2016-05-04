@@ -1,18 +1,10 @@
 @import "variables";
 
 /* for events_new page and slide_new page */
-#events_new,
-#slides_new {
-
-  .panel {
-    .panel-header.with-hr::after {
-      margin: 10px 0;
-    }
-  }
-
-  header {
-    margin: 0 auto;
-    padding: 0;
+.new-events,
+.new-slides {
+  .panel-header.with-hr::after {
+    margin: 10px 0;
   }
 
   .events-wrap,
@@ -156,8 +148,8 @@
 }
 
 @media (min-width: 320px) {
-  #events_new,
-  #slides_new {
+  .new-events,
+  .new-slides {
 
     .panel {
       margin-bottom: 40px;
@@ -201,10 +193,10 @@
 }
 
 @media (min-width: 768px) {
-  #events_new,
-  #slides_new {
+  .new-events,
+  .new-slides {
 
-    .panel {
+    &.panel {
       margin: 30px auto 80px;
       width: 74.21875%;
     }
@@ -243,17 +235,19 @@
 }
 
 @media (min-width: 1024px) {
-  #events_new,
-  #slides_new {
+  .new-events,
+  .new-slides {
 
-    .panel {
-      width: 1120px;
-      margin: 10px auto 80px;
+    &.panel {
+      width: 100%;
+      max-width: 1180px;
+      padding: 0 30px;
     }
 
     .file-upload {
       float: left;
-      width: 486px;
+      width: 45%;
+      max-width: 486px;
     }
     .file-info {
       float: left;

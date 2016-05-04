@@ -58,6 +58,10 @@
       border-bottom: 10px solid transparent;
       vertical-align: bottom;
 
+      &:focus {
+        outline: none;
+      }
+
       &.slider-prev {
         border-right: 20px solid $gray;
       }

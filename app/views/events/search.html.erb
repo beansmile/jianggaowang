@@ -6,11 +6,12 @@
 
 <section class="panel">
   <ul class="card-list pure-g">
-    <% if @slides.any? %>
-      <%= render partial: "slide_item", collection: @slides, as: :slide %>
+    <% if @events.any? %>
+      <%= render partial: "event_item", collection: @events, as: :event %>
     <% else %>
-      <div class="pure-u-1">没有讲稿。</div>
+      <div class="pure-u-1">没有活动。</div>
     <% end %>
   </ul>
 </section>
-<%= paginate @slides %>
+
+<%= paginate @events %>

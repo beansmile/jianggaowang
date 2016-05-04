@@ -64,6 +64,7 @@ Rails.application.routes.draw do
   resources :events do
     collection do
       get 'choose'
+      get 'search'
     end
     member do
       get 'slides/new' => 'slides#new'
@@ -73,6 +74,8 @@ Rails.application.routes.draw do
   root 'home#index'
 
   get '/static_page' => 'home#static_page'
+
+  get '/s' => 'search#index', as: :search
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

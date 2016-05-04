@@ -110,11 +110,9 @@ class SlidesController < ApplicationController
   def search
     @keyword = params[:keyword]
 
-    if @keyword
-      @slides = Slide.where("title like '%#{@keyword}%'").page(params[:page])
-    else
-      @slides = Slide.page(params[:page])
-    end
+    slides_query = Slide.ransack(title_cont: @keyword)
+    slides_query.sorts = Slide::DEFAULT_SEARCH_SORTS
+    @slides = slides_query.result.page(params[:page])
   end
 
   def hottest

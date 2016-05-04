@@ -1,0 +1,36 @@
+<% content_for :title do %>
+搜索“<%= @keyword %>”
+<% end %>
+
+<%= render 'shared/search_tips_header' %>
+
+<section class="panel">
+  <header class="panel-header pure-g clearfix">
+    <h4 class="panel-title pure-u-1-2">活动（<%= @events.total_count %>）</h4>
+    <%= link_to "查看全部", search_events_path(keyword: @keyword), class: "panel-link pure-u-1-2" %>
+  </header>
+
+  <ul class="card-list pure-g">
+    <% if @events.any? %>
+      <%= render partial: "events/event_item", collection: @events, as: :event %>
+    <% else %>
+      <div class="pure-u-1">没有搜索到相关活动。</div>
+    <% end %>
+  </ul>
+</section>
+
+<section class="panel">
+  <header class="panel-header pure-g clearfix">
+    <h4 class="panel-title pure-u-1-2">讲稿（<%= @slides.total_count %>）</h4>
+    <%= link_to "查看全部", search_slides_path(keyword: @keyword), class: "panel-link pure-u-1-2" %>
+  </header>
+
+  <ul class="card-list pure-g">
+    <% if @slides.any? %>
+      <%= render partial: "slides/slide_item", collection: @slides, as: :slide %>
+    <% else %>
+      <div class="pure-u-1">没有搜索到相关讲稿。</div>
+    <% end %>
+  </ul>
+</section>
+

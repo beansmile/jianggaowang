@@ -7,7 +7,7 @@ class SlidesController < ApplicationController
   end
 
   def show
-    @slide = Slide.includes(:previews).find(params[:id])
+    @slide = Slide.includes(:previews, :tags).find(params[:id])
     respond_to do |format|
       format.html
       format.html.phone {render :layout => 'mobile'}
@@ -15,16 +15,19 @@ class SlidesController < ApplicationController
   end
 
   def new
-    @slide = Slide.new
+    @slide = Slide.new(event: current_user.events.find(params[:id]))
   end
 
   def create
     @slide = current_user.slides.new(slide_params)
-    @slide.event = Event.find(params[:event_id]) if params[:event_id].present? && Event.exists?(params[:event_id])
+    @slide.event = current_user.events.find(params[:event_id]) if params[:event_id].present? && Event.exists?(params[:event_id])
+    @slide.user = current_user
+
     if @slide.save
-      render json: {status: "success", slide: {id: @slide.id, event_id: @slide.event_id}}
+      redirect_to slide_path(@slide)
     else
-      render json: {errors: @slide.errors.full_messages.join(";")}
+      flash[:error] = @slide.errors.full_messages.join(';')
+      render 'new'
     end
   end
 
@@ -127,7 +130,7 @@ class SlidesController < ApplicationController
 
   def slide_params
     params.require(:slide).permit(
-      :title, :description, :file, :downloadable, :author
+      :title, :description, :file, :downloadable, :author, :tag_list
     )
   end
 end

@@ -26,7 +26,7 @@
           <p class="event-slides-num"><i class="icon-book"></i>讲稿数量：<%= @event.slides.count %></p>
           <div class="event-action">
             <% if current_user == @event.creator %>
-              <%= link_to "上传讲稿", slides_new_event_path(event_id: @event.id), class: "btn" %>
+              <%= link_to "上传讲稿", slides_new_event_path, class: "btn" %>
               <%= link_to "编辑活动", edit_event_path(@event), class: "btn btn-warning" %>
             <% end %>
           </div>

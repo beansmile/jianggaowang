@@ -3,36 +3,37 @@
     <h1 class="panel-title">创建活动</h1>
   </header>
   <div class="events-wrap clearfix">
-    <div class="file-upload">
-      <div class="cover">
-      </div>
-      <div class="cover-upload">
-        <div class="upload-cover">
-          <span>上传封面</span>
-          <span class="upload icon"></span>
-          <input id="events_cover" type="file" name="pic" accept="image/*" required="false">
+    <%= form_for @event, url: events_path, method: :post do |f| %>
+      <div class="file-upload">
+        <div class="cover">
+        </div>
+        <div class="cover-upload">
+          <div class="upload-cover">
+            <span>上传封面</span>
+            <span class="upload icon"></span>
+            <%= f.file_field :cover, id: "events_cover", accept: "image/*" %>
+          </div>
         </div>
       </div>
-    </div>
-    <form class="file-info form-default">
-      <div class="title clearfix">
-        <label>活动标题</label>
-        <input type="text">
-      </div>
-      <div class="time clearfix">
-        <label>活动时间</label>
-          <input id="start_time" type="text" placeholder="2015-11-11 08:20">
+      <div class="file-info form-default">
+        <div class="title clearfix">
+          <label>活动标题</label>
+          <%= f.text_field :header %>
+        </div>
+        <div class="time clearfix">
+          <label>活动时间</label>
+          <%= f.text_field :start_at, id:"start_time", placeholder: "2015-11-11 08:20" %>
           <span>~</span>
-          <input id="end_time" type="text" placeholder="2015-11-11 16:20">
+          <%= f.text_field :end_at, id:"end_time", placeholder: "2015-11-11 16:20" %>
+        </div>
+        <div class="introduction clearfix">
+          <label>活动介绍</label>
+          <%= f.text_area :content, id: 'wangEditorArea' %>
+        </div>
+        <div class="btn-operate clearfix">
+          <button type="submit" class="btn-default btn-warning">创建活动</button>
+        </div>
       </div>
-      <div class="introduction clearfix">
-        <label>活动介绍</label>
-        <textarea></textarea>
-      </div>
-      <div class="btn-operate clearfix">
-        <a href="#" class="btn-default btn-warning">创建活动</a>
-        <a href="#" class="btn-default btn-delete">删除活动</a>
-      </div>
-    </form>
+    <% end %>
   </div>
 </section>

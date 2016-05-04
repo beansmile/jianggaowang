@@ -7,3 +7,4 @@
 //= require jquery.slick
 //= require photoswipe
 //= require ./framework/jquery.noty-config
+//= require ./framework/wangEditor-config

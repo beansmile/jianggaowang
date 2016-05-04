@@ -3,7 +3,6 @@ zh-CN:
     models:
       slide: 讲稿
       admin_user: 超级管理员
-      category: 分类
       user: 用户
       event: 活动
     attributes:
@@ -13,9 +12,6 @@ zh-CN:
       slide:
         title: 标题
         description: 简介
-      category:
-        name: 名称
-        slides: 讲稿
       user:
         name: 用户名
         email: 电子邮箱

@@ -8,7 +8,6 @@ class SlidesController < ApplicationController
 
   def show
     @slide = Slide.includes(:previews).find(params[:id])
-    @category = @slide.category
     respond_to do |format|
       format.html
       format.html.phone {render :layout => 'mobile'}
@@ -128,7 +127,7 @@ class SlidesController < ApplicationController
 
   def slide_params
     params.require(:slide).permit(
-      :title, :description, :file, :category_id, :downloadable, :author
+      :title, :description, :file, :downloadable, :author
     )
   end
 end

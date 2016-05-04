@@ -11,8 +11,12 @@
     <%= render "shared/sign_up_in_tab" %>
 
     <%= form_for @user, url: sessions_path, method: :post, html: { class: "user-info user-login" } do |f| %>
-      <%= f.text_field :name, class: "user-name", placeholder: "用户名" %>
-      <%= f.password_field :password, class: "password", placeholder: "密码" %>
+      <div class="form-group">
+        <%= f.text_field :name, class: "user-name", placeholder: "用户名" %>
+      </div>
+      <div class="form-group">
+        <%= f.password_field :password, class: "password", placeholder: "密码" %>
+      </div>
       <%= f.button "登录", class: "login-btn btn-default" %>
 
       <%= link_to "忘记密码？", reset_user_passwords_path, class: "forget-password" %>

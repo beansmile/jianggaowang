@@ -13,6 +13,8 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+
+    render :new, layout: 'sign_in_up'
   end
 
   def create

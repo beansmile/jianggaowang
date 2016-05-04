@@ -26,7 +26,9 @@
     input {
       height: 30px;
       margin: 0;
+      border-radius: 2px;
       padding-right: 35px;
+      font-weight: lighter;
       background-color: $search-input-bg;
       border: 1px solid $search-input-border;
 
@@ -56,12 +58,7 @@
 
   .pure-menu-link {
     padding: 0;
-    font-weight: 200;
     color: $header-link-color;
-
-    span {
-      font-weight: 200;
-    }
 
     &.active,
     &:hover,
@@ -69,6 +66,14 @@
       color: $header-link-active-color;
       background-color: transparent;
     }
+
+    span {
+      font-weight: lighter;
+    }
+  }
+
+  .header-menu .pure-menu-link {
+    font-weight: lighter;
   }
 
   .pure-menu-heading {

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>
+    讲稿网
+    <% if content_for?(:title) %>
+      - <%= yield :title %>
+    <% end %>
+  </title>
+
+  <script>var Jianggaowang = {};</script>
+
+  <%= stylesheet_link_tag    'framework', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'jianggaowang', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'framework', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'jianggaowang', 'data-turbolinks-track' => true %>
+
+  <%= render 'layouts/baidu_statistics' %>
+  <%= csrf_meta_tags %>
+</head>
+<body id="<%= controller_name %>_<%= action_name %>">
+  <%= render 'shared/flash_messages' %>
+
+  <div class="wraper">
+    <%= yield %>
+  </div>
+
+  <%= render 'shared/footer' %>
+</body>
+</html>

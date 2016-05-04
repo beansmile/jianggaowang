@@ -1,4 +1,6 @@
 class UserPasswordsController < ApplicationController
+  layout 'sign_in_up'
+
   before_action :check_authenticated_user
   before_action :check_user, :check_reset_password_token, only: [:edit, :update]
 

@@ -7,3 +7,4 @@
 //= require ./frontend/slides_details
 //= require ./frontend/header
 //= require ./frontend/messages
+//= require ./frontend/form_verify

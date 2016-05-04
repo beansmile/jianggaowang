@@ -45,6 +45,10 @@ class EventsController < ApplicationController
     redirect_to events_path
   end
 
+  def choose
+    @events = current_user.events.newest.page(params[:page])
+  end
+
   private
 
   def event_params

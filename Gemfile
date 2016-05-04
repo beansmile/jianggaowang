@@ -64,6 +64,10 @@ gem 'mini_magick', '~> 4.3', '>= 4.3.6'
 # https://github.com/resque/redis-namespace
 gem 'redis-namespace', '~> 1.01'
 
+# A tagging plugin for Rails applications that allows for custom tagging along dynamic contexts
+# https://github.com/mbleigh/acts-as-taggable-on
+gem 'acts-as-taggable-on', '~> 3.5'
+
 group :development do
   gem 'web-console', '~> 2.0'
 

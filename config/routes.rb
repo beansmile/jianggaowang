@@ -73,6 +73,8 @@ Rails.application.routes.draw do
 
   root 'home#index'
 
+  resources :tags, only: [:index, :show]
+
   get '/static_page' => 'home#static_page'
 
   get '/s' => 'search#index', as: :search

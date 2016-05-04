@@ -7,6 +7,8 @@ class Slide < ActiveRecord::Base
   mount_uploader :file, PDFUploader
   mount_uploader :audio, AudioUploader
 
+  acts_as_taggable
+
   enum status: { transforming: 1, done: 2, failed: 3 }
 
   # association

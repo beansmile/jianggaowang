@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  layout 'sign_in_up'
+
   before_action :redirect_if_user_logined, except: :destroy
   before_action :require_approved, only: :create
 

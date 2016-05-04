@@ -1,15 +1,55 @@
 @import "variables";
 
-#sessions_new,
-#user_passwords_reset,
-#sessions_create,
+#users_create,
 #users_new {
+  min-height: 800px;
+
+  .user-page {
+    height: 660px;
+  }
+}
+
+#sessions_new,
+#sessions_create,
+#user_passwords_reset {
+  min-height: 500px;
+
+  .user-page {
+    height: 390px;
+  }
+}
+
+#users_new,
+#users_create,
+#sessions_new,
+#sessions_create,
+#user_passwords_reset {
+  height: 100%;
   background-image: image-url("users/user-bg.svg");
+
+  .wraper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
 
   .user-page {
     display: block;
-    margin: 80px auto 0;
-    width: 300px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    text-align: center;
+
+    .user-title,
+    .login-wrap,
+    .find-password {
+      width: 300px;
+      margin-left: auto;
+      margin-right: auto;
+    }
 
     .user-title {
       margin-bottom: 50px;
@@ -35,6 +75,7 @@
 
     .login-wrap,
     .find-password {
+      width: 300px;
 
       h2 {
         margin-bottom: 30px;
@@ -70,6 +111,8 @@
         li {
           display: inline-block;
           width: 60px;
+          padding-bottom: 6px;
+          line-height: 1em;
           text-align: center;
           color: $silver;
           font-size: 16px;
@@ -93,9 +136,35 @@
       .user-info {
         width: 100%;
 
+        .form-group {
+          width: 300px;
+          position: relative;
+          border: 1px solid $alto;
+
+          input,
+          textarea {
+            border-width: 0;
+          }
+
+          .tips {
+            position: absolute;
+            top: 0;
+            left: 100%;
+            padding-left: 20px;
+            line-height: 44px;
+            font-size: 12px;
+            color: $red;
+            white-space: nowrap;
+          }
+        }
+
+        .form-group + .form-group {
+          border-top: 0;
+        }
+
         input,
         textarea {
-          width: 298px;
+          width: 100%;
           height: 44px;
           border: 1px solid $alto;
           color: $silver;
@@ -125,10 +194,7 @@
           border-top-right-radius: 2px;
         }
 
-        input:nth-child(4),
-        input:nth-child(5),
-        input:nth-child(5),
-        input:nth-child(6),
+        input + input,
         textarea {
           border-top: 0;
         }
@@ -183,6 +249,11 @@
   }
 
   .user-register-tips {
+
+    >div {
+      margin: auto;
+    }
+
     p {
       margin-top: 1.5em;
       text-align: center;

@@ -17,7 +17,6 @@ class Slide < ActiveRecord::Base
   has_many :liking_users, through: :likes, source: :user
   has_many :collections
   has_many :collecting_users, through: :collections, source: :user
-  belongs_to :category, counter_cache: true
   belongs_to :user
   belongs_to :event
 

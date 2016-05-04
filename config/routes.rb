@@ -53,14 +53,6 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :categories, only: [:show] do
-    collection do
-      get :all
-      get :hotest
-      get :newest
-    end
-  end
-
   resources :events do
     collection do
       get 'choose'

@@ -9,6 +9,9 @@ class Event < ActiveRecord::Base
   belongs_to :creator, class_name: "User", foreign_key: "creator_id"
   has_many :slides, dependent: :destroy
 
+  # validation macros
+  validates :header, :start_at, :end_at, :creator_id, :cover, presence: true
+
   # scope
   scope :newest, -> { order(created_at: :desc) }
   scope :pinned, -> { where.not(pinned_at: nil).order(created_at: :desc) }

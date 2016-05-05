@@ -74,7 +74,10 @@
           <p><%= @slide.description %></p>
           <footer>
             <div class="slides-tags">
-              标签：<a href="#" class="slides-tag">暂无</a>
+              标签：
+              <% @slide.tags.each do |tag| %>
+                <%= link_to tag.name, tag_path(tag), class: 'slides-tag' %>
+              <% end %>
             </div>
           </footer>
         </section>

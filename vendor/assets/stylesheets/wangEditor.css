@@ -503,13 +503,6 @@
   color: #666;
   cursor: pointer;
 }
-@font-face {
-  font-family: 'icomoon';
-  src: url('/assets/icomoon.eot?-qdfu1s');
-  src: url('/assets/icomoon.eot?#iefix-qdfu1s') format('embedded-opentype'), url('/assets/icomoon.ttf?-qdfu1s') format('truetype'), url('/assets/icomoon.woff?-qdfu1s') format('woff'), url('/assets/icomoon.svg?-qdfu1s#icomoon') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
 [class^="wangeditor-menu-img-"],
 [class*=" wangeditor-menu-img-"] {
   font-family: 'icomoon';

@@ -58,6 +58,10 @@
       border-bottom: 10px solid transparent;
       vertical-align: bottom;
 
+      &:focus {
+        outline: none;
+      }
+
       &.slider-prev {
         border-right: 20px solid $gray;
       }
@@ -143,6 +147,10 @@
     text-indent: 2em;
     margin: 1em 0;
     line-height: 20px;
+  }
+
+  a {
+    word-break: break-word;
   }
 
   h1,

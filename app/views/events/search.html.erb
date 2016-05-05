@@ -1,12 +1,10 @@
 <% content_for :title do %>
-活动
+搜索“<%= @keyword %>”
 <% end %>
+
+<%= render 'shared/search_tips_header' %>
+
 <section class="panel">
-  <% if current_user.present? %>
-    <div class="pure-g">
-      <div class="pure-u-1"><%= link_to '创建新的活动', new_event_path, class: "pure-button-primary pure-button" %></div>
-    </div>
-  <% end %>
   <ul class="card-list pure-g">
     <% if @events.any? %>
       <%= render partial: "event_item", collection: @events, as: :event %>

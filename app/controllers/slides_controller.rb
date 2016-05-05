@@ -8,7 +8,6 @@ class SlidesController < ApplicationController
 
   def show
     @slide = Slide.includes(:previews).find(params[:id])
-    @category = @slide.category
     respond_to do |format|
       format.html
       format.html.phone {render :layout => 'mobile'}
@@ -110,11 +109,9 @@ class SlidesController < ApplicationController
   def search
     @keyword = params[:keyword]
 
-    if @keyword
-      @slides = Slide.where("title like '%#{@keyword}%'").page(params[:page])
-    else
-      @slides = Slide.page(params[:page])
-    end
+    slides_query = Slide.ransack(title_cont: @keyword)
+    slides_query.sorts = Slide::DEFAULT_SEARCH_SORTS
+    @slides = slides_query.result.page(params[:page])
   end
 
   def hottest
@@ -130,7 +127,7 @@ class SlidesController < ApplicationController
 
   def slide_params
     params.require(:slide).permit(
-      :title, :description, :file, :category_id, :downloadable, :author
+      :title, :description, :file, :downloadable, :author
     )
   end
 end

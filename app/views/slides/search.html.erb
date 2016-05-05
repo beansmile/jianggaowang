@@ -2,28 +2,15 @@
 搜索“<%= @keyword %>”
 <% end %>
 
-<div class="col-md-3 categories-sidebar">
-  <h4>浏览</h4>
+<%= render 'shared/search_tips_header' %>
 
-  <%= render 'shared/categories_list' %>
-</div>
-
-<div class="col-md-9" id='animated'>
-  <% if @keyword.present? %>
-    <h5 class='category-title'>符合“<%= @keyword %>”关键字的讲稿有：</h5>
-  <% end %>
-
-  <div>
+<section class="panel">
+  <ul class="card-list pure-g">
     <% if @slides.any? %>
-      <div class="row">
-        <%= render 'slides/slides', slides: @slides %>
-      </div>
+      <%= render partial: "slide_item", collection: @slides, as: :slide %>
     <% else %>
-      <div>对不起，当前搜索条件下暂无讲稿</div>
+      <div class="pure-u-1">没有讲稿。</div>
     <% end %>
-  </div>
-
-  <div class='pagination-container'>
-    <%= paginate @slides %>
-  </div>
-</div>
+  </ul>
+</section>
+<%= paginate @slides %>

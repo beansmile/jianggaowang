@@ -1,7 +1,7 @@
 source 'https://gems.ruby-china.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.1'
+gem 'rails', '4.2.6'
 
 gem 'pg', '~> 0.18.2'
 
@@ -63,6 +63,10 @@ gem 'mini_magick', '~> 4.3', '>= 4.3.6'
 # Adds a Redis::Namespace class which can be used to namespace Redis keys
 # https://github.com/resque/redis-namespace
 gem 'redis-namespace', '~> 1.01'
+
+# A tagging plugin for Rails applications that allows for custom tagging along dynamic contexts
+# https://github.com/mbleigh/acts-as-taggable-on
+gem 'acts-as-taggable-on', '~> 3.5'
 
 group :development do
   gem 'web-console', '~> 2.0'

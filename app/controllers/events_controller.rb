@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show, :search]
   before_action :set_current_event, only: [:edit, :update, :destroy]
 
   def index
@@ -19,6 +19,7 @@ class EventsController < ApplicationController
   def create
     @event = current_user.events.new(event_params)
     if @event.save
+      flash[:success] = "活动创建成功"
       respond_to do |format|
         format.html { redirect_to @event }
       end
@@ -41,8 +42,25 @@ class EventsController < ApplicationController
   end
 
   def destroy
-    @event.destroy
-    redirect_to events_path
+    if @event.destroy
+      flash[:success] = "活动删除成功"
+      redirect_to events_path
+    else
+      flash[:danger] = "活动删除失败，原因:#{@event.errors.full_messages.join('，')}"
+      redirect_to :back
+    end
+  end
+
+  def choose
+    @events = current_user.events.newest.page(params[:page])
+  end
+
+  def search
+    @keyword = params[:keyword]
+
+    events_query = Event.ransack(header_cont: @keyword)
+    events_query.sorts = Event::DEFAULT_SEARCH_SORTS
+    @events = events_query.result.page(params[:page])
   end
 
   private

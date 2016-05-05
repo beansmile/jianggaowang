@@ -1,9 +1,13 @@
 require 'pdf_converter'
 
 class Slide < ActiveRecord::Base
+  DEFAULT_SEARCH_SORTS = 'created_at desc'
+
   # attr related macros
   mount_uploader :file, PDFUploader
   mount_uploader :audio, AudioUploader
+
+  acts_as_taggable
 
   enum status: { transforming: 1, done: 2, failed: 3 }
 
@@ -13,7 +17,6 @@ class Slide < ActiveRecord::Base
   has_many :liking_users, through: :likes, source: :user
   has_many :collections
   has_many :collecting_users, through: :collections, source: :user
-  belongs_to :category, counter_cache: true
   belongs_to :user
   belongs_to :event
 

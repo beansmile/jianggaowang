@@ -1,4 +1,5 @@
 class Event < ActiveRecord::Base
+  DEFAULT_SEARCH_SORTS = 'created_at desc'
 
   # Attr related macros
   mount_uploader :cover, EventUploader

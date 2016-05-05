@@ -37,7 +37,7 @@ Rails.application.routes.draw do
   get '/signup' => 'users#new'
   resources :users, only: [:show, :create]
 
-  resources :slides, only: [:index, :show, :new, :create, :destroy, :edit, :update] do
+  resources :slides, only: [:index, :show, :create, :destroy, :edit, :update] do
     collection do
       get 'upload_result'
       get 'search'
@@ -53,19 +53,23 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :categories, only: [:show] do
+  resources :events do
     collection do
-      get :all
-      get :hotest
-      get :newest
+      get 'choose'
+      get 'search'
+    end
+    member do
+      get 'slides/new' => 'slides#new'
     end
   end
 
-  resources :events
-
   root 'home#index'
 
+  resources :tags, only: [:index, :show]
+
   get '/static_page' => 'home#static_page'
+
+  get '/s' => 'search#index', as: :search
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

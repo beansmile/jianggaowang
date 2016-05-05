@@ -24,6 +24,7 @@ class EventsController < ApplicationController
         format.html { redirect_to @event }
       end
     else
+      flash[:error] = @event.errors.full_messages.join('，')
       render :new
     end
   end

@@ -5,7 +5,7 @@ zh-CN:
       last: "最后一页 &raquo;"
       previous: "&lt;"
       next: "&gt;"
-      truncate: "&hellip;"
+      truncate: "&middot;&middot;&middot;"
   helpers:
     page_entries_info:
       one_page:

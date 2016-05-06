@@ -16,6 +16,12 @@
     }
   }
 
+  .header-logo,
+  .header-menu,
+  .pure-form {
+    float: left;
+  }
+
   .pure-form {
     vertical-align: middle;
     position: relative;
@@ -65,10 +71,6 @@
     &:focus {
       color: $header-link-active-color;
       background-color: transparent;
-    }
-
-    span {
-      font-weight: lighter;
     }
   }
 

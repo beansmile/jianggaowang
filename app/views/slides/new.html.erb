@@ -19,7 +19,7 @@
           <div class="upload-audio">
             <span>上传音频</span>
             <span class="upload icon"></span>
-            <%= f.file_field :audio, id: 'upload_audio', accept: 'audio/*' %>
+            <input id="upload_audio" type="file" name="audio" accept="audio/*">
           </div>
           <!--上传音频上传完之后才会显示-->
           <div class="live-record">

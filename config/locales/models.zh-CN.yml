@@ -18,3 +18,10 @@ zh-CN:
         bio: 简介
         password: 密码
         password_confirmation: 确认密码
+      event:
+        header: 活动标题
+        content: 活动简介
+        start_at: 开始时间
+        end_at: 结束时间
+        venue: 活动地点
+        cover: 封面图

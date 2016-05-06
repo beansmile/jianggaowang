@@ -9,14 +9,14 @@
     display: block;
     overflow: hidden;
     width: 100%;
-    box-shadow: 0 0 1px rgba(128, 128, 128, 0.5);
-    border-radius: 4px;
+    box-shadow: 0 0 1px rgba(128, 128, 128, 0.2);
+    border-radius: 3px;
     background-color: #fff;
     text-decoration: none;
 
     &:hover,
     &:focus {
-      box-shadow: 0 0 10px rgba(128, 128, 128, 0.5);
+      box-shadow: 0 0 15px rgba(128, 128, 128, 0.5);
     }
   }
 
@@ -42,7 +42,7 @@
   }
 
   .card-footer {
-    padding: 20px 20px 15px;
+    padding: 20px 30px 16px;
     text-align: center;
     line-height: 2em;
   }

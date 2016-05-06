@@ -1,4 +1,6 @@
 class SlidesController < ApplicationController
+  RECOMMENDED_SLIDES_COUNT = 2
+
   before_action :authenticate_user!, only: [:new, :create, :like, :collect]
   after_action :increase_slide_visits_count, only: [:show]
 
@@ -8,6 +10,7 @@ class SlidesController < ApplicationController
 
   def show
     @slide = Slide.includes(:previews, :tags).find(params[:id])
+    @recommended_slides = @slide.related_recommendations.limit(RECOMMENDED_SLIDES_COUNT)
     respond_to do |format|
       format.html
       format.html.phone {render :layout => 'mobile'}

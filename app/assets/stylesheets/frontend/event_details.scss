@@ -77,34 +77,6 @@
     }
   }
 
-  .event-content {
-    padding-top: 10px;
-    line-height: 1.5em;
-    color: $gray;
-
-    p {
-      text-indent: 2em;
-      margin: 1em 0;
-    }
-
-    a {
-      word-break: break-word;
-    }
-
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      color: $tundora;
-      font-weight: bolder;
-    }
-
-    strong {
-      font-weight: bolder;
-    }
-  }
 }
 
 @media (max-width: 767px) {

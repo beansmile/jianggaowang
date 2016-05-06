@@ -24,6 +24,7 @@ class EventsController < ApplicationController
         format.html { redirect_to @event }
       end
     else
+      flash.now[:error] = @event.errors.full_messages.join('，')
       render :new
     end
   end
@@ -36,7 +37,7 @@ class EventsController < ApplicationController
       flash[:success] = "活动更新成功"
       redirect_to event_path(@event)
     else
-      flash[:danger] = "活动更新失败,原因:#{@event.errors.full_messages.join('，')}"
+      flash.now[:error] = "活动更新失败，原因:#{@event.errors.full_messages.join('，')}"
       render 'edit'
     end
   end
@@ -66,7 +67,7 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:header, :content, :cover, :start_at, :end_at)
+    params.require(:event).permit(:header, :content, :cover, :start_at, :end_at, :venue)
   end
 
   def set_current_event

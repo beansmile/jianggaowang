@@ -25,7 +25,7 @@ class Slide < ActiveRecord::Base
 
   # callbacks
   after_commit :convert_file, on: :create
-  after_update :update_file
+  after_commit :update_file, on: :update
 
   # scopes
   scope :hottest, -> { where('visits_count > 0').order(visits_count: :desc) }
@@ -88,9 +88,10 @@ class Slide < ActiveRecord::Base
   end
 
   def update_file
-    # self.transforming! will case the callback again
-    if self.file_changed? && !self.status_changed?
-      self.transforming!
+    if previous_changes.key? 'file'
+      # use update_columns to skip callback
+      # due to: https://github.com/rails/rails/issues/14493
+      update_columns status: Slide.statuses['transforming']
       SlideConvertJob.perform_later(id)
     end
   end

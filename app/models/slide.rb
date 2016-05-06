@@ -24,7 +24,7 @@ class Slide < ActiveRecord::Base
   validates :title, :description, :user_id, :file, :author, presence: true
 
   # callbacks
-  after_create :convert_file
+  after_commit :convert_file, on: :create
   after_update :update_file
 
   # scopes
@@ -75,9 +75,12 @@ class Slide < ActiveRecord::Base
   end
 
   private
+
   def convert_file
     SlideConvertJob.perform_later(id)
-    self.transforming!
+    # use update_columns to skip callback
+    # due to: https://github.com/rails/rails/issues/14493
+    update_columns status: Slide.statuses['transforming']
   end
 
   def update_file

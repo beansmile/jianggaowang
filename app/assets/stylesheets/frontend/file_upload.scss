@@ -168,7 +168,7 @@
 
     .file-info {
       margin: 20px auto 0;
-      padding: 0;
+      padding: 0 20px 20px;
 
       .btn-delete {
         display: none;
@@ -179,7 +179,7 @@
 
       input,
       textarea {
-        width: 76%;
+        width: 100%;
       }
 
       .time {
@@ -208,7 +208,7 @@
     .file-upload,
     .file-info {
       float: none;
-      width: 466px;
+      width: 476px;
     }
 
     .file-info {
@@ -219,12 +219,12 @@
 
       input,
       textarea {
-        width: 400px;
+        width: 100%;
       }
 
       .time {
         input {
-          width: 184px;
+          max-width: 187px;
         }
         input:last-child {
           margin-left: 0;
@@ -255,7 +255,7 @@
     }
     .file-info {
       float: left;
-      width: 466px;
+      width: 476px;
       margin: 0 0 0 40px;
       .btn-delete {
         display: inline-block;

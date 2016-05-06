@@ -18,5 +18,6 @@
  *= require ./frontend/select_event
  *= require ./frontend/carousel
  *= require ./frontend/slides
+ *= require ./frontend/article
  *= require_self
  */

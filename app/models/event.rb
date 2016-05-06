@@ -10,7 +10,7 @@ class Event < ActiveRecord::Base
   has_many :slides, dependent: :destroy
 
   # validation macros
-  validates :header, :start_at, :end_at, :creator_id, :cover, presence: true
+  validates :header, :start_at, :end_at, :creator_id, :cover, :venue, presence: true
 
   # scope
   scope :newest, -> { order(created_at: :desc) }

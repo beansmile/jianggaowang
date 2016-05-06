@@ -23,4 +23,5 @@ zh-CN:
         content: 活动简介
         start_at: 开始时间
         end_at: 结束时间
+        venue: 活动地点
         cover: 封面图

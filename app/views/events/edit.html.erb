@@ -27,6 +27,10 @@
           <span>~</span>
           <%= f.text_field :end_at, id:"end_time", placeholder: "2015-11-11 16:20" %>
         </div>
+        <div class="clearfix">
+          <label>活动地点</label>
+          <%= f.text_field :venue %>
+        </div>
         <div class="introduction clearfix">
           <label>活动介绍</label>
           <%= f.text_area :content, id: "wangEditorArea" %>

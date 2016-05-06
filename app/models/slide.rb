@@ -74,6 +74,10 @@ class Slide < ActiveRecord::Base
     increment! :visits_count
   end
 
+  def related_recommendations
+    Slide.tagged_with(tag_list, any: true).where.not(id: id).hottest
+  end
+
   private
   def convert_file
     SlideConvertJob.perform_later(id)

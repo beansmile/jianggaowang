@@ -83,6 +83,10 @@
         </section>
       </article>
     </div>
+
+    <% if @recommended_slides.any? %>
+      <%= render partial: 'recommended_slides', object: @recommended_slides, as: :slides %>
+    <% end %>
   </div>
 </div>
 

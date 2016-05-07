@@ -1,0 +1,18 @@
+<% content_for :title do %>
+标签<%= @tag.name %>的相关讲稿
+<% end %>
+
+<section class="panel">
+  <header class="panel-header pure-g clearfix with-hr">
+    <h4 class="panel-title pure-u-1"><%= @tag.name %></h4>
+  </header>
+
+  <ul class="card-list pure-g">
+    <% if @tagged_slide.any? %>
+      <%= render partial: "slides/slide_item", collection: @tagged_slide, as: :slide %>
+    <% else %>
+      <div class="pure-u-1">没有讲稿。</div>
+    <% end %>
+  </ul>
+</section>
+<%= paginate @tagged_slide %>

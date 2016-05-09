@@ -24,7 +24,7 @@
           <% if @slide.user == current_user %>
 
             <%= link_to "编辑", edit_slide_path(@slide), class: 'btn-default' %>
-            <%= link_to "删除", slide_path(@slide), method: :delete, data: { toggle: 'tooltip', confirm: "确认删除？" }, class: 'btn-default btn-warning' %>
+            <%= link_to "删除", slide_path(@slide, from: 'show'), method: :delete, data: { toggle: 'tooltip', confirm: "确认删除？" }, class: 'btn-default btn-warning' %>
 
           <% else %>
 

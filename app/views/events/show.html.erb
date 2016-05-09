@@ -40,7 +40,7 @@
       </section>
 
       <section class="event-content">
-        <%= sanitize @event.content %>
+        <%= sanitize @event.content, scrubber: ContentScrubber.new %>
       </section>
     </div>
   </div>

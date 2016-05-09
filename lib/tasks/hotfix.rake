@@ -16,4 +16,10 @@ namespace :hotfix do
       user.update_attribute :approved_at, Time.current
     end
   end
+
+  desc 'Generate friendly id for exist events and slides'
+  task :generate_friendly_id_for_exist_events_and_slide => :environment do
+    Slide.find_each(&:save)
+    Event.find_each(&:save)
+  end
 end

@@ -4,10 +4,12 @@ class Event < ActiveRecord::Base
 
   # concerns
   include DisqusConcern
+  extend FriendlyId
 
   # Attr related macros
   mount_uploader :cover, EventUploader
   mount_uploader :editor_choice_image, BaseUploader
+  friendly_id :header, use: :slugged
 
   # Associations
   belongs_to :creator, class_name: "User", foreign_key: "creator_id"
@@ -44,10 +46,17 @@ class Event < ActiveRecord::Base
     end
   end
 
+  def normalize_friendly_id(string)
+    PinYin.permlink(header).downcase
+  end
+
   private
 
   def end_time_cannot_before_start_time
     errors.add(:end_at, "不能早于开始时间") if end_at < start_at
   end
 
+  def should_generate_new_friendly_id?
+    slug.blank? || header_changed?
+  end
 end

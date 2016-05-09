@@ -11,6 +11,7 @@ class Event < ActiveRecord::Base
 
   # validation macros
   validates :header, :start_at, :end_at, :creator_id, :cover, :venue, presence: true
+  validate :end_time_cannot_before_start_time
 
   # scope
   scope :newest, -> { order(created_at: :desc) }
@@ -37,6 +38,12 @@ class Event < ActiveRecord::Base
     else
       self.pinned_at = nil
     end
+  end
+
+  private
+
+  def end_time_cannot_before_start_time
+    errors.add(:end_at, "不能早于开始时间") if end_at < start_at
   end
 
 end

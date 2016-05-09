@@ -13,7 +13,6 @@ class SlidesController < ApplicationController
     @recommended_slides = @slide.related_recommendations.limit(RECOMMENDED_SLIDES_COUNT)
     respond_to do |format|
       format.html
-      format.html.phone {render :layout => 'mobile'}
     end
   end
 

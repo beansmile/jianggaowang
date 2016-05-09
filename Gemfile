@@ -68,6 +68,14 @@ gem 'redis-namespace', '~> 1.01'
 # https://github.com/mbleigh/acts-as-taggable-on
 gem 'acts-as-taggable-on', '~> 3.5'
 
+# 中文汉字转拼音，支持中英文符号混合词语
+# https://github.com/janx/ruby-pinyin
+gem 'ruby-pinyin', '~> 0.5.0'
+
+# FriendlyId is the "Swiss Army bulldozer" of slugging and permalink plugins for ActiveRecord
+# https://github.com/norman/friendly_id
+gem 'friendly_id', '~> 5.1.0'
+
 group :development do
   gem 'web-console', '~> 2.0'
 

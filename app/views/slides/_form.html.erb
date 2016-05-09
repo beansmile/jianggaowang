@@ -1,0 +1,50 @@
+<%= form_for @slide do |f| %>
+  <%= hidden_field_tag 'event_id', @slide.event.id if @slide.new_record? %>
+  <div class="file-upload">
+    <div class="cover">
+      <%= image_tag @slide.previews.first.file.url if @slide.previews.present? %>
+      <span class="progress"></span>
+      <span class="upload-done">正在后台转换中...</span>
+    </div>
+    <div class="cover-upload">
+      <div class="upload-lecture">
+        <span>上传讲稿</span>
+        <span class="upload icon"></span>
+        <%= f.file_field :file, id: 'upload_lecture', accept: 'application/pdf', required: @slide.new_record? ? true : false %>
+        <%= f.hidden_field :file_cache %>
+      </div>
+      <div class="upload-audio">
+        <span>上传音频</span>
+        <span class="upload icon"></span>
+        <%= f.file_field :audio, id: 'upload_audio', accept: 'audio/*' %>
+        <%= f.hidden_field :audio_cache %>
+      </div>
+      <!--上传音频上传完之后才会显示-->
+      <div class="live-record">
+        <span>现场录音.mp3</span>
+        <span class="icon-close icon"></span>
+      </div>
+    </div>
+  </div>
+  <div class="file-info form-default">
+    <div class="form-group title clearfix">
+      <label>讲稿标题</label>
+      <%= f.text_field :title %>
+    </div>
+    <div class="form-group title clearfix">
+      <label>作者</label>
+      <%= f.text_field :author %>
+    </div>
+    <div class="form-group tag clearfix">
+      <label>标签</label>
+      <%= f.text_field :tag_list %>
+    </div>
+    <div class="form-group introduction clearfix">
+      <label>讲稿介绍</label>
+      <%= f.text_area :description %>
+    </div>
+    <div class="btn-operate clearfix">
+      <%= f.button @slide.new_record? ? '完成上传' : '保存', class: 'btn-default btn-warning' %>
+    </div>
+  </div>
+<% end %>

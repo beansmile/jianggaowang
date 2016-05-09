@@ -2,6 +2,7 @@ class SlidesController < ApplicationController
   RECOMMENDED_SLIDES_COUNT = 2
 
   before_action :authenticate_user!, only: [:new, :create, :like, :collect]
+  before_action :find_slide, only: [:edit, :update, :destroy]
   after_action :increase_slide_visits_count, only: [:show]
 
   def index
@@ -9,16 +10,13 @@ class SlidesController < ApplicationController
   end
 
   def show
-    @slide = Slide.includes(:previews, :tags).find(params[:id])
-    @recommended_slides = @slide.related_recommendations.limit(RECOMMENDED_SLIDES_COUNT)
-    respond_to do |format|
-      format.html
-      format.html.phone {render :layout => 'mobile'}
-    end
+    @slide = Slide.includes(:previews, :tags).friendly.find(params[:id])
+    @recommended_slides = @slide.related_recommendations
+                                .limit(RECOMMENDED_SLIDES_COUNT)
   end
 
   def new
-    @slide = Slide.new(event: current_user.events.find(params[:id]))
+    @slide = Slide.new(event: current_user.events.friendly.find(params[:id]))
   end
 
   def create
@@ -29,13 +27,12 @@ class SlidesController < ApplicationController
     if @slide.save
       redirect_to slide_path(@slide)
     else
-      flash[:error] = @slide.errors.full_messages.join(';')
-      render 'new'
+      flash.now[:error] = @slide.errors.full_messages.join(';')
+      render :new
     end
   end
 
   def destroy
-    @slide = Slide.find params[:id]
     if @slide.destroy
       flash[:info] = "讲稿《#{@slide.title}》删除成功！"
     else
@@ -50,21 +47,20 @@ class SlidesController < ApplicationController
   end
 
   def edit
-    @slide = Slide.find params[:id]
   end
 
   def update
-    @slide = Slide.find params[:id]
     if @slide.update_attributes(slide_params)
-      respond_to do |format|
-        format.html { redirect_to @slide }
-        format.json { render json: {status: "success", slide: {id: @slide.id}} }
-      end
+      flash[:success] = "讲稿《#{@slide.title}》编辑成功"
+      redirect_to @slide
+    else
+      flash.now[:error] = @slide.errors.full_messages.join('，')
+      render :edit
     end
   end
 
   def like
-    slide = Slide.find params[:id]
+    slide = Slide.friendly.find params[:id]
     slide.likes.build user: current_user
     if slide.save
       render json: { likes_count: slide.reload.likes_count }
@@ -74,7 +70,7 @@ class SlidesController < ApplicationController
   end
 
   def collect
-    slide = Slide.find params[:id]
+    slide = Slide.friendly.find params[:id]
     slide.collections.build user: current_user
     if slide.save
       render json: { collections_count: slide.reload.collections_count }
@@ -93,7 +89,7 @@ class SlidesController < ApplicationController
   end
 
   def manual_process
-    @slide = current_user.slides.find_by id: params[:id]
+    @slide = current_user.slides.friendly.find_by id: params[:id]
     if @slide
       flash[:warning] = "您的讲稿已经重新提交处理，稍后进入处理状态，请勿重复提交处理"
       @slide.delay.persistent_previews
@@ -134,7 +130,11 @@ class SlidesController < ApplicationController
   def slide_params
     params.require(:slide).permit(
       :title, :description, :file, :downloadable, :author, :tag_list,
-      :audio
+      :audio, :file_cache, :audio_cache
     )
+  end
+
+  def find_slide
+    @slide = Slide.friendly.find params[:id]
   end
 end

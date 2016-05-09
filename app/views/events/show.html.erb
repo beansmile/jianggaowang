@@ -40,7 +40,11 @@
       </section>
 
       <section class="event-content">
-        <%= sanitize @event.content %>
+        <%= sanitize @event.content, scrubber: ContentScrubber.new %>
+      </section>
+
+      <section>
+        <%= render partial: '/shared/disqus', locals: { object: @event } %>
       </section>
     </div>
   </div>

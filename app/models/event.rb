@@ -1,5 +1,9 @@
 class Event < ActiveRecord::Base
+  # constants
   DEFAULT_SEARCH_SORTS = 'created_at desc'
+
+  # concerns
+  include DisqusConcern
 
   # Attr related macros
   mount_uploader :cover, EventUploader

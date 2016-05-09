@@ -82,6 +82,8 @@
           </footer>
         </section>
       </article>
+
+      <%= render partial: '/shared/disqus', locals: { object: @slide } %>
     </div>
 
     <% if @recommended_slides.any? %>

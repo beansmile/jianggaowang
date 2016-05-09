@@ -8,7 +8,7 @@ class EventsController < ApplicationController
 
   # show action is open to guest so that they see the events and the slides.
   def show
-    @event = Event.find params[:id]
+    @event = Event.friendly.find params[:id]
     @slides = @event.slides
   end
 
@@ -71,6 +71,6 @@ class EventsController < ApplicationController
   end
 
   def set_current_event
-    @event = current_user.events.find params[:id]
+    @event = current_user.events.friendly.find params[:id]
   end
 end

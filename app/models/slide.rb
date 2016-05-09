@@ -6,10 +6,12 @@ class Slide < ActiveRecord::Base
 
   # concerns
   include DisqusConcern
+  extend FriendlyId
 
   # attr related macros
   mount_uploader :file, PDFUploader
   mount_uploader :audio, AudioUploader
+  friendly_id :title, use: :slugged
 
   acts_as_taggable
 
@@ -34,15 +36,6 @@ class Slide < ActiveRecord::Base
   # scopes
   scope :hottest, -> { where('visits_count > 0').order(visits_count: :desc) }
   scope :newest, -> { order(created_at: :desc) }
-
-  # instance method
-  def truncated_title
-    if title =~ /\p{Han}+/u   # 包含中文
-      title.truncate(14)
-    else
-      title.truncate(25)
-    end
-  end
 
   def convert
     return if previews.any? || !File.exist?(self.file.path)
@@ -82,6 +75,10 @@ class Slide < ActiveRecord::Base
     Slide.tagged_with(tag_list, any: true).where.not(id: id).hottest
   end
 
+  def normalize_friendly_id(string)
+    PinYin.permlink(title).downcase
+  end
+
   private
 
   def convert_file
@@ -98,5 +95,9 @@ class Slide < ActiveRecord::Base
       update_columns status: Slide.statuses['transforming']
       SlideConvertJob.perform_later(id)
     end
+  end
+
+  def should_generate_new_friendly_id?
+    slug.blank? || title_changed?
   end
 end

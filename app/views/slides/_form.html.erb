@@ -11,11 +11,13 @@
         <span>上传讲稿</span>
         <span class="upload icon"></span>
         <%= f.file_field :file, id: 'upload_lecture', accept: 'application/pdf', required: @slide.new_record? ? true : false %>
+        <%= f.hidden_field :file_cache %>
       </div>
       <div class="upload-audio">
         <span>上传音频</span>
         <span class="upload icon"></span>
         <%= f.file_field :audio, id: 'upload_audio', accept: 'audio/*' %>
+        <%= f.hidden_field :audio_cache %>
       </div>
       <!--上传音频上传完之后才会显示-->
       <div class="live-record">

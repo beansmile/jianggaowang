@@ -10,10 +10,8 @@ class SlidesController < ApplicationController
 
   def show
     @slide = Slide.includes(:previews, :tags).find(params[:id])
-    @recommended_slides = @slide.related_recommendations.limit(RECOMMENDED_SLIDES_COUNT)
-    respond_to do |format|
-      format.html
-    end
+    @recommended_slides = @slide.related_recommendations
+                                .limit(RECOMMENDED_SLIDES_COUNT)
   end
 
   def new
@@ -28,8 +26,8 @@ class SlidesController < ApplicationController
     if @slide.save
       redirect_to slide_path(@slide)
     else
-      flash[:error] = @slide.errors.full_messages.join(';')
-      render 'new'
+      flash.now[:error] = @slide.errors.full_messages.join(';')
+      render :new
     end
   end
 
@@ -55,10 +53,11 @@ class SlidesController < ApplicationController
   def update
     @slide = Slide.find params[:id]
     if @slide.update_attributes(slide_params)
-      respond_to do |format|
-        format.html { redirect_to @slide }
-        format.json { render json: {status: "success", slide: {id: @slide.id}} }
-      end
+      flash[:success] = "讲稿《#{@slide.title}》编辑成功"
+      redirect_to @slide
+    else
+      flash.now[:error] = @slide.errors.full_messages.join('，')
+      render :edit
     end
   end
 
@@ -133,7 +132,7 @@ class SlidesController < ApplicationController
   def slide_params
     params.require(:slide).permit(
       :title, :description, :file, :downloadable, :author, :tag_list,
-      :audio
+      :audio, :file_cache, :audio_cache
     )
   end
 end

@@ -76,6 +76,9 @@ gem 'ruby-pinyin', '~> 0.5.0'
 # https://github.com/norman/friendly_id
 gem 'friendly_id', '~> 5.1.0'
 
+# https://github.com/smartinez87/exception_notification#actionmailer-configuration
+gem 'exception_notification', '~> 4.0.1'
+
 group :development do
   gem 'web-console', '~> 2.0'
 

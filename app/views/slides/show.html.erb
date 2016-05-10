@@ -76,7 +76,7 @@
             <div class="slides-tags">
               标签：
               <% @slide.tags.each do |tag| %>
-                <%= link_to tag.name, tag_path(tag), class: 'slides-tag' %>
+                <%= link_to tag.name, tag_name_path(tag.name), class: 'slides-tag' %>
               <% end %>
             </div>
           </footer>

@@ -65,7 +65,8 @@ Rails.application.routes.draw do
 
   root 'home#index'
 
-  resources :tags, only: [:index, :show]
+  resources :tags, only: :index
+  get '/tags/:name', to: 'tags#show', as: 'tag_name'
 
   get '/static_page' => 'home#static_page'
 

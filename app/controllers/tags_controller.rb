@@ -4,7 +4,8 @@ class TagsController < ApplicationController
   end
 
   def show
-    @tag = ActsAsTaggableOn::Tag.find params[:id]
-    @tagged_slide = Slide.tagged_with(@tag.name).page(params[:page])
+    @tag = ActsAsTaggableOn::Tag.find_by! name: params[:name]
+    @tagged_slide = Slide.tagged_with(@tag.name).order(created_at: :desc)
+                         .page(params[:page])
   end
 end

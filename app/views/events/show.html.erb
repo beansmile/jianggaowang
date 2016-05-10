@@ -1,5 +1,5 @@
 <% content_for :title do %>
-  <%= @event.header %>, <%= @event.content.truncate(20) %>
+  <%= @event.header %>, <%= (strip_tags @event.content).truncate(20) %>
 <% end %>
 
 <div class="event-details">

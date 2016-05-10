@@ -1,5 +1,5 @@
 <% content_for :title do %>
-<%= @slide.title %>, <%= @slide.description.truncate(20) %>
+<%= @slide.title %>, <%= (strip_tags @slide.description).truncate(20) %>
 <% end %>
 
 <div class="slides-details-page">

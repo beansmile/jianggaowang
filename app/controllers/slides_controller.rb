@@ -130,7 +130,7 @@ class SlidesController < ApplicationController
   def slide_params
     params.require(:slide).permit(
       :title, :description, :file, :downloadable, :author, :tag_list,
-      :audio, :file_cache, :audio_cache
+      :audio, :file_cache
     )
   end
 

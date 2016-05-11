@@ -2,8 +2,8 @@ Jianggaowang.SlidesPage = {
 
   uploadSlideAudio: function() {
     function progress() {
-      var $progress =  $('#slides_new .progress'),
-          $uploadDone = $('#slides_new .upload-done'),
+      var $progress =  $('#file_upload .progress'),
+          $uploadDone = $('#file_upload .upload-done'),
           current = 0;
 
       $uploadDone.hide();

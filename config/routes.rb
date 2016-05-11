@@ -70,6 +70,8 @@ Rails.application.routes.draw do
 
   get '/static_page' => 'home#static_page'
 
+  get '/uploader_config' => 'qiniu#uploader_config'
+
   get '/s' => 'search#index', as: :search
 
   # The priority is based upon order of creation: first created -> highest priority.

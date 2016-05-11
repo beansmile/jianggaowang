@@ -14,14 +14,20 @@
         <%= f.hidden_field :file_cache %>
       </div>
       <div class="upload-audio">
-        <span>上传音频</span>
-        <span class="upload icon"></span>
-        <%= f.file_field :audio, id: 'upload_audio', accept: 'audio/*' %>
-        <%= f.hidden_field :audio_cache %>
+        <span id="upload_audio">
+          <span>上传音频</span>
+          <span class="upload icon"></span>
+          <%= f.hidden_field :audio, value: @slide.audio.value %>
+        </span>
       </div>
       <!--上传音频上传完之后才会显示-->
-      <div class="live-record">
-        <span>现场录音.mp3</span>
+      <div
+        data-origin-audio="<%= @slide.audio.value %>"
+        class="live-record <%= 'hidden' if @slide.audio.value.blank? %>"
+        id="live_record">
+        <span class='file-name'>
+          <%= @slide.audio.value.present? && @slide.audio.file_name %>
+        </span>
         <span class="icon-close icon"></span>
       </div>
     </div>
@@ -44,7 +50,7 @@
       <%= f.text_area :description, id: 'wangEditorArea' %>
     </div>
     <div class="btn-operate clearfix">
-      <%= f.button @slide.new_record? ? '完成上传' : '保存', class: 'btn-default btn-warning' %>
+      <%= f.button @slide.new_record? ? '完成上传' : '保存', class: 'btn-default btn-warning', id: 'upload_slide' %>
     </div>
   </div>
 <% end %>

@@ -8,3 +8,6 @@
 //= require photoswipe
 //= require ./framework/jquery.noty-config
 //= require ./framework/wangEditor-config
+//= require moxie
+//= require plupload.dev
+//= require qiniu

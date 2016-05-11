@@ -22,4 +22,21 @@ namespace :hotfix do
     Slide.find_each(&:save)
     Event.find_each(&:save)
   end
+
+  desc 'Generate tags for exist events'
+  task :generate_tags_for_exist_evetns => :environment do
+    Event.find_each do |event|
+      event_tags = []
+      event.slides.each do |s|
+        event_tags.concat s.tag_list
+      end
+
+      event.tag_list.add event_tags.uniq
+      if event.save
+        puts "[SUCC] Set #{event.header} tags to #{event.tag_list}"
+      else
+        puts "[ERROR] #{event.errors.full_messages.join(', ')}"
+      end
+    end
+  end
 end

@@ -12,6 +12,7 @@ zh-CN:
       slide:
         title: 标题
         description: 简介
+        author: 作者
       user:
         name: 用户名
         email: 电子邮箱

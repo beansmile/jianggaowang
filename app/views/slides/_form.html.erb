@@ -43,7 +43,8 @@
     </div>
     <div class="form-group tag clearfix">
       <label>标签</label>
-      <%= f.text_field :tag_list %>
+      <%= f.text_field :tag_list, value: @slide.tag_list.join(','),
+                                  placeholder: '请用英文逗号分割标签' %>
     </div>
     <div class="form-group introduction clearfix">
       <label>讲稿介绍</label>

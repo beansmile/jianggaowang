@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160509073159) do
+ActiveRecord::Schema.define(version: 20160511073040) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,13 +48,6 @@ ActiveRecord::Schema.define(version: 20160509073159) do
 
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
-
-  create_table "collections", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "slide_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "events", force: :cascade do |t|
     t.string   "header"
@@ -110,12 +103,11 @@ ActiveRecord::Schema.define(version: 20160509073159) do
     t.boolean  "downloadable"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "visits_count",      default: 0
-    t.integer  "likes_count",       default: 0
-    t.integer  "collections_count", default: 0
+    t.integer  "visits_count", default: 0
+    t.integer  "likes_count",  default: 0
     t.string   "file"
     t.integer  "event_id"
-    t.integer  "status",            default: 0
+    t.integer  "status",       default: 0
     t.string   "author"
     t.string   "audio"
     t.string   "slug"

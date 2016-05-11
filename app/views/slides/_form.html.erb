@@ -10,7 +10,7 @@
       <div class="upload-lecture">
         <span>上传讲稿</span>
         <span class="upload icon"></span>
-        <%= f.file_field :file, id: 'upload_lecture', accept: 'application/pdf', required: @slide.new_record? ? true : false %>
+        <%= f.file_field :file, id: 'upload_lecture', accept: 'application/pdf' %>
         <%= f.hidden_field :file_cache %>
       </div>
       <div class="upload-audio">

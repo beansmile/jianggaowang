@@ -48,7 +48,11 @@
         <% if current_user && current_user == @slide.user %>
           <%= render 'manual_actions', slide: @slide %>
         <% else %>
-          <h4>对不起，您查看的讲稿正在处理中，请稍待几分钟后刷新重试。</h4>
+          <div class="slides-content pure-u-1">
+            <div class="slides-text">
+              对不起，您查看的讲稿正在处理中，请稍待几分钟后刷新重试。
+            </div>
+          </div>
         <% end %>
       <% end %>
 
@@ -71,7 +75,7 @@
           <header>
             <h2>内容简介：</h2>
           </header>
-          <p><%= @slide.description %></p>
+          <p><%= sanitize @slide.description, scrubber: ContentScrubber.new %></p>
           <footer>
             <div class="slides-tags">
               标签：

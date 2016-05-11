@@ -46,7 +46,11 @@
       <section>
         <%= render partial: '/shared/disqus', locals: { object: @event } %>
       </section>
-    </div>
+    </article>
+
+    <% if @recommended_events.any? %>
+      <%= render partial: 'recommended_events', object: @recommended_events, as: :events %>
+    <% end %>
   </div>
 </div>
 

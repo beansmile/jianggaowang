@@ -30,6 +30,7 @@ class Slide < ActiveRecord::Base
   validates :title, :description, :user_id, :file, :author, :event_id, presence: true
 
   # callbacks
+  after_save :add_tags_to_event, if: :tag_list_changed?
   after_commit :convert_file, on: :create
   after_commit :update_file, on: :update
 
@@ -99,5 +100,10 @@ class Slide < ActiveRecord::Base
 
   def should_generate_new_friendly_id?
     slug.blank? || title_changed?
+  end
+
+  def add_tags_to_event
+    event.tag_list.add tag_list
+    event.save
   end
 end

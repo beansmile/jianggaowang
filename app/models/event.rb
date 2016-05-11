@@ -11,6 +11,8 @@ class Event < ActiveRecord::Base
   mount_uploader :editor_choice_image, BaseUploader
   friendly_id :header, use: :slugged
 
+  acts_as_taggable
+
   # Associations
   belongs_to :creator, class_name: "User", foreign_key: "creator_id"
   has_many :slides, dependent: :destroy
@@ -48,6 +50,10 @@ class Event < ActiveRecord::Base
 
   def normalize_friendly_id(string)
     PinYin.permlink(header).downcase
+  end
+
+  def related_recommendations
+    Event.tagged_with(tag_list, any: true).where.not(id: id)
   end
 
   private

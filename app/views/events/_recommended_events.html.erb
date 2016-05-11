@@ -1,17 +1,17 @@
 <aside class="recommended-items md-hidden pure-u-1 pure-u-lg-1-3">
-  <header>推荐讲稿</header>
+  <header>推荐活动</header>
   <ul class="card-list pure-g">
-    <% slides.each do |slide| %>
+    <% events.each do |event| %>
       <li class="pure-u-1 card-list-item">
         <figcaption class="card">
           <header class="card-header">
-            <%= link_to slide_path(slide), class: "card-img" do %>
-              <%= image_tag slide_first_or_default_preview_url(slide), alt: slide.title %>
+            <%= link_to event_path(event), class: "card-img" do %>
+              <%= image_tag event.cover.url, alt: event.header %>
             <% end %>
           </header>
           <footer class="card-footer">
             <figure class="card-title">
-              <%= link_to slide.title, slide_path(slide) %>
+              <%= link_to event.header, event_path(event) %>
             </figure>
           </footer>
         </figcaption>

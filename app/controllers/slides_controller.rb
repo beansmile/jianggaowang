@@ -69,16 +69,6 @@ class SlidesController < ApplicationController
     end
   end
 
-  def collect
-    slide = Slide.friendly.find params[:id]
-    slide.collections.build user: current_user
-    if slide.save
-      render json: { collections_count: slide.reload.collections_count }
-    else
-      render json: { message: "您已经收藏讲稿“#{slide.title}”，请不要重复操作" }, status: 406
-    end
-  end
-
   def process_retrieve
     @slide = current_user.slides.find_by id: params[:id]
     if @slide

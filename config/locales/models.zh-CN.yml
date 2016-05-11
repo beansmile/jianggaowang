@@ -13,6 +13,7 @@ zh-CN:
         title: 标题
         description: 简介
         author: 作者
+        file: 讲稿文件
       user:
         name: 用户名
         email: 电子邮箱

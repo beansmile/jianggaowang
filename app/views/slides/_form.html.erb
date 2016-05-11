@@ -1,6 +1,6 @@
 <%= form_for @slide do |f| %>
   <%= hidden_field_tag 'event_id', @slide.event.id if @slide.new_record? %>
-  <div class="file-upload">
+  <div class="file-upload" id="file_upload">
     <div class="cover">
       <%= image_tag @slide.previews.first.file.url if @slide.previews.present? %>
       <span class="progress"></span>

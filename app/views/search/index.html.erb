@@ -7,7 +7,7 @@
 <section class="panel">
   <header class="panel-header pure-g clearfix">
     <h4 class="panel-title pure-u-1-2">活动（<%= @events.total_count %>）</h4>
-    <%= link_to "查看全部", search_events_path(keyword: @keyword), class: "panel-link pure-u-1-2" %>
+    <%= link_to "查看全部", search_events_path(keyword: @keyword), class: "panel-link pure-u-1-2" if @events.total_count > SearchController::DEFAULT_ITEM_COUNT %>
   </header>
 
   <ul class="card-list pure-g">
@@ -22,7 +22,7 @@
 <section class="panel">
   <header class="panel-header pure-g clearfix">
     <h4 class="panel-title pure-u-1-2">讲稿（<%= @slides.total_count %>）</h4>
-    <%= link_to "查看全部", search_slides_path(keyword: @keyword), class: "panel-link pure-u-1-2" %>
+    <%= link_to "查看全部", search_slides_path(keyword: @keyword), class: "panel-link pure-u-1-2" if @slides.total_count > SearchController::DEFAULT_ITEM_COUNT %>
   </header>
 
   <ul class="card-list pure-g">

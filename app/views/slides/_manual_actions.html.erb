@@ -1,8 +1,15 @@
 <% if slide.transforming? %>
-  <h4>对不起，您的讲稿正在处理中，请稍待几分钟后刷新重试。</h4>
+  <div class="slides-content pure-u-1">
+    <div class="slides-text">
+      对不起，您的讲稿正在处理中，请稍待几分钟后刷新重试。
+    </div>
+  </div>
 <% elsif slide.failed? %>
-  <h4>对不起，您的讲稿由于网络问题等原因处理失败。</h4>
-  您可以尝试：
-  <%# TODO: implement the retry %>
-  <%= link_to "重新处理", manual_process_slide_path(slide) %>
+  <div class="slides-content pure-u-1">
+    <div class="slides-text">
+      对不起，您的讲稿由于网络问题等原因处理失败。 您可以尝试：
+      <%# TODO: implement the retry %>
+      <%= link_to "重新处理", manual_process_slide_path(slide) %>
+    </div>
+  </div>
 <% end %>

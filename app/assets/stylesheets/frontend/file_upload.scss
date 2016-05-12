@@ -119,8 +119,13 @@
       }
 
       .live-record {
-        display: none;
         margin-left: 12px;
+        .file-name {
+          max-width: 100px;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
+        }
 
         .icon-close {
           width: 15px;

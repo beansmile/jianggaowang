@@ -10,7 +10,6 @@ class Slide < ActiveRecord::Base
 
   # attr related macros
   mount_uploader :file, PDFUploader
-  mount_uploader :audio, AudioUploader
   friendly_id :title, use: :slugged
 
   acts_as_taggable
@@ -78,6 +77,15 @@ class Slide < ActiveRecord::Base
 
   def normalize_friendly_id(string)
     PinYin.permlink(title).downcase
+  end
+
+  def audio
+    value = read_attribute(:audio) || ''
+    OpenStruct.new(
+      value: value,
+      file_name: value.split('/').last,
+      url: URI.encode("http://#{Rails.application.secrets.qiniu['bucket_domain']}/#{value}")
+    )
   end
 
   private

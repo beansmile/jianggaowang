@@ -16,7 +16,7 @@
         <div class="event-info pure-u-1 pure-u-lg-2-5">
           <h1 class="event-title"><%= @event.header %></h1>
           <time class="event-date">
-            <i class="icon-time"></i><%= @event.start_time %>～<%= @event.end_time %>
+            <i class="icon-time"></i><%= format_event_time(@event) %>
           </time>
           <% if @event.venue.present? %>
             <p class="event-position">

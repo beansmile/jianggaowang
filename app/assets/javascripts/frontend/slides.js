@@ -61,12 +61,13 @@ $(function() {
   if ($("#upload_audio").length > 0) {
     audioCloseForDelete();
 
+    var maxFileSize = '100mb';
     $.get('/uploader_config', function(json) {
       var uploader = Qiniu.uploader($.extend(json, {
         runtimes: 'html5,html4',
         browse_button: 'upload_audio',
         get_new_uptoken: false,
-        max_file_size: '50mb',
+        max_file_size: maxFileSize,
         multi_selection: false,
         filters: {
           mime_types : [
@@ -102,7 +103,6 @@ $(function() {
             //    "key": "gogopher.jpg"
             //  }
             // 参考http://developer.qiniu.com/docs/v6/api/overview/up/response/simple-response.html
-
             var res = JSON.parse(info);
             $("#slide_audio").val(res.key);
             var key_arr = res.key.split('/');
@@ -111,6 +111,11 @@ $(function() {
           },
           'Error': function(up, err, errTip) {
             //上传出错时,处理相关的事情
+            if (err.code === -600) {
+              // -600 是 File size error
+              errTip = '音频最大可上传 ' + maxFileSize;
+            }
+            noty({ text: errTip, type: 'error' })
           },
           'UploadComplete': function() {
             //队列文件处理完毕后,处理相关的事情

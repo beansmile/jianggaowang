@@ -25,14 +25,14 @@ class Event < ActiveRecord::Base
   scope :newest, -> { order(created_at: :desc) }
   scope :pinned, -> { where.not(pinned_at: nil).order(created_at: :desc) }
 
-  # Output format: `%Y-%m-%d %H:%M`, e.g.: "2016-05-05 00:00"
+  # Output format: `%Y-%m-%d`, e.g.: "2016-05-05"
   def start_time
-    start_at.strftime("%F %R") if start_at
+    start_at.strftime("%F") if start_at
   end
 
-  # Output format: `%Y-%m-%d %H:%M`, e.g.: "2016-05-05 00:00"
+  # Output format: `%Y-%m-%d`, e.g.: "2016-05-05"
   def end_time
-    end_at.strftime("%F %R") if end_at
+    end_at.strftime("%F") if end_at
   end
 
   def pinned

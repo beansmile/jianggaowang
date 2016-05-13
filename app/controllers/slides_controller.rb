@@ -1,4 +1,5 @@
 class SlidesController < ApplicationController
+  include FriendlyIdConcern
   RECOMMENDED_SLIDES_COUNT = 2
 
   before_action :authenticate_user!, only: [:new, :create, :like, :collect]
@@ -11,6 +12,10 @@ class SlidesController < ApplicationController
 
   def show
     @slide = Slide.includes(:previews, :tags).friendly.find(params[:id])
+    # redirect to correct path if request.path is not correct
+    if request.path != slide_path(@slide)
+      return redirect_to @slide
+    end
     @recommended_slides = @slide.related_recommendations
                                 .limit(RECOMMENDED_SLIDES_COUNT)
   end

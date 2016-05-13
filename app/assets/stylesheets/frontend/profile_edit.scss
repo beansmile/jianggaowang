@@ -16,22 +16,29 @@
   .form-default {
     padding-left: 0;
     .email {
-      position: relative;
-      .verify-btn {
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 50px;
-        height: 30px;
-        border: 1px solid $alto;
-        border-radius: 2px;
-        text-align: center;
-        background: -moz-linear-gradient(top, $white 0%, $concrete 100%);
-        background: linear-gradient(top, $white 0%, $concrete 100%);
-        color: $gray;
-        font-size: 12px;
-        line-height: 28px;
-        font-weight: lighter;
+      .email-input {
+        position: relative;
+        float: left;
+        width: 100%;
+        input {
+          width: 100%;
+        }
+        .verify-btn {
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: 50px;
+          height: 30px;
+          border: 1px solid $alto;
+          border-radius: 2px;
+          text-align: center;
+          background: -moz-linear-gradient(top, $white 0%, $concrete 100%);
+          background: linear-gradient(top, $white 0%, $concrete 100%);
+          color: $gray;
+          font-size: 12px;
+          line-height: 28px;
+          font-weight: lighter;
+        }
       }
     }
   }
@@ -97,7 +104,7 @@
           margin: 0 auto;
         }
         input,
-        textarea {
+        textarea, .email-input {
           width: 74%;
         }
       }
@@ -119,21 +126,6 @@
   }
 }
 
-@media (width: 375px) {
-  #profiles_edit .form-default .email .verify-btn,
-  #profiles_update .form-default .email .verify-btn {
-    right: 13px;
-  }
-}
-
-@media (width: 414px) {
-  #profiles_edit .form-default .email .verify-btn,
-  #profiles_update .form-default .email .verify-btn {
-    right: 22px;
-  }
-}
-
-
 @media (min-width: 768px) {
 
   #profiles_edit,
@@ -147,7 +139,7 @@
           width: 100%;
         }
         input,
-        textarea {
+        textarea, .email-input {
           width: 400px;
         }
       }

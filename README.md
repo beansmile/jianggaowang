@@ -9,7 +9,7 @@
 2. 进入到项目目录，并且执行 `bundle install`；
 3. 进行相关配置，这部分会在如何搭建开发环境部分详细讲解；
 4. 进行开发编码并且提交到一个远程分支；
-5. 从您 fork 后的代码库的远程分支发起到 `beansmile/jianggaowang` master 分支的 Pull Request。
+5. 从您 fork 后的代码库的远程分支发起到 `beansmile/jianggaowang` develop 分支的 Pull Request。
 
 ## 如何搭建开发环境
 
@@ -36,7 +36,7 @@ brew install ghostscript imagemagick # PDF 转换依赖
 3. Bundle & Create db
   ```sh
   bundle install
-  bundle exec rake db:create db:migrate
+  bundle exec rake db:reset
   ```
 
 4. 启动 Sidekiq

@@ -10,6 +10,8 @@ class Event < ActiveRecord::Base
   mount_uploader :cover, EventUploader
   mount_uploader :editor_choice_image, BaseUploader
   friendly_id :header, use: :slugged
+  # first set friendly_id, then define should_generate_new_friendly_id?
+  include GenerateFriendlyIdConcern
 
   acts_as_taggable
 
@@ -48,8 +50,9 @@ class Event < ActiveRecord::Base
     end
   end
 
+  # use id-slug
   def normalize_friendly_id(string)
-    PinYin.permlink(header).downcase
+    [id, PinYin.permlink(header).downcase].join('-')
   end
 
   def related_recommendations
@@ -60,9 +63,5 @@ class Event < ActiveRecord::Base
 
   def end_time_cannot_before_start_time
     errors.add(:end_at, "不能早于开始时间") if end_at < start_at
-  end
-
-  def should_generate_new_friendly_id?
-    slug.blank? || header_changed?
   end
 end

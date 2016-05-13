@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
   RECOMMENDED_EVENTS_COUNT = 2
 
+  include FriendlyIdConcern
   before_action :authenticate_user!, except: [:index, :show, :search]
   before_action :set_current_event, only: [:edit, :update, :destroy]
 
@@ -11,6 +12,10 @@ class EventsController < ApplicationController
   # show action is open to guest so that they see the events and the slides.
   def show
     @event = Event.friendly.find params[:id]
+    # redirect to correct path if request.path is not correct
+    if request.path != event_path(@event)
+      return redirect_to @event
+    end
     @recommended_events = @event.related_recommendations
                                 .limit(RECOMMENDED_EVENTS_COUNT)
     @slides = @event.slides

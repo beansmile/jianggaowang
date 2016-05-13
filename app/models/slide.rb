@@ -11,6 +11,8 @@ class Slide < ActiveRecord::Base
   # attr related macros
   mount_uploader :file, PDFUploader
   friendly_id :title, use: :slugged
+  # first set friendly_id, then define should_generate_new_friendly_id?
+  include GenerateFriendlyIdConcern
 
   acts_as_taggable
 
@@ -75,8 +77,9 @@ class Slide < ActiveRecord::Base
     Slide.tagged_with(tag_list, any: true).where.not(id: id).hottest
   end
 
+  # use id-slug
   def normalize_friendly_id(string)
-    PinYin.permlink(title).downcase
+    [id, PinYin.permlink(title).downcase].join('-')
   end
 
   def audio
@@ -104,10 +107,6 @@ class Slide < ActiveRecord::Base
       update_columns status: Slide.statuses['transforming']
       SlideConvertJob.perform_later(id)
     end
-  end
-
-  def should_generate_new_friendly_id?
-    slug.blank? || title_changed?
   end
 
   def add_tags_to_event

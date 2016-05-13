@@ -1,6 +1,6 @@
 class TagsController < ApplicationController
   def index
-    @tags = ActsAsTaggableOn::Tag.page(params[:page]).per(50)
+    @tags = Slide.tag_counts_on(:tags).page(params[:page]).per(50)
   end
 
   def show

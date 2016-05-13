@@ -10,9 +10,7 @@
         <%= link_to event.header, event_path(event) %>
       </figure>
       <time class="card-date">
-        <%= l event.start_at.to_date, format: :long %>
-        ~
-        <%= l event.end_at.to_date, format: :long %>
+        <%= format_event_time event %>
       </time>
     </footer>
   </figcaption>

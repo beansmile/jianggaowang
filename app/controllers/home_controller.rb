@@ -7,7 +7,4 @@ class HomeController < ApplicationController
     @hottest_slides = Slide.hottest.limit(HOMEPAGE_DEMO_COUNT)
     @newest_slides = Slide.newest.limit(HOMEPAGE_DEMO_COUNT)
   end
-
-  def static_page
-  end
 end

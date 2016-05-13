@@ -8,15 +8,17 @@
     </div>
     <div class="cover-upload">
       <div class="upload-lecture">
-        <span>上传讲稿</span>
-        <span class="upload icon"></span>
+        <label for="upload_lecture">
+          上传讲稿<span class="upload icon"></span>
+        </label>
         <%= f.file_field :file, id: 'upload_lecture', accept: 'application/pdf' %>
         <%= f.hidden_field :file_cache %>
       </div>
       <div class="upload-audio">
         <span id="upload_audio">
-          <span>上传音频</span>
-          <span class="upload icon"></span>
+          <label for="slide_audio">
+            上传音频<span class="upload icon"></span>
+          </label>
           <%= f.hidden_field :audio, value: @slide.audio.value %>
         </span>
       </div>

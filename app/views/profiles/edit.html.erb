@@ -4,20 +4,22 @@
   </header>
   <div class="person-info clearfix">
     <%= form_for @user, url: profile_path, method: :put, html: { class: "form-default" } do |f| %>
-      <div class="user-name clearfix">
+      <div class="form-group user-name clearfix">
         <label>用户名</label>
         <%= f.text_field :name %>
       </div>
-      <div class="email clearfix">
+      <div class="form-group email clearfix">
         <label>邮箱</label>
-        <%= f.email_field :email %>
-        <span class="verify-btn">验证</span>
+        <div class="email-input">
+          <%= f.email_field :email %>
+          <span class="verify-btn">验证</span>
+        </div>
       </div>
-      <div class="introduction clearfix">
+      <div class="form-group introduction clearfix">
         <label>个人介绍</label>
         <%= f.text_area :bio, rows: 25 %>
       </div>
-      <div class="btn-operate clearfix">
+      <div class="form-group btn-operate clearfix">
         <button type="submit" class="btn-default btn-warning">更新</button>
       </div>
     <% end %>
@@ -41,19 +43,19 @@
   </header>
   <div class="edit-password clearfix">
     <%= form_for @user, url: profile_path, method: :put, html: { class: "form-default" } do |f| %>
-      <div class="clearfix">
+      <div class="form-group clearfix">
         <label>原密码</label>
         <%= f.password_field :original_password %>
       </div>
-      <div class="clearfix">
+      <div class="form-group clearfix">
         <label>新密码</label>
         <%= f.password_field :password %>
       </div>
-      <div class="clearfix">
+      <div class="form-group clearfix">
         <label>确认密码</label>
         <%= f.password_field :password_confirmation %>
       </div>
-      <div class="btn-operate clearfix">
+      <div class="form-group btn-operate clearfix">
         <button type="submit" class="btn-default btn-warning">修改</button>
       </div>
     <% end %>

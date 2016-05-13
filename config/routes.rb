@@ -45,8 +45,8 @@ Rails.application.routes.draw do
     end
 
     member do
-      post 'like'
-      post 'collect'
+      # post 'like'
+      # post 'collect'
 
       get 'process_retrieve'
       get 'manual_process'
@@ -67,8 +67,6 @@ Rails.application.routes.draw do
 
   resources :tags, only: :index
   get '/tags/:name', to: 'tags#show', as: 'tag_name'
-
-  get '/static_page' => 'home#static_page'
 
   get '/uploader_config' => 'qiniu#uploader_config'
 

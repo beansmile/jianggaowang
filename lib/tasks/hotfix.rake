@@ -19,8 +19,22 @@ namespace :hotfix do
 
   desc 'Generate friendly id for exist events and slides'
   task :generate_friendly_id_for_exist_events_and_slide => :environment do
-    Slide.find_each(&:save)
-    Event.find_each(&:save)
+    Slide.find_each do |slide|
+      slide.slug = nil
+      if slide.save
+        puts "[SUCC] Updated #{slide.title}"
+      else
+        puts "[FAIL] #{slide.title}'s errors: #{slide.errors.full_messages.join(',' )}"
+      end
+    end
+    Event.find_each do |event|
+      event.slug = nil
+      if event.save
+        puts "[SUCC] Updated #{event.header}"
+      else
+        puts "[FAIL] #{event.header}'s errors: #{event.errors.full_messages.join(',' )}"
+      end
+    end
   end
 
   desc 'Generate tags for exist events'

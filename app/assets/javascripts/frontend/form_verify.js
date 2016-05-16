@@ -20,6 +20,12 @@ Jianggaowang.formVerify = {
       }
     }
 
+    if ($name.val() == '') {
+      $name.focus();
+    } else if ($password.val() == '') {
+      $password.focus();
+    }
+
     // verify the user name
     $name.on('change blur', function() {
       if ($(this).val() == '') {

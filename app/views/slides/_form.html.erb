@@ -25,10 +25,10 @@
       <!--上传音频上传完之后才会显示-->
       <div
         data-origin-audio="<%= slide.audio.value %>"
-        class="live-record <%= 'hidden' if slide.audio.value.blank? %>"
+        class="live-record <%= 'hidden' unless slide.audio? %>"
         id="live_record">
         <span class='file-name'>
-          <%= slide.audio.value.present? && slide.audio.file_name %>
+          <%= slide.audio? && slide.audio.file_name %>
         </span>
         <span class="icon-close icon"></span>
       </div>

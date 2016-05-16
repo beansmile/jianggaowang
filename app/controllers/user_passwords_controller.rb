@@ -60,9 +60,9 @@ class UserPasswordsController < ApplicationController
   end
 
   def check_reset_password_token
-    if @user.reset_password_token.nil? ||
+    if !@user.reset_password_token? ||
       @user.reset_password_token != params[:reset_password_token] ||
-      @user.reset_password_token_expires_at.nil? ||
+      !@user.reset_password_token_expires_at? ||
       @user.reset_password_token_expires_at.past?
       flash[:warning] = "请求错误或过期失效，请重新操作！"
       redirect_to root_path

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160509073159) do
+ActiveRecord::Schema.define(version: 20160516085105) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,6 +56,8 @@ ActiveRecord::Schema.define(version: 20160509073159) do
     t.datetime "updated_at"
   end
 
+  add_index "collections", ["user_id", "slide_id"], name: "index_collections_on_user_id_and_slide_id", using: :btree
+
   create_table "events", force: :cascade do |t|
     t.string   "header"
     t.text     "content"
@@ -72,6 +74,7 @@ ActiveRecord::Schema.define(version: 20160509073159) do
     t.string   "slug"
   end
 
+  add_index "events", ["creator_id"], name: "index_events_on_creator_id", using: :btree
   add_index "events", ["slug"], name: "index_events_on_slug", unique: true, using: :btree
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -94,6 +97,8 @@ ActiveRecord::Schema.define(version: 20160509073159) do
     t.datetime "updated_at"
   end
 
+  add_index "likes", ["slide_id", "user_id"], name: "index_likes_on_slide_id_and_user_id", using: :btree
+
   create_table "previews", force: :cascade do |t|
     t.integer  "slide_id"
     t.string   "filename"
@@ -101,6 +106,8 @@ ActiveRecord::Schema.define(version: 20160509073159) do
     t.datetime "updated_at"
     t.string   "file"
   end
+
+  add_index "previews", ["slide_id"], name: "index_previews_on_slide_id", using: :btree
 
   create_table "slides", force: :cascade do |t|
     t.string   "title"
@@ -122,6 +129,7 @@ ActiveRecord::Schema.define(version: 20160509073159) do
   end
 
   add_index "slides", ["slug"], name: "index_slides_on_slug", unique: true, using: :btree
+  add_index "slides", ["user_id", "event_id"], name: "index_slides_on_user_id_and_event_id", using: :btree
 
   create_table "taggings", force: :cascade do |t|
     t.integer  "tag_id"

@@ -2,7 +2,7 @@
 搜索“<%= @keyword %>”
 <% end %>
 
-<%= render 'shared/search_tips_header' %>
+<%= render 'shared/search_tips_header', { keyword: @keyword } %>
 
 <section class="panel">
   <ul class="card-list pure-g">

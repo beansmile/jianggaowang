@@ -33,7 +33,7 @@
     </ul>
 
     <%= form_tag search_path, method: :get, class: "pure-form pure-u-1 pure-u-md-9-24 pure-u-lg-6-24" do %>
-      <%= text_field_tag :keyword, @keyword, class: "pure-u-1", placeholder: "输入关键字搜索" %>
+      <%= text_field_tag :keyword, keyword, class: "pure-u-1", placeholder: "输入关键字搜索" %>
       <%= button_tag type: "submit", class: "pure-button" do %>
         <i class="icon-search"></i>
       <% end %>

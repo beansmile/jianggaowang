@@ -9,17 +9,15 @@ class SessionsController < ApplicationController
   end
 
   def create
-    if login_user
-      if login_user.authenticate(params[:user].try(:[], :password))
-        flash[:success] = "登录成功"
-        session[:user_id] = login_user.id
+    if login_user && login_user.authenticate(params[:user].try(:[], :password))
+      flash[:success] = "登录成功"
+      session[:user_id] = login_user.id
 
-        redirect_to after_sign_in_path
-      else
-        flash.now[:warning] = "用户名/密码错误"
-        render 'new'
-      end
+      redirect_to after_sign_in_path
     end
+    flash.now[:error] = '用户名/密码错误'
+    @user ||= User.new
+    render 'new'
   end
 
   def destroy
@@ -49,7 +47,7 @@ class SessionsController < ApplicationController
   end
 
   def require_approved
-    unless login_user.try(:approved_at)
+    if login_user && !login_user.approved
       flash[:error] = "管理员还没有通过您的注册申请，请在收到申请通过邮件后再登录"
       return redirect_to root_path
     end

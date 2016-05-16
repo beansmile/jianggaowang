@@ -10,8 +10,7 @@
   <ul class="card-list pure-g">
     <% if @events.any? %>
       <% @events.each do |event| %>
-        <%= render partial: "event_item",
-                   locals: { event: event, link: slides_new_event_path(event) } %>
+        <%= render "event_item", { event: event, link: slides_new_event_path(event) } %>
       <% end %>
     <% else %>
       <div class="pure-u-1">没有活动。</div>

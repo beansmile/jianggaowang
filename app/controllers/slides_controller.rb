@@ -84,33 +84,14 @@ class SlidesController < ApplicationController
     end
   end
 
-  def process_retrieve
-    @slide = current_user.slides.find_by id: params[:id]
-    if @slide
-      @slide.retrieve_persistent_state
-    end
-
-    redirect_to :back
-  end
-
   def manual_process
     @slide = current_user.slides.friendly.find_by id: params[:id]
     if @slide
       flash[:warning] = "您的讲稿已经重新提交处理，稍后进入处理状态，请勿重复提交处理"
-      @slide.delay.persistent_previews
+      SlideConvertJob.perform_later(@slide.id)
     end
 
     redirect_to :back
-  end
-
-  def upload_result
-    if (slide = Slide.find_by filename: params[:resource_key])
-      flash[:success] = "讲稿《#{slide.title}》上传成功"
-      redirect_to slide
-    else
-      flash[:danger] = "讲稿上传失败，请尝试重新上传！如有需要，请与管理员hongzeqin@gmail.com联系"
-      redirect_to new_slide_path
-    end
   end
 
   def search

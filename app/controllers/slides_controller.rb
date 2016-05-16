@@ -25,9 +25,7 @@ class SlidesController < ApplicationController
   end
 
   def create
-    @slide = current_user.slides.new(slide_params)
-    @slide.event = current_user.events.find(params[:event_id]) if params[:event_id].present? && Event.exists?(params[:event_id])
-    @slide.user = current_user
+    @slide = current_user.new_slide_under_event(slide_params, params[:event_id])
 
     if @slide.save
       redirect_to slide_path(@slide)

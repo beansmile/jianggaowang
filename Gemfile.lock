@@ -74,6 +74,7 @@ GEM
     bourbon (4.1.1)
       sass (~> 3.3)
       thor
+    brakeman (3.3.0)
     builder (3.2.2)
     byebug (8.0.1)
     capistrano (3.4.0)
@@ -330,6 +331,7 @@ DEPENDENCIES
   better_errors (~> 2.0.0)
   binding_of_caller (~> 0.7.2)
   bootstrap-wysihtml5-rails (~> 0.3.3.7)
+  brakeman (~> 3.3)
   byebug (~> 8.0.1)
   capistrano (~> 3.4.0)
   capistrano-bundler (~> 1.1.4)

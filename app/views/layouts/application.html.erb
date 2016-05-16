@@ -21,7 +21,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body id='<%= controller_name %>_<%= action_name %>'>
-  <%= render 'shared/header' %>
+  <%= render 'shared/header', { keyword: @keyword } %>
 
   <%= render 'shared/flash_messages' %>
 

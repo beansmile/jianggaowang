@@ -1,8 +1,8 @@
-<%= form_for @slide do |f| %>
-  <%= hidden_field_tag 'event_id', @slide.event.id if @slide.new_record? %>
+<%= form_for slide do |f| %>
+  <%= hidden_field_tag 'event_id', slide.event.id if slide.new_record? %>
   <div class="file-upload" id="file_upload">
     <div class="cover">
-      <%= image_tag @slide.previews.first.file.url if @slide.previews.present? %>
+      <%= image_tag slide.previews.first.file.url if slide.previews.present? %>
       <span class="progress"></span>
       <span class="upload-done">正在后台转换中...</span>
     </div>
@@ -19,16 +19,16 @@
           <label for="slide_audio">
             上传音频<span class="upload icon"></span>
           </label>
-          <%= f.hidden_field :audio, value: @slide.audio.value %>
+          <%= f.hidden_field :audio, value: slide.audio.value %>
         </span>
       </div>
       <!--上传音频上传完之后才会显示-->
       <div
-        data-origin-audio="<%= @slide.audio.value %>"
-        class="live-record <%= 'hidden' if @slide.audio.value.blank? %>"
+        data-origin-audio="<%= slide.audio.value %>"
+        class="live-record <%= 'hidden' unless slide.audio? %>"
         id="live_record">
         <span class='file-name'>
-          <%= @slide.audio.value.present? && @slide.audio.file_name %>
+          <%= slide.audio? && slide.audio.file_name %>
         </span>
         <span class="icon-close icon"></span>
       </div>
@@ -45,7 +45,7 @@
     </div>
     <div class="form-group tag clearfix">
       <label>标签</label>
-      <%= f.text_field :tag_list, value: @slide.tag_list.join(','),
+      <%= f.text_field :tag_list, value: slide.tag_list.join(','),
                                   placeholder: '请用英文逗号分割标签' %>
     </div>
     <div class="form-group introduction clearfix">
@@ -53,7 +53,7 @@
       <%= f.text_area :description, id: 'wangEditorArea' %>
     </div>
     <div class="btn-operate clearfix">
-      <%= f.button @slide.new_record? ? '完成上传' : '保存', class: 'btn-default btn-warning', id: 'upload_slide' %>
+      <%= f.button slide.new_record? ? '完成上传' : '保存', class: 'btn-default btn-warning', id: 'upload_slide' %>
     </div>
   </div>
 <% end %>

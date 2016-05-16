@@ -97,6 +97,13 @@ group :development do
   gem 'capistrano-rails-console', '~> 1.0', '>= 1.0.2'
 
   gem 'capistrano-sidekiq', '~> 0.3.8'
+
+  # https://github.com/railsbp/rails_best_practices
+  gem 'rails_best_practices', '~> 1.16.0', require: false
+
+  # Brakeman detects security vulnerabilities in Ruby on Rails applications via static analysis.
+  # https://github.com/presidentbeef/brakeman
+  gem 'brakeman', '~> 3.3', require: false
 end
 
 group :development, :test do

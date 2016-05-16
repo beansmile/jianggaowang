@@ -19,7 +19,7 @@
           </div>
         </div>
 
-        <% if @slide.audio.value.present? %>
+        <% if @slide.audio? %>
           <div class="pure-u-1">
             <audio src="<%= @slide.audio.url %>" controls="controls">
               你的浏览器不支持 HTML5 的播放器

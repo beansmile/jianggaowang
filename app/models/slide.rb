@@ -19,7 +19,7 @@ class Slide < ActiveRecord::Base
   enum status: { transforming: 1, done: 2, failed: 3 }
 
   # association
-  has_many :previews, dependent: :destroy
+  has_many :previews, -> { order(id: :asc) }, dependent: :destroy
   has_many :likes
   has_many :liking_users, through: :likes, source: :user
   has_many :collections

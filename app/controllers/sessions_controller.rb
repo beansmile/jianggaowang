@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
       flash[:success] = "登录成功"
       session[:user_id] = login_user.id
 
-      redirect_to after_sign_in_path
+      redirect_to after_sign_in_path and return
     end
     flash.now[:error] = '用户名/密码错误'
     @user ||= User.new

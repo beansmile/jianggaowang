@@ -21,19 +21,19 @@
         </div>
       <% end %>
       <div class="form-group">
-        <%= f.text_field :name, class: "user-name", placeholder: "用户名", required: true, autofocus: true %>
+        <%= f.text_field :name, class: "user-name", placeholder: "用户名" %>
       </div>
       <div class="form-group">
-        <%= f.email_field :email, class: "email", placeholder: "邮箱", required: true %>
+        <%= f.email_field :email, class: "email", placeholder: "邮箱" %>
       </div>
       <div class="form-group">
-        <%= f.password_field :password, class: "password", placeholder: "密码", required: true %>
+        <%= f.password_field :password, class: "password", placeholder: "密码" %>
       </div>
       <div class="form-group">
-        <%= f.password_field :password_confirmation, class: "confirm-password", placeholder: "确认密码", required: true %>
+        <%= f.password_field :password_confirmation, class: "confirm-password", placeholder: "确认密码" %>
       </div>
       <div class="form-group">
-        <%= f.text_area :bio, class: "user-bio", placeholder: "个人简介及使用本网站的简要原因", required: true, resize: false %>
+        <%= f.text_area :bio, class: "user-bio", placeholder: "个人简介及使用本网站的简要原因", resize: false %>
       </div>
       <%= f.button "注册", class: 'register-btn btn-default' %>
     <% end %>

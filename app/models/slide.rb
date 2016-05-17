@@ -19,7 +19,7 @@ class Slide < ActiveRecord::Base
   enum status: { transforming: 1, done: 2, failed: 3 }
 
   # association
-  has_many :previews, dependent: :destroy
+  has_many :previews, -> { order(id: :asc) }, dependent: :destroy
   has_many :likes
   has_many :liking_users, through: :likes, source: :user
   has_many :collections
@@ -36,8 +36,8 @@ class Slide < ActiveRecord::Base
   after_commit :update_file, on: :update
 
   # scopes
-  scope :hottest, -> { where('visits_count > 0').order(visits_count: :desc) }
-  scope :newest, -> { order(created_at: :desc) }
+  scope :hottest, -> { done.where('visits_count > 0').order(visits_count: :desc) }
+  scope :newest, -> { done.order(created_at: :desc) }
 
   def convert
     return if previews.any? || !File.exist?(self.file.path)

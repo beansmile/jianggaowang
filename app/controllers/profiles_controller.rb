@@ -38,7 +38,7 @@ class ProfilesController < ApplicationController
 
   def check_password
     user_params = params[:user]
-    if user_params[:password].blank?
+    if user_params[:password].empty?
       user_params.delete :password
       user_params.delete :password_confirmation
       return true

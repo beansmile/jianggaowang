@@ -52,4 +52,12 @@ class User < ActiveRecord::Base
       self.approved_at = nil
     end
   end
+
+  def new_slide_under_event(slide_params, event_id)
+    slide = slides.new(slide_params)
+    slide.event = events.find(event_id) if event_id.present? && Event.exists?(event_id)
+    slide.user = self
+
+    slide
+  end
 end

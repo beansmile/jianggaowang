@@ -9,13 +9,6 @@ Rails.application.routes.draw do
   end unless Rails.env.development?
   mount Sidekiq::Web => '/sidekiq'
 
-  resources 'notifications', only: [] do
-    collection do
-      post :slide_uploaded
-      post :persistance_finished
-    end
-  end
-
   resources :user_passwords, only: [:edit, :update] do
     collection do
       get :reset
@@ -39,7 +32,6 @@ Rails.application.routes.draw do
 
   resources :slides, only: [:index, :show, :create, :destroy, :edit, :update] do
     collection do
-      get 'upload_result'
       get 'search'
       get 'hottest'
     end
@@ -48,7 +40,6 @@ Rails.application.routes.draw do
       # post 'like'
       # post 'collect'
 
-      get 'process_retrieve'
       get 'manual_process'
     end
   end

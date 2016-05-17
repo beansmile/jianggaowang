@@ -12,18 +12,19 @@ Jianggaowang.formVerify = {
       return re.test(email);
     }
 
+    function validateForm() {
+      [$name, $email, $password, $pwd_confirm, $bio, $form].forEach(function(ele) {
+        // verify all fields
+        ele.change();
+      });
+    }
+
     function setTips(ele, value) {
       if (ele.next('.tips').length > 0) {
         ele.next('.tips').html(value);
       } else {
         ele.after('<span class="tips">' + value + '</span>');
       }
-    }
-
-    if ($name.val() == '') {
-      $name.focus();
-    } else if ($password.val() == '') {
-      $password.focus();
     }
 
     // verify the user name
@@ -72,6 +73,7 @@ Jianggaowang.formVerify = {
     });
 
     $form.on('submit', function() {
+      validateForm();
       if ($(this).find('.tips').length > 0) {
         return false;
       }

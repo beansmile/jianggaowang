@@ -44,19 +44,20 @@
       </section>
     </article>
 
-    <section class="panel">
-      <ul class="card-list pure-g">
-        <%= render partial: "slides/slide_item", collection: @event.slides, as: :slide %>
-      </ul>
-    </section>
-
-    <div class="pure-u-1">
-      <%= render partial: '/shared/disqus', locals: { object: @event } %>
-    </div>
-
     <% if @recommended_events.any? %>
       <%= render partial: 'recommended_events', object: @recommended_events, as: :events %>
     <% end %>
   </div>
 </div>
 
+<section class="panel">
+  <ul class="card-list pure-g">
+    <%= render partial: "slides/slide_item", collection: @event.slides, as: :slide %>
+  </ul>
+</section>
+
+<section class="pure-g">
+  <div class="pure-u-1">
+  <%= render partial: '/shared/disqus', locals: { object: @event } %>
+  </div>
+</section>

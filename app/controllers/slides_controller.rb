@@ -106,7 +106,8 @@ class SlidesController < ApplicationController
 
   private
   def increase_slide_visits_count
-    unless request.env["HTTP_USER_AGENT"].match(/\(.*https?:\/\/.*\)/)
+    user_agent = request.env['HTTP_USER_AGENT']
+    if user_agent && !user_agent.match(/\(.*https?:\/\/.*\)/)
       @slide.increase_visits_counter
     end
   end

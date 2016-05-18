@@ -4,8 +4,10 @@
 
 <div class="user-page">
   <div class="user-title clearfix">
-    <span class="logo"></span>
-    <p>讲稿网，让智慧流动</p>
+    <%= link_to root_path do %>
+      <span class="logo"></span>
+      <p>讲稿网，让智慧流动</p>
+    <% end %>
   </div>
   <div class="login-wrap">
     <%= render "shared/sign_up_in_tab" %>

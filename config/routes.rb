@@ -41,6 +41,7 @@ Rails.application.routes.draw do
       # post 'collect'
 
       get 'manual_process'
+      get 'download'
     end
   end
 

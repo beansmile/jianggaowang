@@ -3,7 +3,7 @@ class SlidesController < ApplicationController
   RECOMMENDED_SLIDES_COUNT = 2
 
   before_action :authenticate_user!, only: [:new, :create, :like, :collect]
-  before_action :find_slide, only: [:edit, :update, :destroy]
+  before_action :find_slide, only: [:edit, :update, :destroy, :download]
   after_action :increase_slide_visits_count, only: [:show]
 
   def index
@@ -104,9 +104,16 @@ class SlidesController < ApplicationController
     @slides = Slide.hottest.page(params[:page])
   end
 
+  def download
+    filename = "#{@slide.title}.pdf"
+
+    send_file @slide.file.path, filename: filename
+  end
+
   private
   def increase_slide_visits_count
-    unless request.env["HTTP_USER_AGENT"].match(/\(.*https?:\/\/.*\)/)
+    user_agent = request.env['HTTP_USER_AGENT']
+    if user_agent && !user_agent.match(/\(.*https?:\/\/.*\)/)
       @slide.increase_visits_counter
     end
   end

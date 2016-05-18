@@ -13,8 +13,8 @@ class PDFConverter
     # http://www.imagemagick.org/discourse-server/viewtopic.php?t=23090
     # add memory and map limit
     MiniMagick::Tool::Convert.new do |convert|
-      convert.merge! ["-limit", "memory", "10MB"]
-      convert.merge! ["-limit", "map", "20MB"]
+      convert.merge! ["-limit", "memory", "1MB"]
+      convert.merge! ["-limit", "map", "2MB"]
       convert.merge! ["-density", "150", input_file]
       convert.merge! ["-quality", "85", "-antialias"]
       convert << "#{output_directory}/preview.jpg"

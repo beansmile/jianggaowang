@@ -42,10 +42,6 @@
       <section class="event-content">
         <%= sanitize @event.content, scrubber: ContentScrubber.new %>
       </section>
-
-      <section>
-        <%= render partial: '/shared/disqus', locals: { object: @event } %>
-      </section>
     </article>
 
     <% if @recommended_events.any? %>
@@ -58,4 +54,10 @@
   <ul class="card-list pure-g">
     <%= render partial: "slides/slide_item", collection: @event.slides, as: :slide %>
   </ul>
+</section>
+
+<section class="pure-g">
+  <div class="pure-u-1">
+  <%= render partial: '/shared/disqus', locals: { object: @event } %>
+  </div>
 </section>

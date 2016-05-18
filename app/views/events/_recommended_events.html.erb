@@ -6,7 +6,7 @@
         <figcaption class="card">
           <header class="card-header">
             <%= link_to event_path(event), class: "card-img" do %>
-              <%= image_tag event.cover.url, alt: event.header %>
+              <%= image_tag event.cover.url(:medium), alt: event.header %>
             <% end %>
           </header>
           <footer class="card-footer">

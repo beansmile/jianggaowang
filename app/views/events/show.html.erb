@@ -43,6 +43,12 @@
         <%= sanitize @event.content, scrubber: ContentScrubber.new %>
       </section>
 
+      <section class="panel">
+        <ul class="card-list pure-g">
+          <%= render partial: "slides/slide_item", collection: @event.slides, as: :slide %>
+        </ul>
+      </section>
+
       <section>
         <%= render partial: '/shared/disqus', locals: { object: @event } %>
       </section>
@@ -54,8 +60,3 @@
   </div>
 </div>
 
-<section class="panel">
-  <ul class="card-list pure-g">
-    <%= render partial: "slides/slide_item", collection: @event.slides, as: :slide %>
-  </ul>
-</section>

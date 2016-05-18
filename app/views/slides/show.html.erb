@@ -81,7 +81,7 @@
             发布时间：<time><%= l @slide.created_at, format: :long %></time>
           </span>
           <span class="slides-belong">
-            所属活动：<span><%= @slide.event.header ? @slide.event.header : '暂无' %></span>
+            所属活动：<%= link_to @slide.event.header, event_path(@slide.event) %>
           </span>
         </header>
         <section class="slides-intro">

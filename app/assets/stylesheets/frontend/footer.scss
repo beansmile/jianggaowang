@@ -20,13 +20,15 @@
   a {
     color: $footer-link-color;
     text-decoration: none;
+    margin-left: 20px;
+
     &:hover,
     &:focus {
       color: $footer-link-hover-color;
     }
 
-    &.footer-github {
-      margin-left: 20px;
+    &.bs-site {
+      margin-left: 0;
     }
   }
 

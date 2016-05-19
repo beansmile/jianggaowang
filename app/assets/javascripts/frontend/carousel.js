@@ -8,7 +8,6 @@ Jianggaowang.Carousel = {
       autoplaySpeed: 3000,
       variableWidth: true,
       respondTo: 'min',
-      focusOnSelect: true,
       slidesToShow: 1,
       slidesToScroll: 1,
       responsive: [

@@ -29,5 +29,7 @@ module Jianggao
     config.active_job.queue_adapter = :sidekiq
 
     config.autoload_paths << Rails.root.join('lib')
+
+    config.version = '2.1.0'
   end
 end

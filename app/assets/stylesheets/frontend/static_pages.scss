@@ -1,0 +1,39 @@
+#terms_of_service {
+  h1 {
+    font-size: 20px;
+    margin: 15px 0;
+  }
+
+  h2 {
+    font-size: 20px;
+    margin: 14px 0;
+  }
+
+  p {
+    margin: 12px 0;
+    line-height: 30px;
+  }
+
+  ol {
+    padding: 0 30px;
+    li {
+      margin: 14px 0;
+      ol {
+        li {
+          list-style-type: lower-alpha;
+          ul {
+            li {
+              list-style-type: square;
+            }
+          }
+        }
+      }
+      ul {
+        li {
+          list-style-type: circle;
+          margin: 14px 30px;
+        }
+      }
+    }
+  }
+}

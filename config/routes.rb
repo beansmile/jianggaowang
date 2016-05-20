@@ -64,6 +64,8 @@ Rails.application.routes.draw do
 
   get '/s' => 'search#index', as: :search
 
+  get '/terms_of_service' => 'static_pages#terms_of_service'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

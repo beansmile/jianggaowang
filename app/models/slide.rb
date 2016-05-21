@@ -57,10 +57,12 @@ class Slide < ActiveRecord::Base
 
     if previews_count >= 1 && self.previews.count == previews_count
       self.done!
+      true
     else
       self.failed!
+      false
     end
-
+  ensure
     FileUtils.rm_rf(temp_directory) # clear existed files
   end
 

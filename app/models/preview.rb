@@ -16,6 +16,18 @@ class Preview < ActiveRecord::Base
     end
   end
 
+  # 返回预览图的链接，云存储的文件支持多尺寸
+  #
+  # @param version [Symbol] 指定云存储文件的图片尺寸，对应支持：
+  #   thumb: 宽高最大矩形为 400x400
+  #   middle: 宽高最大矩形为 800x800
+  #   large: 宽高最大矩形为 1024x1024
+  #   original: 原图
+  # @return [String] 图片的链接，e.g.:
+  #   1) http://jianggao-development.qiniudn.com/public/uploads/preview/file/133/preview-28.jpg?imageView2/2/w/800/h/800/q/100/
+  #   2) http://localhost:3000/uploads/preview/file/56/preview-0.jpg
+  # @note 当预览图未上传到云存储时，默认使用文件系统链接，此时 `version` 参数无效
+  #
   def url(version = :thumb)
     uploaded_to_cloud? ? url_from_cloud(version) : url_from_file_system
   end

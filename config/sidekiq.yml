@@ -5,7 +5,8 @@
 
 :queues:
   - default
-  - [jianggaowang, 2]
+  - [jianggaowang, 3]
+  - [uploads, 2]
 
 development:
   :concurrency: 5

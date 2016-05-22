@@ -89,7 +89,7 @@ class Slide < ActiveRecord::Base
     OpenStruct.new(
       value: value,
       file_name: value.split('/').last,
-      url: URI.encode("http://#{Rails.application.secrets.qiniu['bucket_domain']}/#{value}")
+      url: URI.encode("http://#{Qiniu::Config.settings[:bucket_domain]}/#{value}")
     )
   end
 

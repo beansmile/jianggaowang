@@ -105,9 +105,9 @@ ActiveRecord::Schema.define(version: 20160522020416) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "file"
-    t.string   "bucket_domain"
-    t.string   "bucket"
-    t.string   "remote_file_path"
+    t.string   "qiniu_bucket_domain"
+    t.string   "qiniu_bucket"
+    t.string   "qiniu_file_path"
   end
 
   add_index "previews", ["slide_id"], name: "index_previews_on_slide_id", using: :btree

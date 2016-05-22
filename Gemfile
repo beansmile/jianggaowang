@@ -35,7 +35,6 @@ gem 'spring', '~> 1.3.4',        group: :development
 gem 'bcrypt', '~> 3.1.7'
 
 gem 'carrierwave', '~> 0.10.0'
-gem 'carrierwave-qiniu', '~> 0.1.3'
 
 gem 'kaminari', '~> 0.16.1'
 

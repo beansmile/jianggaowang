@@ -3,14 +3,14 @@ class QiniuController < ApplicationController
 
   def uploader_config
     put_policy = Qiniu::Auth::PutPolicy.new(
-      Qiniu::Bucket,
+      Qiniu::Config.settings[:bucket],
       nil,
       3600
     )
     uptoken = Qiniu::Auth.generate_uptoken(put_policy)
     render json: {
       uptoken: uptoken,
-      domain: Rails.application.secrets.qiniu['bucket_domain']
+      domain: Qiniu::Config.settings[:bucket_domain]
     }
   end
 end

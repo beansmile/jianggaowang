@@ -5,7 +5,9 @@
 
 :queues:
   - default
-  - [jianggaowang, 2]
+  - [jianggaowang, 3]
+  - [uploads, 2]
+  - [remote_files_management, 1]
 
 development:
   :concurrency: 5

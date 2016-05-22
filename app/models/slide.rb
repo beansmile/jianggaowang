@@ -57,10 +57,12 @@ class Slide < ActiveRecord::Base
 
     if previews_count >= 1 && self.previews.count == previews_count
       self.done!
+      true
     else
       self.failed!
+      false
     end
-
+  ensure
     FileUtils.rm_rf(temp_directory) # clear existed files
   end
 
@@ -87,7 +89,7 @@ class Slide < ActiveRecord::Base
     OpenStruct.new(
       value: value,
       file_name: value.split('/').last,
-      url: URI.encode("http://#{Rails.application.secrets.qiniu['bucket_domain']}/#{value}")
+      url: URI.encode("http://#{Qiniu::Config.settings[:bucket_domain]}/#{value}")
     )
   end
 

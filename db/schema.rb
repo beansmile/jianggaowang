@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160516085105) do
+ActiveRecord::Schema.define(version: 20160522020416) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -105,6 +105,9 @@ ActiveRecord::Schema.define(version: 20160516085105) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "file"
+    t.string   "bucket_domain"
+    t.string   "bucket"
+    t.string   "remote_file_path"
   end
 
   add_index "previews", ["slide_id"], name: "index_previews_on_slide_id", using: :btree

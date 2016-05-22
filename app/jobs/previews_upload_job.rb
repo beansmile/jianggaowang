@@ -5,7 +5,8 @@ class PreviewsUploadJob < ActiveJob::Base
     slide = Slide.find slide_id
     if slide.status == "done" && (previews = slide.previews).any?
       previews.each do |preview|
-        remote_file_path = Pathname.new(preview.file.path).relative_path_from(Rails.root)
+        remote_file_path = Pathname.new(preview.file.path).relative_path_from(Rails.root).to_s
+        next if preview.qiniu_file_path == remote_file_path # skip for uploaded files
 
         code, result, _ = Qiniu::Storage.upload_with_token_2(
           upload_token,

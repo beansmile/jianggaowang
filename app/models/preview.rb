@@ -26,10 +26,10 @@ class Preview < ActiveRecord::Base
   # @return [String] 图片的链接，e.g.:
   #   1) http://jianggao-development.qiniudn.com/public/uploads/preview/file/133/preview-28.jpg?imageView2/2/w/800/h/800/q/100/
   #   2) http://localhost:3000/uploads/preview/file/56/preview-0.jpg
-  # @note 当预览图未上传到云存储时，默认使用文件系统链接，此时 `version` 参数无效
+  # @note 当预览图未上传到云存储时，默认使用文件系统链接，此时 `version` 参数只支持 :thumb
   #
   def url(version = :thumb)
-    uploaded_to_cloud? ? url_from_cloud(version) : url_from_file_system
+    uploaded_to_cloud? ? url_from_cloud(version) : url_from_file_system(version)
   end
 
   private
@@ -55,7 +55,7 @@ class Preview < ActiveRecord::Base
     "#{original_file_path}?imageView2/2/w/#{max_width}/h/#{max_height}/q/100"
   end
 
-  def url_from_file_system
-    file.try(:url)
+  def url_from_file_system(version)
+    file.url(version.to_s == "thumb" ? :thumb : nil) if file
   end
 end

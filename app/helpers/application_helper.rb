@@ -1,7 +1,7 @@
 module ApplicationHelper
   def slide_first_or_default_preview_url(slide)
     if slide.previews.any?
-      image_url(slide.previews.first.file.url(:thumb))
+      image_url(slide.previews.first.url(:thumb))
     else
       'default_preview.gif'
     end

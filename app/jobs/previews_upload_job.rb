@@ -5,8 +5,8 @@ class PreviewsUploadJob < ActiveJob::Base
 
   def perform(slide_id)
     slide = Slide.find slide_id
-    if slide.status == "done" && (previews = slide.previews).any?
-      previews.each do |preview|
+    if slide.status == "done"
+      slide.previews.each do |preview|
         remote_file_path = Pathname.new(preview.file.path).relative_path_from(Rails.root).to_s
         next if preview.qiniu_file_path == remote_file_path # skip for uploaded files
 

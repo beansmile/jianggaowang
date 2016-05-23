@@ -1,3 +1,6 @@
+# delete file which has been uploaded to the cloud storage but now is to be
+# deleted locally, we use this job to replay a delete operation in the cloud
+#
 class RemoteFileDeleteJob < ActiveJob::Base
   queue_as :remote_files_management
 

@@ -1,3 +1,5 @@
+# upload generated preview jpg files to cloud stroage, here we use Qiniu storage
+#
 class PreviewsUploadJob < ActiveJob::Base
   queue_as :uploads
 

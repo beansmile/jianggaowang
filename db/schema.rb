@@ -105,8 +105,6 @@ ActiveRecord::Schema.define(version: 20160522020416) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "file"
-    t.string   "qiniu_bucket_domain"
-    t.string   "qiniu_bucket"
     t.string   "qiniu_file_path"
   end
 

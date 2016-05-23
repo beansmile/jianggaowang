@@ -17,11 +17,7 @@ class PreviewsUploadJob < ActiveJob::Base
         )
 
         if code.to_s == "200"
-          preview.update(
-            qiniu_bucket_domain: Qiniu::Config.settings[:bucket_domain],
-            qiniu_bucket: Qiniu::Config.settings[:bucket],
-            qiniu_file_path: result["key"]
-          )
+          preview.update(qiniu_file_path: result["key"])
         else
           raise "Upload Failed"
         end

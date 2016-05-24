@@ -2,7 +2,7 @@
   <% slide.previews.each do |preview| %>
     <li class="slides-page">
       <div class="slides-img">
-        <%= image_tag preview.file.url, data: { width: '2000', height: '1500' } %>
+        <%= image_tag preview.url(:large), data: { width: '2000', height: '1500', 'original-file-url' => preview.url(:original) } %>
       </div>
     </li>
   <% end %>

@@ -1,6 +1,6 @@
-# rescue is used to compatiable with coding.net
-access_key = Rails.application.secrets[:qiniu]['access_key']
-secret_key = Rails.application.secrets[:qiniu]['secret_key']
-Qiniu.establish_connection! :access_key => access_key,
-                            :secret_key => secret_key
-Qiniu::Bucket = Rails.application.secrets[:qiniu]['bucket']
+# use a hash from secrets.yml makes use of Qiniu::Config.settings
+# that is, `Qiniu::Config.settings` will merge all options from here,
+# then you can conviniently use something like:
+#   `Qiniu::Config.settings[:bucket]` => "your_configured_bucket"
+#
+Qiniu.establish_connection! Rails.application.secrets[:qiniu].symbolize_keys

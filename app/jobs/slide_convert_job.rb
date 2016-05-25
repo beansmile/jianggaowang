@@ -3,6 +3,8 @@ class SlideConvertJob < ActiveJob::Base
 
   def perform(slide_id)
     slide = Slide.find slide_id
-    slide.convert!
+    if slide.convert!
+      PreviewsUploadJob.perform_later(slide_id)
+    end
   end
 end

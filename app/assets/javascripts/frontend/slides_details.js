@@ -31,7 +31,7 @@ Jianggaowang.SlidesDetailsPage = {
     // Get the images info
     var items = [];
     $('.slides-img img').each(function() {
-      var url = $(this).attr('src');
+      var url = $(this).data('original-file-url');
       var width = $(this).attr('data-width');
       var height = $(this).attr('data-height');
       items.push({src: url, w: width, h: height});

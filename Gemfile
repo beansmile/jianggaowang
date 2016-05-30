@@ -78,6 +78,10 @@ gem 'friendly_id', '~> 5.1.0'
 # https://github.com/smartinez87/exception_notification#actionmailer-configuration
 gem 'exception_notification', '~> 4.0.1'
 
+# OneApm Ruby Agent
+# http://oneapm.com/features/ruby.html
+gem 'oneapm_rpm', '~> 1.3.6'
+
 group :development do
   gem 'web-console', '~> 2.0'
 

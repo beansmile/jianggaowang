@@ -186,6 +186,7 @@ GEM
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
     noty-rails (2.3.4)
+    oneapm_rpm (1.3.6)
     orm_adapter (0.5.0)
     pg (0.18.2)
     photoswipe-rails (4.1.1)
@@ -350,6 +351,7 @@ DEPENDENCIES
   lazyload-rails
   mini_magick (~> 4.3, >= 4.3.6)
   noty-rails (~> 2.3.4)
+  oneapm_rpm (~> 1.3.6)
   pg (~> 0.18.2)
   photoswipe-rails (~> 4.1, >= 4.1.1)
   purecss-rails (~> 0.6.0)
@@ -370,4 +372,4 @@ DEPENDENCIES
   web-console (~> 2.0)
 
 BUNDLED WITH
-   1.12.3
+   1.12.5

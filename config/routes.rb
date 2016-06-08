@@ -28,7 +28,9 @@ Rails.application.routes.draw do
   resources :sessions, only: [:create]
 
   get '/signup' => 'users#new'
-  resources :users, only: [:show, :create]
+  # TODO: 暂时移除 users#show 路由，避免直接展示凌乱的页面
+  # resources :users, only: [:show, :create]
+  resources :users, only: [:create]
 
   resources :slides, only: [:index, :show, :create, :destroy, :edit, :update] do
     collection do

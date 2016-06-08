@@ -92,3 +92,8 @@ textarea:focus {
     background-color: transparent;
   }
 }
+
+html.turbolinks-progress-bar::before {
+  background-color: #df6b43 !important;
+  height: 5px !important;
+}

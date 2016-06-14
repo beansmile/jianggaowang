@@ -1,18 +1,22 @@
-<div class="col-sm-6 col-md-4 slide-item">
-  <div class="thumbnail">
-    <%= link_to image_tag(slide_first_or_default_preview_url(slide), class: 'img-rounded'), slide %>
-    <div class="caption text-center">
-      <h3><%= link_to slide.title.truncate(33), slide, data: { 'no-turbolink' => true }, title: slide.title %></h3>
-      <p>
-        <small>
-          <%= l slide.created_at.to_date, format: :long %>
+<li class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-4 card-list-item">
+  <figcaption class="card">
+    <header class="card-header">
+      <%= link_to image_tag(slide_first_or_default_preview_url(slide), class: 'card-img'), slide %>
+    </header>
+    <footer class="card-footer">
+      <figure class="card-title">
+        <%= link_to slide.title.truncate(33), slide, data: { 'no-turbolink' => true }, title:
+                slide.title %>
+      </figure>
+      <time class="card-date">
+        <%= l slide.created_at.to_date, format: :long %>
           <% if current_user && current_user == slide.user %>
-            <%= link_to slide_path(slide), method: :delete, title: "删除讲稿", class: 'delete-slide-link', data: { toggle: 'tooltip', confirm: "确认删除？" } do %>
+            <%= link_to slide_path(slide), method: :delete, title: "删除讲稿", class: 'delete-slide-link', data: { toggle:
+              'tooltip', confirm: "确认删除？" } do %>
               <span class="glyphicon glyphicon-trash"></span>
             <% end %>
-          <% end %>
-        </small>
-      </p>
-    </div>
-  </div>
-</div>
+        <% end %>
+      </time>
+    </footer>
+  </figcaption>
+</li>

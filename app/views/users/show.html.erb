@@ -1,46 +1,7 @@
-<h4><%= @user.name %>的讲稿</h4>
-
-<div class="row">
-  <div class="col-md-8">
-    <div class="row" id='animated'>
-      <%= render 'slides/slides', slides: @slides %>
-    </div>
-
-    <%= paginate @slides %>
-  </div>
-
-
-  <div class="col-md-4 slide-page-sidebar">
-    <div class="author-infos">
-      <div class="col-md-3">
-        <a href="" class="author-avatar-link">
-          <%= image_tag @user.avatar.url, class: 'author-avatar img-rounded' %>
-        </a>
-      </div>
-      <div class='author col-md-8'>
-        <h4><%= link_to @user.name, @user, class: 'author-name' %></h4>
-        <div class="author-bio">
-          <%= @user.bio %>
-        </div>
-      </div>
-
-      <div class="clearfix"></div>
-
-      <div class="share-panel">
-        <ul class="list-group">
-          <li class="list-group-item">
-            <h4 class="list-group-item-heading">详细资料</h4>
-            <div class="list-group-item-text">
-              <p>
-                总的讲稿数：<%= @user.slides.count %>
-              </p>
-              <p>
-                加入讲稿网于：<%= l @user.created_at.to_date, format: :long %>
-              </p>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
+<section class="panel">
+  <header class="panel-header pure-g clearfix">
+    <h4 class="panel-title pure-u-1-2"><span><%= @user.name %>的讲稿</span></h4>
+  </header>
+  <%= render 'slides/slides', slides: @slides %>
+  <%= paginate @slides %>
+</section>

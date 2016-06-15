@@ -1,6 +1,6 @@
 <section class="panel">
   <header class="panel-header pure-g clearfix">
-    <h4 class="panel-title pure-u-1-2"><span><%= @user.name %>的讲稿</span></h4>
+    <h4 class="panel-title pure-u-1-2"><span><%= @slides.empty? ? "#{ @user.name }暂没分享任何讲稿" : "#{ @user.name }的讲稿"  %></span></h4>
   </header>
   <%= render 'slides/slides', slides: @slides %>
   <%= paginate @slides %>

@@ -11,7 +11,7 @@ class Preview < ActiveRecord::Base
   }
 
   def delete_remote_file
-    if remote_file_path?
+    if qiniu_file_path?
       bucket = Qiniu::Config.settings[:bucket]
       RemoteFileDeleteJob.perform_later(bucket, qiniu_file_path)
     end

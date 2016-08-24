@@ -62,6 +62,8 @@ class Event < ActiveRecord::Base
   private
 
   def end_time_cannot_before_start_time
+    return if end_at.blank? || start_at.blank?
+
     errors.add(:end_at, "不能早于开始时间") if end_at < start_at
   end
 end

@@ -31,5 +31,7 @@ module Jianggao
     config.autoload_paths << Rails.root.join('lib')
 
     config.version = '2.1.0'
+
+    config.middleware.insert_after 'Rack::MethodOverride', 'BlockBadSpider'
   end
 end

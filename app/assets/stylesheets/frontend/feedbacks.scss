@@ -1,0 +1,36 @@
+// Place all the styles related to the Feedbacks controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#new-feedback {
+  margin: auto;
+  float: none;
+
+  .btn-warning {
+    float: right;
+    margin-top: 20px;
+    background-color: #ff8455;
+    display: inline-block;
+    width: 108px;
+    height: 40px;
+    border: 1px solid #fe6126;
+    border-radius: 2px;
+    color: #fff;
+    text-align: center;
+    line-height: 38px;
+    font-weight: 200;
+    box-shadow: inset 0 1px 3px #fff;
+  }
+}
+
+@media (min-width: 320px) {
+  #new-feedback {
+    width: 80%;
+  }
+}
+
+@media (min-width: 1024px) {
+  #new-feedback {
+    width: 50%;
+  }
+}

@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   require 'sidekiq/web'
@@ -55,6 +54,8 @@ Rails.application.routes.draw do
       get 'slides/new' => 'slides#new'
     end
   end
+
+  resources :feedbacks, only: [:new, :create]
 
   root 'home#index'
 

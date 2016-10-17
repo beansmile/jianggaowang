@@ -5,6 +5,7 @@ zh-CN:
       admin_user: 超级管理员
       user: 用户
       event: 活动
+      feedback: 意见反馈
     attributes:
       active_record/base:
         created_at: 创建时间

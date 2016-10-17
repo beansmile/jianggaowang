@@ -19,6 +19,7 @@
  *= require ./frontend/carousel
  *= require ./frontend/slides
  *= require ./frontend/article
+ *= require ./frontend/feedbacks
  *= require ./frontend/static_pages
  *= require_self
  */

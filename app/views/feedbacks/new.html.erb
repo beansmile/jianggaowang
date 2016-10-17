@@ -1,0 +1,29 @@
+<section class="panel new-feedbacks clearfix">
+  <header class="panel-header with-hr clearfix">
+    <h1 class="panel-title">提交意见或建议</h1>
+  </header>
+  <div class="slides-wrap clearfix">
+    <%= form_for @feedback do |f| %>
+      <div id="new-feedback" class='form-default'>
+        <div class="form-group email clearfix">
+          <label>您的邮箱</label>
+          <%= f.text_field :email, value: current_user.try(:email), placeholder: "请输入您的邮箱，方便我们联系您", required: true %>
+        </div>
+
+        <div class="form-group name clearfix">
+          <label>您的名字</label>
+          <%= f.text_field :name, value: current_user.try(:name), placeholder: "请输入您的名字", required: true %>
+        </div>
+
+        <div class="form-group content clearfix">
+          <label>您想说？</label>
+          <%= f.text_area :content, placeholder: "请告诉我们您对我们的想法或建议", required: true %>
+        </div>
+
+        <div class="btn-operate clearfix">
+          <%= f.submit "发送", class: "btn-default btn-warning" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</section>

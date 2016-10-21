@@ -9,6 +9,11 @@ class ApplicationController < ActionController::Base
 
   rescue_from ActiveRecord::RecordNotFound, with: :render_404
 
+  rescue_from(ActionView::MissingTemplate) do |e|
+    request.format = :html
+    render_404
+  end
+
   def current_user
     @current_user ||= User.find_by id: session[:user_id] if session[:user_id]
   end
